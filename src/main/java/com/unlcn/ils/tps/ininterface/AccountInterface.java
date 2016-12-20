@@ -52,7 +52,7 @@ public class AccountInterface {
 		account.setName("张三");
 		account.setCustomerId("40");
 		Result a=crmInformationService.addAccount(account);
-		
+		 
 	}
 	/**
 	 * 
