@@ -7,7 +7,7 @@ import com.chinacreator.c2.annotation.ColumnType;
 import com.chinacreator.c2.annotation.Entity; 
  
 /**
- * 分供方信息表
+ * 分供方信息表 
  * @author  
  * @generated
  */
