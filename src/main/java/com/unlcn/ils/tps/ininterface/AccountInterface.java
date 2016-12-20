@@ -1,5 +1,6 @@
 package com.unlcn.ils.tps.ininterface;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -39,7 +40,19 @@ public class AccountInterface {
 	}
 	public void deleteAccount() {
 		CrmInformationService crmInformationService = (CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
-		Result returnList=crmInformationService.deleteAccount("1");
+		Account account=new Account(); 
+		account.setBank("");
+		account.setAccountNumber("");
+		account.setBankOpenBranch("");
+		account.setType("");
+		Timestamp ssTimestamp=new Timestamp(System.currentTimeMillis());
+		account.setOperTime(ssTimestamp);
+		account.setOperUser("");
+		account.setOwnerType("1");
+		account.setName("张三");
+		account.setCustomerId("40");
+		Result a=crmInformationService.addAccount(account);
+		
 	}
 	/**
 	 * 
