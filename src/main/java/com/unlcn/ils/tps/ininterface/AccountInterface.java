@@ -41,15 +41,15 @@ public class AccountInterface {
 	public void deleteAccount() {
 		CrmInformationService crmInformationService = (CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
 		Account account=new Account(); 
-		account.setBank("");
-		account.setAccountNumber("");
-		account.setBankOpenBranch("");
-		account.setType("");
+		account.setBank("q");
+		account.setAccountNumber("1");
+		account.setBankOpenBranch("2");
+		account.setType("1");
 		Timestamp ssTimestamp=new Timestamp(System.currentTimeMillis());
 		account.setOperTime(ssTimestamp);
-		account.setOperUser("");
+		account.setOperUser("1");
 		account.setOwnerType("1");
-		account.setName("张三");
+		account.setName("s");
 		account.setCustomerId("40");
 		Result a=crmInformationService.addAccount(account);
 		
