@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dync="http://www.chinacreator.com/platform/mvc/ui/dync" xmlns:form="http://www.chinacreator.com/platform/mvc/form" name="账户照片上传弹出框" sn="accountFileUp" type="form">
   <form:control type="page/modal">
-    <form:attributes source="page/modal"/>
+    <form:attributes source="page/modal">
+      <dync:attribute default="" group="事件" id="onload" name="页面加载完成" value="page_onload()">
+        <dync:render colSpan="2" height="0" multi="false" name="event">
+          <dync:item name="param" value=""/>
+        </dync:render>
+        <dync:children/>
+      </dync:attribute>
+    </form:attributes>
   </form:control>
   <form:child xsi:type="form:Group" id="newGroupId" name="新分组">
     <form:control type="container/div">
@@ -89,6 +96,37 @@
       </form:control>
       <form:validation/>
     </form:child>
+    <form:child xsi:type="form:Group" id="div8" name="简单容器(DIV)">
+      <form:control type="container/div">
+        <form:attributes source="container/div">
+          <dync:attribute default="12" group="HTML配置" id="span" name="占位数" value="1">
+            <dync:render colSpan="1" height="0" multi="false" name="text"/>
+            <dync:children/>
+          </dync:attribute>
+          <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="margin-top:10px">
+            <dync:render colSpan="2" height="0" multi="false" name="text"/>
+            <dync:children/>
+          </dync:attribute>
+        </form:attributes>
+      </form:control>
+      <form:child xsi:type="form:Field" id="buttonAA" name="照片预览" customize="true">
+        <form:control type="widget/button_a">
+          <form:attributes source="widget/button_a">
+            <dync:attribute default="" group="HTML设置" id="icon" name="图标" value="fa-arrows-alt">
+              <dync:render colSpan="1" height="0" multi="false" name="selectIcon"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonAA_click($event)">
+              <dync:render colSpan="1" height="0" multi="false" name="event">
+                <dync:item name="params" value="$event"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+    </form:child>
     <form:child xsi:type="form:Group" id="div" name="简单容器(DIV)">
       <form:control type="container/div">
         <form:attributes source="container/div">
@@ -100,13 +138,13 @@
             <dync:render colSpan="2" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
-          <dync:attribute default="12" group="HTML配置" id="span" name="占位数" value="4">
+          <dync:attribute default="12" group="HTML配置" id="span" name="占位数" value="2">
             <dync:render colSpan="1" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
         </form:attributes>
       </form:control>
-      <form:child xsi:type="form:Field" id="button" name="关闭" customize="true">
+      <form:child xsi:type="form:Field" id="button" name="上传" customize="true">
         <form:control type="widget/button">
           <form:attributes source="widget/button">
             <dync:attribute default="" group="事件设置" id="click" name="点击事件" value="button_click($event)">
@@ -134,6 +172,20 @@
       </form:child>
     </form:child>
   </form:child>
+  <form:child xsi:type="form:Group" id="divView" name="简单容器(DIV)">
+    <form:control type="container/div">
+      <form:attributes source="container/div">
+        <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="text-align:center;">
+          <dync:render colSpan="2" height="0" multi="false" name="text"/>
+          <dync:children/>
+        </dync:attribute>
+        <dync:attribute default="" group="高级自定义" id="html" name="自定义HTML" value="divView_html">
+          <dync:render colSpan="2" height="0" multi="false" name="html"/>
+          <dync:children/>
+        </dync:attribute>
+      </form:attributes>
+    </form:control>
+  </form:child>
   <form:datasources>
     <form:datasource xsi:type="form:Inputs">
       <form:input desc="" id="URL" name="照片地址"/>
@@ -147,11 +199,27 @@ button_click:function($event){
 },
 
 fileInputIframe_onSuccess:function(data){
-	Messenger.post({message:&quot;文件上传成功!&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
+	Messenger.post({message:&quot;文件加载成功,请点击上传!&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 	$params.URL = data.url;
 },
 
 fileInputIframe_onError:function(data){
 	Messenger.post({message:&quot;文件上传失败!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
+},
+
+buttonAA_click:function($event){
+	var uur = $params.URL.url;
+	$img_view = $(&quot;&lt;img/>&quot;);
+	$img_view.attr(&quot;src&quot;,uur);
+	$('#img_id').empty().append($img_view);
+	$view.divView.toggle();
+},
+
+page_onload:function(){
+	//$view.divView.toggle();
 }</form:scripts>
+  <form:htmls>
+&lt;script type=&quot;text/ng-template&quot; id=&quot;divView_html&quot;>
+	&lt;div id=&quot;img_id&quot;>&lt;/div>
+&lt;/script></form:htmls>
 </form:Form>

@@ -79,9 +79,17 @@ public class AccountInterface {
 			if(accountlist.getAccountFilepath()!=null){
 				map.put("accountFilepath", accountlist.getAccountFilepath().toString());
 			}
-			if(accountlist.getType()!=null)
+			if(accountlist.getType().equals("1")){
+				accountlist.setType("一般");
+			}else if(accountlist.getType().equals("2")){
+				accountlist.setType("专用");
+			}
 				map.put("type", accountlist.getType());
-			if(accountlist.getOwnerType()!=null)
+			if(accountlist.getOwnerType().equals("1")){
+				accountlist.setOwnerType("个人");
+			}else if(accountlist.getOwnerType().equals("2")){
+				accountlist.setOwnerType("企业");
+			}
 			map.put("ownerType", accountlist.getOwnerType());
 			if(accountlist.getName()!=null)
 			map.put("name", accountlist.getName());
@@ -135,6 +143,11 @@ public class AccountInterface {
 		Result result = new Result(1, null, "");
 		for (E_account e_account : listAccountList) {
 			Account account = new Account();
+			if(e_account.getOwnerType().equals("个人")){
+				e_account.setOwnerType("1");
+			}else if(e_account.getOwnerType().equals("企业")){
+				e_account.setOwnerType("2");
+			}
 			account.setOwnerType(e_account.getOwnerType());
 			account.setName(e_account.getName());
 			account.setBank(e_account.getBank());
@@ -149,12 +162,20 @@ public class AccountInterface {
 			if(e_account.getDesc()!=null){
 				account.setDesc(e_account.getDesc());
 			}
+			if(e_account.getAccountFilepath()!=null){
+				account.setAccountFilepath(e_account.getAccountFilepath());
+			}
 /*			if(e_account.getStartTime()!=null){
 				account.setStartTime(e_account.getStartTime());
 			}
 			if(e_account.getEndTime()!=null){
 				account.setEndTime(e_account.getEndTime());
 			}*/
+			if(e_account.getType().equals("一般")){
+				e_account.setType("1");
+			}else if(e_account.getType().equals("专用")){
+				e_account.setType("2");
+			}
 			account.setType(e_account.getType());
 			account.setOperUser(username);
 			java.sql.Timestamp currdate = new java.sql.Timestamp(new Date().getTime());
@@ -163,6 +184,7 @@ public class AccountInterface {
 				/*CustomerInfo customerInfo = new CustomerInfo();
 				customerInfo.setId(cusdmid);*/
 				account.setCustomerId(cusdmid);
+				account.setStatus("1");
 				result = addAccount(account);
 			}else {
 				account.setId(e_account.getId());

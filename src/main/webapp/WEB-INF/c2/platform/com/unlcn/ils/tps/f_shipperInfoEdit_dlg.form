@@ -568,19 +568,33 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
             </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="id" id="id" name="id" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="customerId" id="customerId" name="customerId" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
@@ -666,6 +680,10 @@
               </dync:render>
               <dync:children/>
             </dync:attribute>
+            <dync:attribute default="true" group="HTML设置" id="show" name="可见" value="false">
+              <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
+              <dync:children/>
+            </dync:attribute>
           </form:attributes>
         </form:control>
         <form:validation/>
@@ -683,6 +701,14 @@
               <dync:children/>
             </dync:attribute>
             <dync:attribute default="true" group="表格设置" id="firstRequest" name="自动加载数据" value="false">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="高级功能" id="dbcEdit" name="双击编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="高级功能" id="inlineEditAutoSave" name="行内编辑自动保存" value="true">
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
@@ -772,73 +798,161 @@
         </form:child>
         <form:child xsi:type="form:Field" binding="id" id="id" name="id" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="customerId" id="customerId" name="customerId" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="status" id="status" name="状态" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="accountFilepath" id="accountFilepath" name="银行账号照片" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="ownerType" id="ownerType" name="所有人类型" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="text" group="编辑" id="edittype" name="编辑类型" value="select">
+                <dync:render colSpan="1" height="0" multi="false" name="select">
+                  <dync:item name="文本框" value="text"/>
+                  <dync:item name="文本域" value="textarea"/>
+                  <dync:item name="复选框" value="checkbox"/>
+                  <dync:item name="下拉框" value="select"/>
+                  <dync:item name="时间" value="datetime"/>
+                </dync:render>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="" group="编辑" id="editoptions" name="编辑属性" value="{value:&quot;1:个人;2:企业&quot;}">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="type" id="type" name="账户类型" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="text" group="编辑" id="edittype" name="编辑类型" value="select">
+                <dync:render colSpan="1" height="0" multi="false" name="select">
+                  <dync:item name="文本框" value="text"/>
+                  <dync:item name="文本域" value="textarea"/>
+                  <dync:item name="复选框" value="checkbox"/>
+                  <dync:item name="下拉框" value="select"/>
+                  <dync:item name="时间" value="datetime"/>
+                </dync:render>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="" group="编辑" id="editoptions" name="编辑属性" value="{value:&quot;1:一般;2:专用&quot;}">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="name" id="name" name="账户名称" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="bank" id="bank" name="银行" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
-        <form:child xsi:type="form:Field" binding="accountnumber" id="accountNumber" name="账号" customize="true">
+        <form:child xsi:type="form:Field" binding="accountNumber" id="accountNumber" name="账号" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="ownerName" id="ownerName" name="开户人" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="bankOpenBranch" id="bankOpenBranch" name="开户行" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="desc" id="desc" name="备注" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid"/>
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
           </form:control>
           <form:validation/>
         </form:child>
@@ -850,6 +964,10 @@
               <dync:render colSpan="1" height="0" multi="false" name="event">
                 <dync:item name="params" value="$event"/>
               </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="true" group="HTML设置" id="show" name="可见" value="false">
+              <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
@@ -1353,20 +1471,24 @@ button5_click:function($event){
 		Messenger.post({message:&quot;手机未填写&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;		
 	}
-	alert(&quot;进行&quot;);
 	var listLinkmanList = $view.linkmanlist.getRowData();
-	alert(listLinkmanList);
+	var listAccountList = $view.accountlist.getRowData();
 	//$params.info=shippperid;
-	alert($params.info.lineId);
-	Messenger.post({message:&quot;正在提交&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
+	Messenger.post({message:&quot;正在更新基础信息&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
 	var con={&quot;joinFlag&quot;:$params.info.joinFlag,&quot;joinId&quot;:$params.info.joinId,&quot;auditId&quot;:$params.info.lineId};
 	$http.post(&quot;ws/s_updateShipper2Crm&quot;,{&quot;map&quot;:$model.e_shipper,&quot;con&quot;:con})
 		.success(function(data){
 			Messenger.post({message:&quot;基础信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
+			Messenger.post({message:&quot;正在更新联系人信息&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
 			$http.post(&quot;ws/s_updatelinkman2Crm&quot;,{listLinkmanList:listLinkmanList,&quot;csdmid&quot;:$params.info.shipperId})
 				.success(function(data){
 					Messenger.post({message:&quot;联系人信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
+					Messenger.post({message:&quot;正在更新账户信息&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
+					$http.post(&quot;ws/s_updateaccount2Crm&quot;,{listAccountList:listAccountList,&quot;cusdmid&quot;:$params.info.shipperId})
+					.success(function(data){
+						Messenger.post({message:&quot;账户信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 					
+					});
 				});
 			//Modal.instance.close();	
 		});
@@ -1387,9 +1509,9 @@ buttonAccountUp_click:function($event){
 	alert(listAccountList.length);
 	alert($params.info.shipperId);
 	Messenger.post({message:&quot;正在提交&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
-	$http.post(&quot;ws/s_updateaccount2Crm&quot;,{listAccountList:listAccountList,&quot;csdmid&quot;:$params.info.shipperId})
+	$http.post(&quot;ws/s_updateaccount2Crm&quot;,{listAccountList:listAccountList,&quot;cusdmid&quot;:$params.info.shipperId})
 				.success(function(data){
-					Messenger.post({message:&quot;联系人信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
+					Messenger.post({message:&quot;账户信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 					
 				});
 },

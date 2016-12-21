@@ -660,8 +660,8 @@ public class CrmInformationInterface {
 		customerInfo.setIdType("1");
 		customerInfo.setIdNumber(driver.getCardno());
 		//身份证照片
-		//customerInfo.setIdFilepath(idFilePath);
-		customerInfo.setIdFilepath("xxx");
+		customerInfo.setIdFilepath(idFilePath);
+		//customerInfo.setIdFilepath("xxx");
 		
 		customerInfo.setName(driver.getDriverName());
 		customerInfo.setLinkman(driver.getDriverName());
@@ -703,8 +703,8 @@ public class CrmInformationInterface {
 		interString = interString.substring(0, interString.length()-1);
 		log.info("输出的意向线路是："+interString);
 		shipper.setDesc(interString);
-		shipper.setRoadLicence("");
-		shipper.setRoadLicenceFilepath("");
+		shipper.setRoadLicence("无");
+		shipper.setRoadLicenceFilepath("无");
 		
 		shipper.setCarNumber(driver.getCarNumber());
 		shipper.setLinkman(customerInfo.getLinkman());
@@ -760,8 +760,8 @@ public class CrmInformationInterface {
 			accounts.setName(account.getName());
 			accounts.setBank(account.getBank());
 			accounts.setAccountNumber(account.getAccountNumber());
-			//accounts.setAccountFilepath(account.getAccountFilepath());
-			accounts.setAccountFilepath("xxx");
+			accounts.setAccountFilepath(account.getAccountFilepath());
+			//accounts.setAccountFilepath("xxx");
 			accounts.setBankOpenBranch(account.getBankOpenBranch());
 			accounts.setOwnerName(account.getOwnerName());
 			accounts.setDesc(account.getDesc());
@@ -826,8 +826,8 @@ public class CrmInformationInterface {
 		customerInfo.setIdType("2");
 		customerInfo.setIdNumber(company.getTaxNo());
 		//营业执照照片
-		customerInfo.setIdFilepath("");
-		//customerInfo.setIdFilepath(idFilePath);
+		//customerInfo.setIdFilepath("");
+		customerInfo.setIdFilepath(idFilePath);
 		customerInfo.setName(company.getCompanyName());
 		customerInfo.setLinkman(company.getContractName());
 		customerInfo.setPhone(company.getContract());
@@ -862,8 +862,8 @@ public class CrmInformationInterface {
 		
 		//道路经营许可证及照片
 		shipper.setRoadLicence(company.getRoadLicence());
-		shipper.setRoadLicenceFilepath("");
-		//shipper.setRoadLicenceFilepath(roadLicencePath);
+		//shipper.setRoadLicenceFilepath("");
+		shipper.setRoadLicenceFilepath(roadLicencePath);
 		//意向线路
 		String interString="";
 		for (E_join_intentline e_join_intentline : joininterlinelist) {
