@@ -962,7 +962,7 @@
     <form:datasource xsi:type="form:TreeDataSource" id="treeshipper" name="树型数据源" impl="com.unlcn.ils.tps.services.ComapnyService" type="custom"/>
     <form:datasource xsi:type="form:PagingDataSource" id="custom_audit1" name="列表型数据源" logic="com.unlcn.ils.tps.services.AuditCompanyService" pageSize="10" type="custom"/>
   </form:datasources>
-  <form:scripts>
+  <form:scripts> 
 
 buttonEditcom_click:function(rowId,rowData,tableData){
 	if ( rowId == null )
