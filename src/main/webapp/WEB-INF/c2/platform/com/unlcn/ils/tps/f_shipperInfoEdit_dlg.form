@@ -514,16 +514,18 @@
           <form:child xsi:type="form:Field" id="buttonLinkmanDel" name="删除">
             <form:control type="widget/button_a_table">
               <form:attributes source="widget/button_a_table">
-                <dync:attribute id="clickType" value="inlineDelete">
-                  <dync:render/>
-                  <dync:children/>
-                </dync:attribute>
                 <dync:attribute id="icon" value="fa-trash-o">
                   <dync:render/>
                   <dync:children/>
                 </dync:attribute>
                 <dync:attribute id="iconColor" value="red">
                   <dync:render/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonLinkmanDel_click(rowId,rowData,tableData)">
+                  <dync:render colSpan="1" height="0" multi="false" name="event">
+                    <dync:item name="params" value="rowId,rowData,tableData"/>
+                  </dync:render>
                   <dync:children/>
                 </dync:attribute>
               </form:attributes>
@@ -690,6 +692,83 @@
           <form:control type="container/toolbar_table">
             <form:attributes source="container/toolbar_table"/>
           </form:control>
+          <form:child xsi:type="form:Group" id="toolbar_table4" name="toolbar_table">
+            <form:control type="container/toolbar_table">
+              <form:attributes source="container/toolbar_table"/>
+            </form:control>
+            <form:child xsi:type="form:Field" id="buttonAccountAdd" name="新增">
+              <form:control type="widget/button_a_table">
+                <form:attributes source="widget/button_a_table">
+                  <dync:attribute id="icon" value="fa-plus">
+                    <dync:render/>
+                    <dync:children/>
+                  </dync:attribute>
+                  <dync:attribute id="iconColor" value="purple">
+                    <dync:render/>
+                    <dync:children/>
+                  </dync:attribute>
+                  <dync:attribute default="custom" group="事件设置" id="clickType" name="事件类型" value="inlineAdd">
+                    <dync:render colSpan="2" height="0" multi="false" name="select">
+                      <dync:item name="自定义" value="custom"/>
+                      <dync:item name="添加" value="add"/>
+                      <dync:item name="编辑" value="edit"/>
+                      <dync:item name="查看" value="get"/>
+                      <dync:item name="删除" value="delete"/>
+                      <dync:item name="查找" value="search"/>
+                      <dync:item name="展开搜索框" value="expend"/>
+                      <dync:item name="刷新" value="refrash"/>
+                      <dync:item name="行内添加" value="inlineAdd"/>
+                      <dync:item name="行内编辑" value="inlineEdit"/>
+                      <dync:item name="行内保存" value="inlineSave"/>
+                      <dync:item name="行内取消" value="inlineRestore"/>
+                      <dync:item name="行内删除" value="inlineDelete"/>
+                      <dync:item name="导出数据" value="export"/>
+                      <dync:item name="导入数据" value="import"/>
+                    </dync:render>
+                    <dync:children/>
+                  </dync:attribute>
+                </form:attributes>
+              </form:control>
+            </form:child>
+            <form:child xsi:type="form:Field" id="buttonAccountDel" name="删除">
+              <form:control type="widget/button_a_table">
+                <form:attributes source="widget/button_a_table">
+                  <dync:attribute id="icon" value="fa-trash-o">
+                    <dync:render/>
+                    <dync:children/>
+                  </dync:attribute>
+                  <dync:attribute id="iconColor" value="red">
+                    <dync:render/>
+                    <dync:children/>
+                  </dync:attribute>
+                  <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonAccountDel_click(rowId,rowData,tableData)">
+                    <dync:render colSpan="1" height="0" multi="false" name="event">
+                      <dync:item name="params" value="rowId,rowData,tableData"/>
+                    </dync:render>
+                    <dync:children/>
+                  </dync:attribute>
+                </form:attributes>
+              </form:control>
+            </form:child>
+            <form:child xsi:type="form:Field" id="buttonAccountEdit" name="编辑">
+              <form:control type="widget/button_a_table">
+                <form:attributes source="widget/button_a_table">
+                  <dync:attribute id="clickType" value="inlineEdit">
+                    <dync:render/>
+                    <dync:children/>
+                  </dync:attribute>
+                  <dync:attribute id="icon" value="fa-pencil">
+                    <dync:render/>
+                    <dync:children/>
+                  </dync:attribute>
+                  <dync:attribute id="iconColor" value="blue">
+                    <dync:render/>
+                    <dync:children/>
+                  </dync:attribute>
+                </form:attributes>
+              </form:control>
+            </form:child>
+          </form:child>
         </form:child>
         <form:child xsi:type="form:Field" binding="id" id="id" name="id" customize="true">
           <form:control type="widget/col_jqgrid">
@@ -1118,7 +1197,7 @@ page_onload:function(){
 	/*var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
 	alert(shippperid.shipperId);
 	$params.info.shipperId=shippperid.shipperId;*/
-	alert($params.info.shipperId);
+	//alert($params.info.shipperId);
 	$http.post(&quot;ws/s_getShipperFromCrmById&quot;,{&quot;shipperId&quot;:$params.info.shipperId})
 		.success(function(data){
 			console.info(data.result);
@@ -1403,5 +1482,55 @@ carNumber_checkAfter:function(checkResult){
 	if($model.e_shipper.carNumber!=undefined){
 		$params.perCheckMoney=$model.e_shipper.carNumber;
 	}		
+},
+
+buttonLinkmanDel_click:function(rowId,rowData,tableData){
+	var data=$view.linkmanlist.getSelectDatas();
+	var id=	$view.linkmanlist.getSelectRowIds();
+	Modal.openConfirm({message:&quot;是否确认删除?&quot;},function($params){
+		var arr=new Array();
+		for(var i=0, j=0;i&lt;data.length;i++){	
+		if(data[i].id==undefined||data[i].id==&quot;&quot;)
+		{	
+			continue;
+		}
+		arr[j]=data[i].id;
+		j++;
+		}
+		for(var k=0;k&lt;data.length;k++){
+			$view.linkmanlist.delRowData(id[0]);
+		}
+			Messenger.post({message:&quot;正在提交&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});	
+			$http.post(&quot;ws/s_deleteLinkman&quot;,{&quot;idList&quot;:arr})
+			.success(function(){
+			 Messenger.post({type:'success',message:'删除成功'});
+		})
+		
+	})
+},
+
+buttonAccountDel_click:function(rowId,rowData,tableData){
+	var data=$view.accountlist.getSelectDatas();
+	var id=	$view.accountlist.getSelectRowIds();
+	Modal.openConfirm({message:&quot;是否确认删除?&quot;},function($params){
+		var arr=new Array();
+		for(var i=0, j=0;i&lt;data.length;i++){	
+		if(data[i].id==undefined||data[i].id==&quot;&quot;)
+		{	
+			continue;
+		}
+		arr[j]=data[i].id;
+		j++;
+		}
+		for(var k=0;k&lt;data.length;k++){
+			$view.accountlist.delRowData(id[0]);
+		}
+			Messenger.post({message:&quot;正在提交&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});	
+			$http.post(&quot;ws/s_deleteAccount&quot;,{&quot;idList&quot;:arr})
+			.success(function(){
+			 Messenger.post({type:'success',message:'删除成功'});
+		})
+		
+	})
 }</form:scripts>
 </form:Form>

@@ -1,6 +1,5 @@
 package com.unlcn.ils.tps.ininterface;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -38,7 +37,7 @@ public class AccountInterface {
 		List<Account> returnList=crmInformationService.getAccountByid(account);
 		return returnList; 
 	}
-	public void deleteAccount() {
+/*	public void deleteAccount() {
 		CrmInformationService crmInformationService = (CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
 		Account account=new Account(); 
 		account.setBank("q");
@@ -53,7 +52,7 @@ public class AccountInterface {
 		account.setCustomerId("40");
 		Result a=crmInformationService.addAccount(account);
 		 
-	}
+	}*/
 	/**
 	 * 
 	 * @param account
@@ -100,6 +99,13 @@ public class AccountInterface {
 	}
 		return returnlist;
 	}
+	/**
+	 * 
+	 * @param listAccountList
+	 * @param cusdmid
+	 * @return
+	 * @Description:更新返回结果信息
+	 */
 	public boolean updateAccount2Crm_dlg(List<E_account>listAccountList,String cusdmid) {
 		Result result = new Result(1, null, "");
 		log.info("更新后的，推送到Crm");
@@ -118,6 +124,13 @@ public class AccountInterface {
 		return true;
 		
 	}
+	/**
+	 * 
+	 * @param listAccountList
+	 * @param cusdmid
+	 * @return
+	 * @Description:更新账户信息
+	 */
 	private Result updateAccountn2Crm(List<E_account>listAccountList,String cusdmid) {
 		Result result = new Result(1, null, "");
 		for (E_account e_account : listAccountList) {
@@ -150,19 +163,23 @@ public class AccountInterface {
 				/*CustomerInfo customerInfo = new CustomerInfo();
 				customerInfo.setId(cusdmid);*/
 				account.setCustomerId(cusdmid);
-				//预存接口，等待更新
-				//result = addAccount(account);
+				result = addAccount(account);
 			}else {
 				account.setId(e_account.getId());
 				account.setCustomerId(e_account.getCustomerId());
-				//预存接口，等待更新
-				//result = updateAccount(account);
+				result = updateAccount(account);
 			}
 		}
 		return result;
 		
 	}
-/*	private Result updateAccount(Account account) {
+	/**
+	 * 
+	 * @param account
+	 * @return
+	 * @Description:调用CRM更新账户信息接口
+	 */
+	private Result updateAccount(Account account) {
 		log.info("ID不为空，开始编辑");
 		CrmInformationService dbService = (CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
 		if(dbService!=null){
@@ -171,12 +188,18 @@ public class AccountInterface {
 			log.info("服务为空");
 		}
 		try {
-			Result result=  dbService.updateAccount(account);
+			Result result=  dbService.updateAccount(account, "", "");
 			return result;
 		} catch (Exception e) {
 			throw new RuntimeException("网络原因未能推送成功,请重新点击提交按钮");
 		}	
 	}
+	/**
+	 * 
+	 * @param account
+	 * @return
+	 * @Description:调用CRM账户信息新增接口
+	 */
 	private Result addAccount(Account account) {
 		log.info("开始新增");
 		CrmInformationService dbService = (CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
@@ -186,5 +209,66 @@ public class AccountInterface {
 		} catch (Exception e) {
 			throw new RuntimeException("网络原因未能推送成功,请重新点击提交按钮");
 		}
-	}*/
+	}
+	/**
+	 * 
+	 * @param listAccountList
+	 * @return
+	 * @Description:删除接口返回信息
+	 */
+	public boolean deleteAccount2Crm_dlg(List<String>idList) {
+		Result result = new Result(1, null, "");
+		log.info("删除后的，推送到Crm");
+		AccountInterface accountInterface = new AccountInterface();
+		try {
+			result=accountInterface.deleteAccountn2Crm(idList);
+			log.info("返回结果为: "+result.getRetCode());
+			if(result.getRetCode()==-1){
+				log.info("调用失败,错误码为: "+result.getErrCode());
+				log.info("调用失败,错误信息为: "+result.getErrDesc());
+			}
+			}catch (Exception e) {
+				// TODO: handle exception
+				throw new RuntimeException("crm方新增分供方失败,错误原因为:"+result.getErrDesc());
+			}
+		return true;
+		
+	}
+	/**
+	 * 
+	 * @param listAccountList
+	 * @return
+	 * @Description:处理删除信息
+	 */
+	private Result deleteAccountn2Crm(List<String>idList) {
+		Result result = new Result(1, null, "");
+		for (int i=0;i<idList.size();i++) {
+			String accountid = idList.get(i);
+			result = deleteAccount(accountid);
+		}
+		return result;
+		
+	}
+	/**
+	 * 
+	 * @param accountid
+	 * @return
+	 * @Description:调用删除接口
+	 */
+	private Result deleteAccount(String accountid) {
+		log.info("开始调用删除");
+		CrmInformationService dbService = (CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
+		if(dbService!=null){
+			log.info("dbservice,不为空");
+		}else {
+			log.info("服务为空");
+		}
+		try {
+			Result result=  dbService.deleteAccount(accountid);
+			return result;
+		} catch (Exception e) {
+			throw new RuntimeException("网络原因未能推送成功,请重新点击提交按钮");
+		}	
+	}
+	
 }

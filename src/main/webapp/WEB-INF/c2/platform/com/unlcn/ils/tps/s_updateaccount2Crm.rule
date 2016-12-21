@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns="http://www.chinacreator.com/platform/mvc/rule" sn="s_updateaccount2Crm" log="false" className="com.unlcn.ils.tps.ininterface.AccountInterface" method="updateAccount2Crm_dlg">
+  <name>更新账户信息</name>
+  <inputs>
+    <input collection="false" desc="" id="listAccountList" required="true" type="java.util.List"/>
+    <input collection="false" desc="" id="cusdmid" required="true" type="String"/>
+  </inputs>
+  <outputs>
+    <output autoValue="Result" desc="" id="result" name="方法返回值" type="boolean"/>
+  </outputs>
+  <params>
+    <param autoValue="Input.listAccountList" name="listAccountList" signature="QList&lt;QE_account;>;" type="java.util.List"/>
+    <param autoValue="Input.cusdmid" name="cusdmid" signature="QString;" type="String"/>
+  </params>
+  <return signature="Z" type="boolean"/>
+</CustomRule>

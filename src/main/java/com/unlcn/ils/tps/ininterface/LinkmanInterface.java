@@ -44,6 +44,7 @@ public class LinkmanInterface {
 	 * @Description:将从接口得到的联系人信息输出
 	 */
 	public List<Map<String, String>> getLinkmanByidFromCrm(Linkman linkman,String lineid){
+		log.info("获取联系人信息开始");
 		List<Linkman> lists=getLinkmanByid(linkman);
 		List<Map<String,String>> returnlist=new ArrayList<Map<String,String>>();
 		for(int i=0;i<lists.size();i++)
@@ -78,6 +79,7 @@ public class LinkmanInterface {
 			map.put("email", linkmanlist.getEmail());
 			returnlist.add(map);
 	}
+		log.info("获取结束");
 		return returnlist;
 	}
 	public boolean updateLinkman2Crm_dlg(List<E_linkman>listLinkmanList,String csdmid) {
@@ -206,5 +208,65 @@ public class LinkmanInterface {
 		} catch (Exception e) {
 			throw new RuntimeException("网络原因未能推送成功,请重新点击提交按钮");
 		}
+	}
+	/**
+	 * 
+	 * @param listAccountList
+	 * @return
+	 * @Description:删除接口返回信息
+	 */
+	public boolean deleteLinkman2Crm_dlg(List<String>idList) {
+		Result result = new Result(1, null, "");
+		log.info("删除后的，推送到Crm");
+		LinkmanInterface linkmanInterface = new LinkmanInterface();
+		try {
+			result=linkmanInterface.deleteLinkman2Crm(idList);
+			log.info("返回结果为: "+result.getRetCode());
+			if(result.getRetCode()==-1){
+				log.info("调用失败,错误码为: "+result.getErrCode());
+				log.info("调用失败,错误信息为: "+result.getErrDesc());
+			}
+			}catch (Exception e) {
+				// TODO: handle exception
+				throw new RuntimeException("crm方新增分供方失败,错误原因为:"+result.getErrDesc());
+			}
+		return true;
+		
+	}
+	/**
+	 * 
+	 * @param listAccountList
+	 * @return
+	 * @Description:处理删除信息
+	 */
+	private Result deleteLinkman2Crm(List<String>idList) {
+		Result result = new Result(1, null, "");
+		for (int i=0;i<idList.size();i++) {
+			String linkmanid = idList.get(i);
+			result = deleteLinkman(linkmanid);
+		}
+		return result;
+		
+	}
+	/**
+	 * 
+	 * @param accountid
+	 * @return
+	 * @Description:调用删除接口
+	 */
+	private Result deleteLinkman(String linkmanid) {
+		log.info("开始调用删除");
+		CrmInformationService dbService = (CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
+		if(dbService!=null){
+			log.info("dbservice,不为空");
+		}else {
+			log.info("服务为空");
+		}
+		try {
+			Result result=  dbService.deleteLinkman(linkmanid);
+			return result;
+		} catch (Exception e) {
+			throw new RuntimeException("网络原因未能推送成功,请重新点击提交按钮");
+		}	
 	}
 }

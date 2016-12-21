@@ -31,6 +31,7 @@ public class LinkmanService implements ArrayContentProvider{
 		// TODO Auto-generated method stub
 				logger.info("正在初始化自定义逻辑数据源");
 				logger.info("获取上下文过滤条件");
+				logger.info("正在获取联系人信息");
 				Map<String, Object> conditions = context.getCondition();
 				Conditions condition=conditions.containsKey("filters")?(Conditions)conditions.get("filters") :null;
 				List<Rule> rules = condition.getRules();
