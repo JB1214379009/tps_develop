@@ -1318,10 +1318,8 @@ getiIndex:function(){
 	return ipos;
 },
 page_onload:function(){
-	/*var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
-	alert(shippperid.shipperId);
-	$params.info.shipperId=shippperid.shipperId;*/
-	alert($params.info.shipperId);
+	var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
+	$params.info.shipperId=shippperid.shipperId;
 	$http.post(&quot;ws/s_getShipperFromCrmById&quot;,{&quot;shipperId&quot;:$params.info.shipperId})
 		.success(function(data){
 			console.info(data.result);
@@ -1509,8 +1507,6 @@ button5_click:function($event){
 },
 buttontestt_click:function($event){
 	var listLinkmanList = $view.linkmanlist.getRowData();
-	alert(listLinkmanList.length);
-	alert($params.info.shipperId);
 	Messenger.post({message:&quot;正在提交&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
 	$http.post(&quot;ws/s_updatelinkman2Crm&quot;,{listLinkmanList:listLinkmanList,&quot;csdmid&quot;:$params.info.shipperId})
 				.success(function(data){
@@ -1520,7 +1516,6 @@ buttontestt_click:function($event){
 },
 buttonAccountUp_click:function($event){
 	var listAccountList = $view.accountlist.getRowData();
-	alert(listAccountList.length);
 	var accountList = new Array();
 	for(var i in listAccountList ){
 		var id = listAccountList[i].id;

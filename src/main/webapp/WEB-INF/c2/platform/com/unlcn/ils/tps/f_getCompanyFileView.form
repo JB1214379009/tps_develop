@@ -84,6 +84,10 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
+              <dync:attribute default="true" group="表格设置" id="multiselect" name="多选" value="false">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
             </form:attributes>
           </form:control>
           <form:child xsi:type="form:Group" id="toolbar_table2" name="toolbar_table">
@@ -457,6 +461,10 @@
       <form:attributes source="container/div">
         <dync:attribute default="" group="高级自定义" id="html" name="自定义HTML" value="divView_html">
           <dync:render colSpan="2" height="0" multi="false" name="html"/>
+          <dync:children/>
+        </dync:attribute>
+        <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="text-align:center ">
+          <dync:render colSpan="2" height="0" multi="false" name="text"/>
           <dync:children/>
         </dync:attribute>
       </form:attributes>

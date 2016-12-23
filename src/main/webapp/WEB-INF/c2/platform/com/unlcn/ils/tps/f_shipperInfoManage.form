@@ -1119,7 +1119,7 @@ button59_click:function($event){
 	if(selArr[0].joinFlag==&quot;个人&quot;)
 		selArr[0].joinFlag=0;
 	else selArr[0].joinFlag=1;
-	Modal.open(&quot;f/shipperInfoEdit_dlg&quot;,{&quot;info&quot;:selArr[0]},function($params){
+/*	Modal.open(&quot;f/shipperInfoEdit_dlg&quot;,{&quot;info&quot;:selArr[0]},function($params){
 		var rules=new Array();
 		var pos=0;	
 		rules[pos]={field:&quot;auditFlag&quot;,op:&quot;in&quot;,data:[3,5,6]};
@@ -1129,12 +1129,12 @@ button59_click:function($event){
 			conditions=null;
 		}
 		$view.custom_shipperinfo.refresh({filters:conditions});			
-	});		
-	/*var url='/tps/f/shipperInfoEdit_dlg';
+	});	*/	
+	var url='/tps/f/shipperInfoEdit_dlg';
 	var title='信息管理编辑';
 	window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid =selArr[0];
 	functions.newTabop(url,title);
-	return;*/
+	return;
 },
 newTabop:function(url,title){
 	var a = $(&quot;&lt;a>&quot;);
