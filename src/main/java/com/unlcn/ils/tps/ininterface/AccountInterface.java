@@ -8,6 +8,8 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import ch.qos.logback.core.joran.conditional.IfAction;
+
 import com.chinacreator.c2.context.OperationContextHolder;
 import com.chinacreator.c2.context.WebOperationContext;
 import com.chinacreator.c2.ioc.ApplicationContextManager;
@@ -180,7 +182,8 @@ public class AccountInterface {
 			account.setOperUser(username);
 			java.sql.Timestamp currdate = new java.sql.Timestamp(new Date().getTime());
 			account.setOperTime(currdate);
-			if(e_account.getId().equals("")||e_account.getCustomerId().equals("")){
+			log.info("是否存在："+e_account.getCustomerId().equals(""));
+			if(e_account.getCustomerId().equals("")){
 				/*CustomerInfo customerInfo = new CustomerInfo();
 				customerInfo.setId(cusdmid);*/
 				account.setCustomerId(cusdmid);

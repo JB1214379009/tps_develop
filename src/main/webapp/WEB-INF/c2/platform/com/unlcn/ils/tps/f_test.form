@@ -179,6 +179,10 @@
       <form:child xsi:type="form:Field" binding="lineid" id="lineid" name="序号">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid">
+            <dync:attribute id="key" value="true">
+              <dync:render/>
+              <dync:children/>
+            </dync:attribute>
             <dync:attribute id="hidden" value="true">
               <dync:render/>
               <dync:children/>
@@ -263,17 +267,13 @@
       <form:child xsi:type="form:Field" binding="id" id="id" name="id" customize="true">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid">
-            <dync:attribute default="false" group="表格设置" id="key" name="主键列" value="true">
-              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+            <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="id_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+              <dync:render colSpan="2" height="0" multi="false" name="event">
+                <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+              </dync:render>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
-        </form:control>
-        <form:validation/>
-      </form:child>
-      <form:child xsi:type="form:Field" binding="q" id="q" name="q" customize="true">
-        <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
         </form:control>
         <form:validation/>
       </form:child>
@@ -334,19 +334,313 @@
       <form:validation/>
     </form:child>
   </form:child>
+  <form:child xsi:type="form:Group" id="div4" name="简单容器(DIV)">
+    <form:control type="container/div">
+      <form:attributes source="container/div"/>
+    </form:control>
+    <form:child xsi:type="form:Group" binding="$model.listaccount" id="listaccount" name="列表型数据源">
+      <form:control type="container/table_jqgrid">
+        <form:attributes source="container/table_jqgrid">
+          <dync:attribute default="" group="基本配置" id="caption" name="表头" value="账户信息">
+            <dync:render colSpan="1" height="0" multi="false" name="text"/>
+            <dync:children/>
+          </dync:attribute>
+          <dync:attribute default="false" group="高级功能" id="dbcEdit" name="双击编辑" value="true">
+            <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+            <dync:children/>
+          </dync:attribute>
+          <dync:attribute default="false" group="高级功能" id="inlineEditAutoSave" name="行内编辑自动保存" value="true">
+            <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+            <dync:children/>
+          </dync:attribute>
+          <dync:attribute default="true" group="表格设置" id="firstRequest" name="自动加载数据" value="false">
+            <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+            <dync:children/>
+          </dync:attribute>
+        </form:attributes>
+      </form:control>
+      <form:child xsi:type="form:Group" id="toolbar_table4" name="toolbar_table">
+        <form:control type="container/toolbar_table">
+          <form:attributes source="container/toolbar_table"/>
+        </form:control>
+        <form:child xsi:type="form:Group" id="toolbar_table5" name="toolbar_table">
+          <form:control type="container/toolbar_table">
+            <form:attributes source="container/toolbar_table"/>
+          </form:control>
+          <form:child xsi:type="form:Field" id="buttonAccountAdd" name="新增">
+            <form:control type="widget/button_a_table">
+              <form:attributes source="widget/button_a_table">
+                <dync:attribute id="icon" value="fa-plus">
+                  <dync:render/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute id="iconColor" value="purple">
+                  <dync:render/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonAccountAdd_click(rowId,rowData,tableData)">
+                  <dync:render colSpan="1" height="0" multi="false" name="event">
+                    <dync:item name="params" value="rowId,rowData,tableData"/>
+                  </dync:render>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="custom" group="事件设置" id="clickType" name="事件类型" value="inlineAdd">
+                  <dync:render colSpan="2" height="0" multi="false" name="select">
+                    <dync:item name="自定义" value="custom"/>
+                    <dync:item name="添加" value="add"/>
+                    <dync:item name="编辑" value="edit"/>
+                    <dync:item name="查看" value="get"/>
+                    <dync:item name="删除" value="delete"/>
+                    <dync:item name="查找" value="search"/>
+                    <dync:item name="展开搜索框" value="expend"/>
+                    <dync:item name="刷新" value="refrash"/>
+                    <dync:item name="行内添加" value="inlineAdd"/>
+                    <dync:item name="行内编辑" value="inlineEdit"/>
+                    <dync:item name="行内保存" value="inlineSave"/>
+                    <dync:item name="行内取消" value="inlineRestore"/>
+                    <dync:item name="行内删除" value="inlineDelete"/>
+                    <dync:item name="导出数据" value="export"/>
+                    <dync:item name="导入数据" value="import"/>
+                  </dync:render>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
+            </form:control>
+          </form:child>
+          <form:child xsi:type="form:Field" id="buttonAccountDel" name="删除">
+            <form:control type="widget/button_a_table">
+              <form:attributes source="widget/button_a_table">
+                <dync:attribute id="icon" value="fa-trash-o">
+                  <dync:render/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute id="iconColor" value="red">
+                  <dync:render/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonAccountDel_click(rowId,rowData,tableData)">
+                  <dync:render colSpan="1" height="0" multi="false" name="event">
+                    <dync:item name="params" value="rowId,rowData,tableData"/>
+                  </dync:render>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
+            </form:control>
+          </form:child>
+          <form:child xsi:type="form:Field" id="buttonAccountEdit" name="编辑">
+            <form:control type="widget/button_a_table">
+              <form:attributes source="widget/button_a_table">
+                <dync:attribute id="clickType" value="inlineEdit">
+                  <dync:render/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute id="icon" value="fa-pencil">
+                  <dync:render/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute id="iconColor" value="blue">
+                  <dync:render/>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
+            </form:control>
+          </form:child>
+        </form:child>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="id" id="id" name="id" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid"/>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="customerId" id="customerId" name="customerId" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid"/>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="status" id="status" name="状态" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="accountFilepath" id="accountFilepath" name="银行账号照片" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="accountFilepath_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+              <dync:render colSpan="2" height="0" multi="false" name="event">
+                <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="tableButton" id="tableButton" name="上传按钮" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="tableButton_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+              <dync:render colSpan="2" height="0" multi="false" name="event">
+                <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="ownerType" id="ownerType" name="所有人类型" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="text" group="编辑" id="edittype" name="编辑类型" value="select">
+              <dync:render colSpan="1" height="0" multi="false" name="select">
+                <dync:item name="文本框" value="text"/>
+                <dync:item name="文本域" value="textarea"/>
+                <dync:item name="复选框" value="checkbox"/>
+                <dync:item name="下拉框" value="select"/>
+                <dync:item name="时间" value="datetime"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="" group="编辑" id="editoptions" name="编辑属性" value="{value:&quot;1:个人;2:企业&quot;}">
+              <dync:render colSpan="1" height="0" multi="false" name="text"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="type" id="type" name="账户类型" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="text" group="编辑" id="edittype" name="编辑类型" value="select">
+              <dync:render colSpan="1" height="0" multi="false" name="select">
+                <dync:item name="文本框" value="text"/>
+                <dync:item name="文本域" value="textarea"/>
+                <dync:item name="复选框" value="checkbox"/>
+                <dync:item name="下拉框" value="select"/>
+                <dync:item name="时间" value="datetime"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="" group="编辑" id="editoptions" name="编辑属性" value="{value:&quot;1:一般;2:专用&quot;}">
+              <dync:render colSpan="1" height="0" multi="false" name="text"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="name" id="name" name="账户名称" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="bank" id="bank" name="银行" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="accountNumber" id="accountNumber" name="账号" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="ownerName" id="ownerName" name="开户人" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="bankOpenBranch" id="bankOpenBranch" name="开户行" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="desc" id="desc" name="备注" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+    </form:child>
+    <form:child xsi:type="form:Field" id="buttonAccountUp1" name="普通按钮" customize="true">
+      <form:control type="widget/button">
+        <form:attributes source="widget/button">
+          <dync:attribute default="" group="事件设置" id="click" name="点击事件" value="buttonAccountUp_click($event)">
+            <dync:render colSpan="1" height="0" multi="false" name="event">
+              <dync:item name="params" value="$event"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
+        </form:attributes>
+      </form:control>
+      <form:validation/>
+    </form:child>
+  </form:child>
   <form:datasources>
     <form:datasource xsi:type="form:Inputs">
       <form:input desc="" id="datas" name=""/>
       <form:input desc="" id="i" name=""/>
     </form:datasource>
     <form:datasource xsi:type="form:PagingDataSource" id="list" name="列表型数据源" elementType="entity:com.unlcn.ils.tps.e_level" pageSize="10"/>
+    <form:datasource xsi:type="form:PagingDataSource" id="listaccount" name="列表型数据源" logic="com.unlcn.ils.tps.services.Accountservice" pageSize="10" type="custom"/>
   </form:datasources>
-  <form:scripts>&#xD;
+  <form:scripts>/*&#xD;
 newField_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){&#xD;
     return &quot;&lt;button ng-click='functions.print(rowObject)'>查看&lt;/button>&quot;;&#xD;
 },&#xD;
 print:function(rowObject){&#xD;
-	/*//var data=$view.list.getSingleSelectData()&#xD;
+	//var data=$view.list.getSingleSelectData()&#xD;
 	//data.levelName=1;&#xD;
 	//rowObject.levelName=2;&#xD;
 	var i=--$params.i;&#xD;
@@ -358,9 +652,8 @@ print:function(rowObject){&#xD;
 	var selectid = rowObject.id;&#xD;
 	 var quotationPriceid = selectid+&quot;_quotationPrice&quot;;&#xD;
 	$(&quot;#&quot;+quotationPriceid).val(&quot;aaa&quot;);&#xD;
-*/&#xD;
-debugger;&#xD;
-	alert(rowObject)&#xD;
+&#xD;
+	&#xD;
 &#xD;
 	&#xD;
 },&#xD;
@@ -368,13 +661,14 @@ debugger;&#xD;
 
 colJqgrid_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){&#xD;
 		var selectid = rowObject.id;
-		return '&lt;input id=&quot;'+selectid+'_quotationPrice&quot;  class=&quot;editable&quot; type=&quot;text&quot; name=&quot;quotationPrice&quot;  style=&quot;width: 98%;&quot; role=&quot;textbox&quot;>';&#xD;
+		var i = rowObject.lineid&#xD;
+		return '&lt;span id=&quot;'+i+'path&quot;>'+rowObject.+'&lt;/span>'&#xD;
 &#xD;
 },	
 
 
 button_click:function($event){&#xD;
-/*$http.post(&quot;ws/s_tests&quot;,{});&#xD;
+$http.post(&quot;ws/s_tests&quot;,{});&#xD;
 &#xD;
 	var data=$view.list.getTableData().contents;
 	var ids=data[0].id;&#xD;
@@ -386,20 +680,43 @@ button_click:function($event){&#xD;
 	&#xD;
 	&#xD;
 	Modal.open(&quot;f/test_dlg&quot;,{},function(id){&#xD;
-	alert(id)})*/&#xD;
-	var s=$view.list.getSingleSelectData();&#xD;
-	alert(s.id);
+	alert(id)})
 },
 
-page_onload:function(){
-	//$params.i=1;&#xD;
+
+
+id_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	return '&lt;input id=&quot;'+i+'s&quot;  class=&quot;editable&quot;  value=&quot;'+i+'&quot; type=&quot;text&quot; name=&quot;quotation&quot;  style=&quot;width: 98%;&quot; role=&quot;textbox&quot;>';&#xD;
 	
 },
 
-
-
 buttonAdd_click:function(rowId,rowData,tableData){
-	$view.list.addRowData(1,{},&quot;last&quot;,null);&#xD;
+	$view.list.addRowData($params.i,{id:$params.i},&quot;last&quot;,null);&#xD;
+	$params.i++;
+},*/
 
-}</form:scripts>
+accountFilepath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	var i = rowObject.id;&#xD;
+	alert(i);&#xD;
+	return '&lt;span id=&quot;'+i+'path&quot;>'+rowObject.accountFilepath+'&lt;/span>'
+},
+
+tableButton_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	 return &quot;&lt;button ng-click='functions.print(rowObject)'>上传银行卡照片&lt;/button>&quot;;&#xD;
+},&#xD;
+print:function(rowObject){&#xD;
+	var i = rowObject.id;&#xD;
+	var pathid = i+&quot;path&quot;; &#xD;
+	Modal.open(&quot;f/accountFileUp&quot;,{},function(id){&#xD;
+		$(&quot;#&quot;+pathid).text(id);&#xD;
+	});
+},&#xD;
+page_onload:function(){&#xD;
+&#xD;
+	var account_rules=new Array();&#xD;
+		 account_rules[0]={field:&quot;lineid&quot;,op:&quot;eq&quot;,data:&quot;3231&quot;};&#xD;
+		var filters={ groupOp:&quot;AND&quot;, rules:account_rules};&#xD;
+		$view.listaccount.refresh({filters:filters});&#xD;
+	&#xD;
+},</form:scripts>
 </form:Form>
