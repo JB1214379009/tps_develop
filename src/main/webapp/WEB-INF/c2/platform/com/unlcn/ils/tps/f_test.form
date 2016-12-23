@@ -59,10 +59,6 @@
             <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
             <dync:children/>
           </dync:attribute>
-          <dync:attribute default="true" group="表格设置" id="firstRequest" name="自动加载数据" value="false">
-            <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-            <dync:children/>
-          </dync:attribute>
         </form:attributes>
       </form:control>
       <form:child xsi:type="form:Group" id="toolbar_table" name="toolbar_table">
@@ -183,10 +179,6 @@
       <form:child xsi:type="form:Field" binding="lineid" id="lineid" name="序号">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid">
-            <dync:attribute id="key" value="true">
-              <dync:render/>
-              <dync:children/>
-            </dync:attribute>
             <dync:attribute id="hidden" value="true">
               <dync:render/>
               <dync:children/>
@@ -271,13 +263,17 @@
       <form:child xsi:type="form:Field" binding="id" id="id" name="id" customize="true">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid">
-            <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="id_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
-              <dync:render colSpan="2" height="0" multi="false" name="event">
-                <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
-              </dync:render>
+            <dync:attribute default="false" group="表格设置" id="key" name="主键列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="q" id="q" name="q" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid"/>
         </form:control>
         <form:validation/>
       </form:child>
@@ -350,7 +346,7 @@ newField_customFormatter:function(cellvalue,options,rowObject,dictValueExpressio
     return &quot;&lt;button ng-click='functions.print(rowObject)'>查看&lt;/button>&quot;;&#xD;
 },&#xD;
 print:function(rowObject){&#xD;
-/*	//var data=$view.list.getSingleSelectData()&#xD;
+	/*//var data=$view.list.getSingleSelectData()&#xD;
 	//data.levelName=1;&#xD;
 	//rowObject.levelName=2;&#xD;
 	var i=--$params.i;&#xD;
@@ -358,12 +354,13 @@ print:function(rowObject){&#xD;
 	var id=$(&quot;#&quot;+quotationPrice).val();&#xD;
 	debugger;&#xD;
 	&#xD;
-	alert(id)*/&#xD;
+	alert(id)&#xD;
 	var selectid = rowObject.id;&#xD;
 	 var quotationPriceid = selectid+&quot;_quotationPrice&quot;;&#xD;
 	$(&quot;#&quot;+quotationPriceid).val(&quot;aaa&quot;);&#xD;
-&#xD;
-	&#xD;
+*/&#xD;
+debugger;&#xD;
+	alert(rowObject)&#xD;
 &#xD;
 	&#xD;
 },&#xD;
@@ -377,9 +374,9 @@ colJqgrid_customFormatter:function(cellvalue,options,rowObject,dictValueExpressi
 
 
 button_click:function($event){&#xD;
-$http.post(&quot;ws/s_tests&quot;,{});&#xD;
+/*$http.post(&quot;ws/s_tests&quot;,{});&#xD;
 &#xD;
-/*	var data=$view.list.getTableData().contents;
+	var data=$view.list.getTableData().contents;
 	var ids=data[0].id;&#xD;
 	&#xD;
 	alert($(&quot;#&quot;+id).val())&#xD;
@@ -389,21 +386,20 @@ $http.post(&quot;ws/s_tests&quot;,{});&#xD;
 	&#xD;
 	&#xD;
 	Modal.open(&quot;f/test_dlg&quot;,{},function(id){&#xD;
-	alert(id)})*/
+	alert(id)})*/&#xD;
+	var s=$view.list.getSingleSelectData();&#xD;
+	alert(s.id);
 },
 
 page_onload:function(){
-	$params.i=1;&#xD;
+	//$params.i=1;&#xD;
 	
 },
 
-id_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
-	return '&lt;input id=&quot;'+i+'s&quot;  class=&quot;editable&quot;  value=&quot;'+i+'&quot; type=&quot;text&quot; name=&quot;quotation&quot;  style=&quot;width: 98%;&quot; role=&quot;textbox&quot;>';&#xD;
-	
-},
+
 
 buttonAdd_click:function(rowId,rowData,tableData){
-	$view.list.addRowData($params.i,{id:$params.i},&quot;last&quot;,null);&#xD;
-	$params.i++;
+	$view.list.addRowData(1,{},&quot;last&quot;,null);&#xD;
+
 }</form:scripts>
 </form:Form>

@@ -284,6 +284,7 @@ public class CrmInformationInterface {
 		} else {
 			log.info("db不为空 ");
 		} 
+
 		Result result=dbService.updateShipper(shipper);
 		return result;
 /*		Dao<E_shipper> shipperDao=new DaoFactory().create(E_shipper.class);
@@ -468,7 +469,9 @@ public class CrmInformationInterface {
 			shipper.setAccountPhone((String) map.get("accountPhone"));
 		}
 		log.info("时间，任务"+map.get("createUser")+map.get("createTime"));
+		if(map.get("createUser")!=null)
 		shipper.setCreateUser((String) map.get("createUser"));
+		if(map.get("createTime")!=null)
 		shipper.setCreateTime(Timestamp.valueOf(map.get("createTime").toString()));
 		Timestamp now=new Timestamp(System.currentTimeMillis());
 		//shipper.setCreateTime(now);
