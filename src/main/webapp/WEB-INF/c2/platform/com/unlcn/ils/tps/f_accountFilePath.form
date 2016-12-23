@@ -195,6 +195,7 @@
 
 button_click:function($event){
 	var id = $params.URL;
+	Messenger.post({message:&quot;文件上传成功!&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 	Modal.instance.close(id);
 },
 

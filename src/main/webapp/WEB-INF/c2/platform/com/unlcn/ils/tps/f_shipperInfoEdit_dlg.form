@@ -733,23 +733,9 @@
                     <dync:render/>
                     <dync:children/>
                   </dync:attribute>
-                  <dync:attribute default="custom" group="事件设置" id="clickType" name="事件类型" value="inlineAdd">
-                    <dync:render colSpan="2" height="0" multi="false" name="select">
-                      <dync:item name="自定义" value="custom"/>
-                      <dync:item name="添加" value="add"/>
-                      <dync:item name="编辑" value="edit"/>
-                      <dync:item name="查看" value="get"/>
-                      <dync:item name="删除" value="delete"/>
-                      <dync:item name="查找" value="search"/>
-                      <dync:item name="展开搜索框" value="expend"/>
-                      <dync:item name="刷新" value="refrash"/>
-                      <dync:item name="行内添加" value="inlineAdd"/>
-                      <dync:item name="行内编辑" value="inlineEdit"/>
-                      <dync:item name="行内保存" value="inlineSave"/>
-                      <dync:item name="行内取消" value="inlineRestore"/>
-                      <dync:item name="行内删除" value="inlineDelete"/>
-                      <dync:item name="导出数据" value="export"/>
-                      <dync:item name="导入数据" value="import"/>
+                  <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonAccountAdd_click(rowId,rowData,tableData)">
+                    <dync:render colSpan="1" height="0" multi="false" name="event">
+                      <dync:item name="params" value="rowId,rowData,tableData"/>
                     </dync:render>
                     <dync:children/>
                   </dync:attribute>
@@ -798,23 +784,13 @@
         </form:child>
         <form:child xsi:type="form:Field" binding="id" id="id" name="id" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid">
-              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-            </form:attributes>
+            <form:attributes source="widget/col_jqgrid"/>
           </form:control>
           <form:validation/>
         </form:child>
         <form:child xsi:type="form:Field" binding="customerId" id="customerId" name="customerId" customize="true">
           <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid">
-              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-            </form:attributes>
+            <form:attributes source="widget/col_jqgrid"/>
           </form:control>
           <form:validation/>
         </form:child>
@@ -832,8 +808,10 @@
         <form:child xsi:type="form:Field" binding="accountFilepath" id="accountFilepath" name="银行账号照片" customize="true">
           <form:control type="widget/col_jqgrid">
             <form:attributes source="widget/col_jqgrid">
-              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="accountFilepath_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+                <dync:render colSpan="2" height="0" multi="false" name="event">
+                  <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+                </dync:render>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -950,6 +928,32 @@
             <form:attributes source="widget/col_jqgrid">
               <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
+          </form:control>
+          <form:validation/>
+        </form:child>
+        <form:child xsi:type="form:Field" binding="tableButton" id="tableButton" name="上传按钮" customize="true">
+          <form:control type="widget/col_jqgrid">
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="tableButton_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+                <dync:render colSpan="2" height="0" multi="false" name="event">
+                  <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+                </dync:render>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
+          </form:control>
+          <form:validation/>
+        </form:child>
+        <form:child xsi:type="form:Field" binding="buttonFile" id="buttonFile" name="预览按钮" customize="true">
+          <form:control type="widget/col_jqgrid">
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="buttonFile_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+                <dync:render colSpan="2" height="0" multi="false" name="event">
+                  <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+                </dync:render>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -1286,7 +1290,9 @@
     </form:child>
   </form:child>
   <form:datasources>
-    <form:datasource xsi:type="form:Inputs"/>
+    <form:datasource xsi:type="form:Inputs">
+      <form:input desc="" id="idi" name="全局自增新变量"/>
+    </form:datasource>
     <form:datasource xsi:type="form:EntityDataSource" id="e_shipper" name="单实体数据源" entity="entity:com.unlcn.ils.tps.e_shipper"/>
     <form:datasource xsi:type="form:PagingDataSource" id="list" name="列表型数据源" logic="com.unlcn.ils.tps.services.JoinInterLine" pageSize="10" type="custom"/>
     <form:datasource xsi:type="form:LogicDataSource" id="cityIds" name="城市id" logic="rule:com.unlcn.ils.tps.s_getCityId" sn="s_getCityId"/>
@@ -1315,7 +1321,7 @@ page_onload:function(){
 	/*var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
 	alert(shippperid.shipperId);
 	$params.info.shipperId=shippperid.shipperId;*/
-	//alert($params.info.shipperId);
+	alert($params.info.shipperId);
 	$http.post(&quot;ws/s_getShipperFromCrmById&quot;,{&quot;shipperId&quot;:$params.info.shipperId})
 		.success(function(data){
 			console.info(data.result);
@@ -1381,6 +1387,7 @@ page_onload:function(){
 		 account_rules[0]={field:&quot;lineid&quot;,op:&quot;eq&quot;,data:$params.info.shipperId};
 		var filters={ groupOp:&quot;AND&quot;, rules:account_rules};
 		$view.accountlist.refresh({filters:filters});
+		$params.idi = 1;
 },
 
 button_click:function($event){
@@ -1473,6 +1480,12 @@ button5_click:function($event){
 	}
 	var listLinkmanList = $view.linkmanlist.getRowData();
 	var listAccountList = $view.accountlist.getRowData();
+	var accountList = new Array();
+	for(var i in listAccountList ){
+		var id = listAccountList[i].id;
+		var pathid = id+'path';
+		accountList[i] = listAccountList[i];
+	}
 	//$params.info=shippperid;
 	Messenger.post({message:&quot;正在更新基础信息&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
 	var con={&quot;joinFlag&quot;:$params.info.joinFlag,&quot;joinId&quot;:$params.info.joinId,&quot;auditId&quot;:$params.info.lineId};
@@ -1484,9 +1497,10 @@ button5_click:function($event){
 				.success(function(data){
 					Messenger.post({message:&quot;联系人信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 					Messenger.post({message:&quot;正在更新账户信息&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
-					$http.post(&quot;ws/s_updateaccount2Crm&quot;,{listAccountList:listAccountList,&quot;cusdmid&quot;:$params.info.shipperId})
+					$http.post(&quot;ws/s_updateaccount2Crm&quot;,{listAccountList:accountList,&quot;cusdmid&quot;:$params.info.shipperId})
 					.success(function(data){
 						Messenger.post({message:&quot;账户信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
+					
 					
 					});
 				});
@@ -1507,9 +1521,14 @@ buttontestt_click:function($event){
 buttonAccountUp_click:function($event){
 	var listAccountList = $view.accountlist.getRowData();
 	alert(listAccountList.length);
-	alert($params.info.shipperId);
+	var accountList = new Array();
+	for(var i in listAccountList ){
+		var id = listAccountList[i].id;
+		var pathid = id+'path';
+		accountList[i] = listAccountList[i];
+	}
 	Messenger.post({message:&quot;正在提交&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
-	$http.post(&quot;ws/s_updateaccount2Crm&quot;,{listAccountList:listAccountList,&quot;cusdmid&quot;:$params.info.shipperId})
+	$http.post(&quot;ws/s_updateaccount2Crm&quot;,{listAccountList:accountList,&quot;cusdmid&quot;:$params.info.shipperId})
 				.success(function(data){
 					Messenger.post({message:&quot;账户信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 					
@@ -1654,5 +1673,38 @@ buttonAccountDel_click:function(rowId,rowData,tableData){
 		})
 		
 	})
+},
+
+buttonAccountAdd_click:function(rowId,rowData,tableData){
+	var ite = &quot;scoy&quot;+$params.idi;
+	$view.accountlist.addRowData(null,{id:ite},&quot;last&quot;,null);
+	$params.idi++;
+},
+
+tableButton_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	 return &quot;&lt;button ng-click='functions.print(rowObject)'>上传银行卡照片&lt;/button>&quot;;
+},
+print:function(rowObject){
+	var i = rowObject.id
+	var pathid = i+&quot;path&quot;; 
+	Modal.open(&quot;f/accountFileUp&quot;,{},function(id){
+		$(&quot;#&quot;+pathid).text(id);
+	});
+},
+
+buttonFile_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	return &quot;&lt;button ng-click='functions.view(rowObject)'>预览照片&lt;/button>&quot;;
+},
+view:function(rowObject){
+	var i = rowObject.id;
+	var pathid = i+&quot;path&quot;;
+	var urr = $(&quot;#&quot;+pathid).text();
+	Modal.open(&quot;f/fileView&quot;,{&quot;url&quot;:urr},function(){
+			    });
+},
+
+accountFilepath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	var i = rowObject.id;
+	return '&lt;span id=&quot;'+i+'path&quot;>'+rowObject.accountFilepath+'&lt;/span>'
 }</form:scripts>
 </form:Form>
