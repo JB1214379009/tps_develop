@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dync="http://www.chinacreator.com/platform/mvc/ui/dync" xmlns:form="http://www.chinacreator.com/platform/mvc/form" name="分供方信息管理编辑" sn="shipperInfoEdit_dlg" type="form">
-  <form:control type="page/normal">
-    <form:attributes source="page/normal"/>
+  <form:control type="page/modal">
+    <form:attributes source="page/modal">
+      <dync:attribute default="" group="HTML" id="width" name="页面宽度" value="90%">
+        <dync:render colSpan="2" height="0" multi="false" name="text"/>
+        <dync:children/>
+      </dync:attribute>
+      <dync:attribute default="" group="事件" id="onload" name="页面加载完成" value="page_onload()">
+        <dync:render colSpan="2" height="0" multi="false" name="event">
+          <dync:item name="param" value=""/>
+        </dync:render>
+        <dync:children/>
+      </dync:attribute>
+    </form:attributes>
   </form:control>
   <form:child xsi:type="form:Group" id="widgetbox1" name="分供方信息编辑">
     <form:control type="container/widgetbox">
@@ -1308,10 +1319,7 @@ getiIndex:function(){
 },
 page_onload:function(){
 	var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
-	//alert(shippperid.shipperId);
 	$params.info.shipperId=shippperid.shipperId;
-	//alert($params.info.shipperId);
-	
 	$http.post(&quot;ws/s_getShipperFromCrmById&quot;,{&quot;shipperId&quot;:$params.info.shipperId})
 		.success(function(data){
 			console.info(data.result);
@@ -1499,8 +1507,6 @@ button5_click:function($event){
 },
 buttontestt_click:function($event){
 	var listLinkmanList = $view.linkmanlist.getRowData();
-	alert(listLinkmanList.length);
-	alert($params.info.shipperId);
 	Messenger.post({message:&quot;正在提交&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
 	$http.post(&quot;ws/s_updatelinkman2Crm&quot;,{listLinkmanList:listLinkmanList,&quot;csdmid&quot;:$params.info.shipperId})
 				.success(function(data){
@@ -1510,7 +1516,6 @@ buttontestt_click:function($event){
 },
 buttonAccountUp_click:function($event){
 	var listAccountList = $view.accountlist.getRowData();
-	alert(listAccountList.length);
 	var accountList = new Array();
 	for(var i in listAccountList ){
 		var id = listAccountList[i].id;

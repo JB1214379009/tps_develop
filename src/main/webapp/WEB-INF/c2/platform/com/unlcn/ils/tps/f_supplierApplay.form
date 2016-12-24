@@ -1528,6 +1528,10 @@ btn_add_click:function($event){
 	for(var i in accountRoData ){
 		var id = accountRoData[i].lineid;
 		var pathid = id+'path';
+		if($(&quot;#&quot;+pathid).text()==&quot;上传后显示&quot;){
+			Messenger.post({message:&quot;账户信息中有银行卡照片未上传！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
 		accountRoData[i].accountFilepath = $(&quot;#&quot;+pathid).text();
 		accountList[i] = accountRoData[i];
 	}

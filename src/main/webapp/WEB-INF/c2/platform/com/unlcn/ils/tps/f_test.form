@@ -697,7 +697,7 @@ buttonAdd_click:function(rowId,rowData,tableData){
 
 accountFilepath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
 	var i = rowObject.id;&#xD;
-	alert(i);&#xD;
+&#xD;
 	return '&lt;span id=&quot;'+i+'path&quot;>'+rowObject.accountFilepath+'&lt;/span>'
 },
 
@@ -713,10 +713,29 @@ print:function(rowObject){&#xD;
 },&#xD;
 page_onload:function(){&#xD;
 &#xD;
-	var account_rules=new Array();&#xD;
+		var account_rules=new Array();&#xD;
 		 account_rules[0]={field:&quot;lineid&quot;,op:&quot;eq&quot;,data:&quot;3231&quot;};&#xD;
 		var filters={ groupOp:&quot;AND&quot;, rules:account_rules};&#xD;
 		$view.listaccount.refresh({filters:filters});&#xD;
 	&#xD;
-},</form:scripts>
+},
+
+buttonAccountUp_click:function($event){&#xD;
+	var accountRoData = $view.listaccount.getRowData();&#xD;
+	alert(accountRoData);
+	var accountList = new Array();&#xD;
+	for(var i in accountRoData ){&#xD;
+		var id = accountRoData[i].id;&#xD;
+		var pathid = id+'path';&#xD;
+		alert(pathid);&#xD;
+		alert($(&quot;#&quot;+pathid).text());&#xD;
+		alert($(&quot;#&quot;+pathid).text()==&quot;&quot;)&#xD;
+		if($(&quot;#&quot;+pathid).text()==&quot;&quot;){&#xD;
+			Messenger.post({message:&quot;账户信息中有银行卡照片未上传！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});&#xD;
+			return;&#xD;
+		}&#xD;
+		accountRoData[i].accountFilepath = $(&quot;#&quot;+pathid).text();&#xD;
+		accountList[i] = accountRoData[i];&#xD;
+	}
+}</form:scripts>
 </form:Form>

@@ -621,7 +621,7 @@
           <form:child xsi:type="form:Field" binding="$params.idNumberFile" id="idNumberFile" name="营业执照照片" customize="true">
             <form:control type="widget/file_input_iframe">
               <form:attributes source="widget/file_input_iframe">
-                <dync:attribute default="6" group="布局属性" id="span" name="占位数" value="11">
+                <dync:attribute default="6" group="布局属性" id="span" name="占位数" value="10">
                   <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
@@ -649,6 +649,37 @@
             </form:control>
             <form:validation/>
           </form:child>
+          <form:child xsi:type="form:Group" id="div7" name="简单容器(DIV)">
+            <form:control type="container/div">
+              <form:attributes source="container/div">
+                <dync:attribute default="12" group="HTML配置" id="span" name="占位数" value="1">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="margin-top:5px;margin-left:-10px">
+                  <dync:render colSpan="2" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
+            </form:control>
+            <form:child xsi:type="form:Field" id="buttonAid" name="照片预览" customize="true">
+              <form:control type="widget/button_a">
+                <form:attributes source="widget/button_a">
+                  <dync:attribute default="" group="HTML设置" id="icon" name="图标" value="fa-arrows-alt">
+                    <dync:render colSpan="1" height="0" multi="false" name="selectIcon"/>
+                    <dync:children/>
+                  </dync:attribute>
+                  <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonAid_click($event)">
+                    <dync:render colSpan="1" height="0" multi="false" name="event">
+                      <dync:item name="params" value="$event"/>
+                    </dync:render>
+                    <dync:children/>
+                  </dync:attribute>
+                </form:attributes>
+              </form:control>
+              <form:validation/>
+            </form:child>
+          </form:child>
           <form:child xsi:type="form:Group" id="div6" name="简单容器(DIV)">
             <form:control type="container/div">
               <form:attributes source="container/div">
@@ -660,7 +691,7 @@
                   <dync:render colSpan="2" height="0" multi="false" name="html"/>
                   <dync:children/>
                 </dync:attribute>
-                <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="margin-top: 4px;padding-left:0px;color:red;">
+                <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="margin-top: 4px;padding-left:10px;color:red;">
                   <dync:render colSpan="2" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
@@ -680,7 +711,7 @@
           <form:child xsi:type="form:Field" binding="$params.roadLicenceFile" id="roadLicenceFile" name="许可证照片" customize="true">
             <form:control type="widget/file_input_iframe">
               <form:attributes source="widget/file_input_iframe">
-                <dync:attribute default="6" group="布局属性" id="span" name="占位数" value="11">
+                <dync:attribute default="6" group="布局属性" id="span" name="占位数" value="10">
                   <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
@@ -719,11 +750,42 @@
                   <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="margin-top:5px;margin-left:-10px">
+                  <dync:render colSpan="2" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
+            </form:control>
+            <form:child xsi:type="form:Field" id="buttonAroad" name="照片预览" customize="true">
+              <form:control type="widget/button_a">
+                <form:attributes source="widget/button_a">
+                  <dync:attribute default="" group="HTML设置" id="icon" name="图标" value="fa-arrows-alt">
+                    <dync:render colSpan="1" height="0" multi="false" name="selectIcon"/>
+                    <dync:children/>
+                  </dync:attribute>
+                  <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonAroad_click($event)">
+                    <dync:render colSpan="1" height="0" multi="false" name="event">
+                      <dync:item name="params" value="$event"/>
+                    </dync:render>
+                    <dync:children/>
+                  </dync:attribute>
+                </form:attributes>
+              </form:control>
+              <form:validation/>
+            </form:child>
+          </form:child>
+          <form:child xsi:type="form:Group" id="div6" name="简单容器(DIV)">
+            <form:control type="container/div">
+              <form:attributes source="container/div">
+                <dync:attribute default="12" group="HTML配置" id="span" name="占位数" value="1">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
                 <dync:attribute default="" group="高级自定义" id="html" name="自定义HTML" value="div1_html">
                   <dync:render colSpan="2" height="0" multi="false" name="html"/>
                   <dync:children/>
                 </dync:attribute>
-                <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="margin-top: 4px;padding-left:0px;color:red;">
+                <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="margin-top: 4px;padding-left:10px;color:red;">
                   <dync:render colSpan="2" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
@@ -1669,15 +1731,19 @@ btn_add_click:function($event){
 	for(var i in accountRoData ){
 		var id = accountRoData[i].lineid;
 		var pathid = id+'path';
+		if($(&quot;#&quot;+pathid).text()==&quot;上传后显示&quot;){
+			Messenger.post({message:&quot;账户信息中有银行卡照片未上传！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
 		accountRoData[i].accountFilepath = $(&quot;#&quot;+pathid).text();
 		accountList[i] = accountRoData[i];
 	}
 	
 	var linkmanRowData = $view.linkmanlist.getRowData();
-	/*if(linkmanRowData.length==0){
+	if(linkmanRowData.length==0){
 		Messenger.post({message:&quot;联系人信息至少添加一条以上！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;		
-	}*/
+	}
 	var linkmanList = new Array();
 	for(var i in linkmanRowData){
 		linkmanList[i] = linkmanRowData[i];
@@ -1744,7 +1810,6 @@ cityId_beforeClick:function(treeId,treeNode,clickFlag){
 
 
 page_onload:function(){
-	$view.list.addRow(rowid,parameters)
 	$params.idi = 1;
 },
 
@@ -1849,6 +1914,18 @@ view:function(rowObject){
 	var i = rowObject.lineid;
 	var pathid = i+&quot;path&quot;;
 	var urr = $(&quot;#&quot;+pathid).text();
+	Modal.open(&quot;f/fileView&quot;,{&quot;url&quot;:urr},function(){
+			    });
+},
+
+buttonAid_click:function($event){
+	var urr = $params.idNumberFile.url;
+	Modal.open(&quot;f/fileView&quot;,{&quot;url&quot;:urr},function(){
+			    });
+},
+
+buttonAroad_click:function($event){
+	var urr = $params.roadLicenceFile.url;
 	Modal.open(&quot;f/fileView&quot;,{&quot;url&quot;:urr},function(){
 			    });
 }</form:scripts>
