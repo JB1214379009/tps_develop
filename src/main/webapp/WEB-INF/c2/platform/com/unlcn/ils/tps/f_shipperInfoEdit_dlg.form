@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dync="http://www.chinacreator.com/platform/mvc/ui/dync" xmlns:form="http://www.chinacreator.com/platform/mvc/form" name="分供方信息管理编辑" sn="shipperInfoEdit_dlg" type="form">
-  <form:control type="page/modal">
-    <form:attributes source="page/modal">
-      <dync:attribute default="" group="HTML" id="width" name="页面宽度" value="90%">
-        <dync:render colSpan="2" height="0" multi="false" name="text"/>
-        <dync:children/>
-      </dync:attribute>
-      <dync:attribute default="" group="事件" id="onload" name="页面加载完成" value="page_onload()">
-        <dync:render colSpan="2" height="0" multi="false" name="event">
-          <dync:item name="param" value=""/>
-        </dync:render>
-        <dync:children/>
-      </dync:attribute>
-    </form:attributes>
+  <form:control type="page/normal">
+    <form:attributes source="page/normal"/>
   </form:control>
   <form:child xsi:type="form:Group" id="widgetbox1" name="分供方信息编辑">
     <form:control type="container/widgetbox">
