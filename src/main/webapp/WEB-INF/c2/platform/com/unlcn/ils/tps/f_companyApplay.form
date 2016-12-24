@@ -1205,6 +1205,10 @@
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
           </form:attributes>
         </form:control>
       </form:child>
@@ -1216,6 +1220,10 @@
               <dync:children/>
             </dync:attribute>
             <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
@@ -1231,6 +1239,31 @@
             </dync:attribute>
             <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="number">
+              <dync:render colSpan="2" height="0" multi="false" name="select">
+                <dync:item name="自定义" value="custom"/>
+                <dync:item name="数字" value="number"/>
+                <dync:item name="中文" value="zhCn"/>
+                <dync:item name="手机号" value="mobile"/>
+                <dync:item name="QQ" value="qq"/>
+                <dync:item name="身份证" value="idCard"/>
+                <dync:item name="邮箱" value="email"/>
+                <dync:item name="URL" value="url"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[0-9]*$">
+              <dync:render colSpan="1" height="0" multi="false" name="text"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="帐号信息不正确!">
+              <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
@@ -1263,6 +1296,10 @@
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
           </form:attributes>
         </form:control>
       </form:child>
@@ -1274,6 +1311,10 @@
               <dync:children/>
             </dync:attribute>
             <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>

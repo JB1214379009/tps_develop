@@ -837,19 +837,6 @@
           </form:control>
           <form:validation/>
         </form:child>
-        <form:child xsi:type="form:Field" binding="accountFilepath" id="accountFilepath" name="银行账号照片" customize="true">
-          <form:control type="widget/col_jqgrid">
-            <form:attributes source="widget/col_jqgrid">
-              <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="accountFilepath_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
-                <dync:render colSpan="2" height="0" multi="false" name="event">
-                  <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
-                </dync:render>
-                <dync:children/>
-              </dync:attribute>
-            </form:attributes>
-          </form:control>
-          <form:validation/>
-        </form:child>
         <form:child xsi:type="form:Field" binding="ownerType" id="ownerType" name="所有人类型" customize="true">
           <form:control type="widget/col_jqgrid">
             <form:attributes source="widget/col_jqgrid">
@@ -872,6 +859,10 @@
                 <dync:children/>
               </dync:attribute>
               <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -904,6 +895,10 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
             </form:attributes>
           </form:control>
           <form:validation/>
@@ -919,6 +914,10 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
             </form:attributes>
           </form:control>
           <form:validation/>
@@ -931,6 +930,10 @@
                 <dync:children/>
               </dync:attribute>
               <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -966,8 +969,29 @@
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="数字格式不正确!">
+              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="帐号信息不正确!">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
+          </form:control>
+          <form:validation/>
+        </form:child>
+        <form:child xsi:type="form:Field" binding="accountFilepath" id="accountFilepath" name="银行账号照片" customize="true">
+          <form:control type="widget/col_jqgrid">
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="accountFilepath_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+                <dync:render colSpan="2" height="0" multi="false" name="event">
+                  <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+                </dync:render>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -982,6 +1006,10 @@
                 <dync:children/>
               </dync:attribute>
               <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -1000,6 +1028,10 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
             </form:attributes>
           </form:control>
           <form:validation/>
@@ -1008,6 +1040,14 @@
           <form:control type="widget/col_jqgrid">
             <form:attributes source="widget/col_jqgrid">
               <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="false" group="表格设置" id="isMergerColumn" name="合并相同的列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
