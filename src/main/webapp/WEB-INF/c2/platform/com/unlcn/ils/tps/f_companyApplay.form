@@ -641,10 +641,6 @@
                   </dync:render>
                   <dync:children/>
                 </dync:attribute>
-                <dync:attribute default="dbdir" group="HTML属性" id="process" name="上传处理器" value="dir">
-                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
-                  <dync:children/>
-                </dync:attribute>
               </form:attributes>
             </form:control>
             <form:validation/>
@@ -729,10 +725,6 @@
                   <dync:render colSpan="2" height="0" multi="false" name="event">
                     <dync:item name="params" value="data"/>
                   </dync:render>
-                  <dync:children/>
-                </dync:attribute>
-                <dync:attribute default="dbdir" group="HTML属性" id="process" name="上传处理器" value="dir">
-                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
                 <dync:attribute default="" group="HTML属性" id="lableStyle" name="自定义style" value="height:22px">

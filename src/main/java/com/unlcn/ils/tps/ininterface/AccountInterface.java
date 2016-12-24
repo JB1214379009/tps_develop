@@ -70,7 +70,7 @@ public class AccountInterface {
 			Map<String,String> map=new HashMap<String,String> ();
 			Account accountlist = lists.get(i);
 			if(accountlist.getId()!=null){
-				map.put("id", accountlist.getId().toString());
+				map.put("idcrm", accountlist.getId().toString());
 			}
 			if(accountlist.getCustomerId()!=null){
 				map.put("customerId", accountlist.getCustomerId().toString());
@@ -190,6 +190,8 @@ public class AccountInterface {
 				account.setStatus("1");
 				result = addAccount(account);
 			}else {
+				log.info("ID为："+e_account.getId());
+				
 				account.setId(e_account.getId());
 				account.setCustomerId(e_account.getCustomerId());
 				result = updateAccount(account);

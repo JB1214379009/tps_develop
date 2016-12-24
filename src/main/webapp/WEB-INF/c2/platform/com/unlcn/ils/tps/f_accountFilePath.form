@@ -72,10 +72,6 @@
             <dync:render colSpan="1" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
-          <dync:attribute default="dbdir" group="HTML属性" id="process" name="上传处理器" value="dir">
-            <dync:render colSpan="1" height="0" multi="false" name="text"/>
-            <dync:children/>
-          </dync:attribute>
           <dync:attribute default="" group="事件" id="onSuccess" name="上传成功" value="fileInputIframe_onSuccess(data)">
             <dync:render colSpan="2" height="0" multi="false" name="event">
               <dync:item name="params" value="data"/>

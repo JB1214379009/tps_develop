@@ -183,10 +183,6 @@
             </dync:render>
             <dync:children/>
           </dync:attribute>
-          <dync:attribute default="dbdir" group="HTML属性" id="process" name="上传处理器" value="dir">
-            <dync:render colSpan="1" height="0" multi="false" name="text"/>
-            <dync:children/>
-          </dync:attribute>
           <dync:attribute default="75" group="布局属性" id="lableWidth" name="lable宽度" value="100">
             <dync:render colSpan="1" height="0" multi="false" name="text"/>
             <dync:children/>
@@ -284,10 +280,6 @@
             <dync:render colSpan="2" height="0" multi="false" name="event">
               <dync:item name="params" value="data"/>
             </dync:render>
-            <dync:children/>
-          </dync:attribute>
-          <dync:attribute default="dbdir" group="HTML属性" id="process" name="上传处理器" value="dir">
-            <dync:render colSpan="1" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
           <dync:attribute default="75" group="布局属性" id="lableWidth" name="lable宽度" value="100">

@@ -357,6 +357,12 @@
             <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
             <dync:children/>
           </dync:attribute>
+          <dync:attribute default="" group="加载事件" id="loadComplete" name="请求完成后" value="listaccount_loadComplete(data)">
+            <dync:render colSpan="1" height="0" multi="false" name="event">
+              <dync:item name="param" value="data"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
         </form:attributes>
       </form:control>
       <form:child xsi:type="form:Group" id="toolbar_table4" name="toolbar_table">
@@ -384,26 +390,6 @@
                   </dync:render>
                   <dync:children/>
                 </dync:attribute>
-                <dync:attribute default="custom" group="事件设置" id="clickType" name="事件类型" value="inlineAdd">
-                  <dync:render colSpan="2" height="0" multi="false" name="select">
-                    <dync:item name="自定义" value="custom"/>
-                    <dync:item name="添加" value="add"/>
-                    <dync:item name="编辑" value="edit"/>
-                    <dync:item name="查看" value="get"/>
-                    <dync:item name="删除" value="delete"/>
-                    <dync:item name="查找" value="search"/>
-                    <dync:item name="展开搜索框" value="expend"/>
-                    <dync:item name="刷新" value="refrash"/>
-                    <dync:item name="行内添加" value="inlineAdd"/>
-                    <dync:item name="行内编辑" value="inlineEdit"/>
-                    <dync:item name="行内保存" value="inlineSave"/>
-                    <dync:item name="行内取消" value="inlineRestore"/>
-                    <dync:item name="行内删除" value="inlineDelete"/>
-                    <dync:item name="导出数据" value="export"/>
-                    <dync:item name="导入数据" value="import"/>
-                  </dync:render>
-                  <dync:children/>
-                </dync:attribute>
               </form:attributes>
             </form:control>
           </form:child>
@@ -421,6 +407,26 @@
                 <dync:attribute default="" group="事件设置" id="click" name="单击事件" value="buttonAccountDel_click(rowId,rowData,tableData)">
                   <dync:render colSpan="1" height="0" multi="false" name="event">
                     <dync:item name="params" value="rowId,rowData,tableData"/>
+                  </dync:render>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="custom" group="事件设置" id="clickType" name="事件类型" value="inlineDelete">
+                  <dync:render colSpan="2" height="0" multi="false" name="select">
+                    <dync:item name="自定义" value="custom"/>
+                    <dync:item name="添加" value="add"/>
+                    <dync:item name="编辑" value="edit"/>
+                    <dync:item name="查看" value="get"/>
+                    <dync:item name="删除" value="delete"/>
+                    <dync:item name="查找" value="search"/>
+                    <dync:item name="展开搜索框" value="expend"/>
+                    <dync:item name="刷新" value="refrash"/>
+                    <dync:item name="行内添加" value="inlineAdd"/>
+                    <dync:item name="行内编辑" value="inlineEdit"/>
+                    <dync:item name="行内保存" value="inlineSave"/>
+                    <dync:item name="行内取消" value="inlineRestore"/>
+                    <dync:item name="行内删除" value="inlineDelete"/>
+                    <dync:item name="导出数据" value="export"/>
+                    <dync:item name="导入数据" value="import"/>
                   </dync:render>
                   <dync:children/>
                 </dync:attribute>
@@ -447,7 +453,7 @@
           </form:child>
         </form:child>
       </form:child>
-      <form:child xsi:type="form:Field" binding="id" id="id" name="id" customize="true">
+      <form:child xsi:type="form:Field" binding="idcrm" id="idcrm" name="idcrm" customize="true">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid"/>
         </form:control>
@@ -631,6 +637,7 @@
     <form:datasource xsi:type="form:Inputs">
       <form:input desc="" id="datas" name=""/>
       <form:input desc="" id="i" name=""/>
+      <form:input desc="" id="idi" name=""/>
     </form:datasource>
     <form:datasource xsi:type="form:PagingDataSource" id="list" name="列表型数据源" elementType="entity:com.unlcn.ils.tps.e_level" pageSize="10"/>
     <form:datasource xsi:type="form:PagingDataSource" id="listaccount" name="列表型数据源" logic="com.unlcn.ils.tps.services.Accountservice" pageSize="10" type="custom"/>
@@ -696,8 +703,10 @@ buttonAdd_click:function(rowId,rowData,tableData){
 },*/
 
 accountFilepath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
-	var i = rowObject.id;&#xD;
-&#xD;
+	var i = rowObject.idcrm;&#xD;
+	if(rowObject.accountFilepath == undefined){&#xD;
+		rowObject.accountFilepath = &quot;上传后显示&quot;;&#xD;
+	}&#xD;
 	return '&lt;span id=&quot;'+i+'path&quot;>'+rowObject.accountFilepath+'&lt;/span>'
 },
 
@@ -705,7 +714,7 @@ tableButton_customFormatter:function(cellvalue,options,rowObject,dictValueExpres
 	 return &quot;&lt;button ng-click='functions.print(rowObject)'>上传银行卡照片&lt;/button>&quot;;&#xD;
 },&#xD;
 print:function(rowObject){&#xD;
-	var i = rowObject.id;&#xD;
+	var i = rowObject.idcrm;&#xD;
 	var pathid = i+&quot;path&quot;; &#xD;
 	Modal.open(&quot;f/accountFileUp&quot;,{},function(id){&#xD;
 		$(&quot;#&quot;+pathid).text(id);&#xD;
@@ -717,6 +726,7 @@ page_onload:function(){&#xD;
 		 account_rules[0]={field:&quot;lineid&quot;,op:&quot;eq&quot;,data:&quot;3231&quot;};&#xD;
 		var filters={ groupOp:&quot;AND&quot;, rules:account_rules};&#xD;
 		$view.listaccount.refresh({filters:filters});&#xD;
+		&#xD;
 	&#xD;
 },
 
@@ -725,17 +735,34 @@ buttonAccountUp_click:function($event){&#xD;
 	alert(accountRoData);
 	var accountList = new Array();&#xD;
 	for(var i in accountRoData ){&#xD;
-		var id = accountRoData[i].id;&#xD;
+		var id = accountRoData[i].idcrm;&#xD;
 		var pathid = id+'path';&#xD;
 		alert(pathid);&#xD;
 		alert($(&quot;#&quot;+pathid).text());&#xD;
-		alert($(&quot;#&quot;+pathid).text()==&quot;&quot;)&#xD;
-		if($(&quot;#&quot;+pathid).text()==&quot;&quot;){&#xD;
+		alert($(&quot;#&quot;+pathid).text()==&quot;上传后显示&quot;);&#xD;
+		if($(&quot;#&quot;+pathid).text()==&quot;上传后显示&quot;){&#xD;
 			Messenger.post({message:&quot;账户信息中有银行卡照片未上传！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});&#xD;
 			return;&#xD;
 		}&#xD;
 		accountRoData[i].accountFilepath = $(&quot;#&quot;+pathid).text();&#xD;
 		accountList[i] = accountRoData[i];&#xD;
 	}
+},
+
+buttonAccountAdd_click:function(rowId,rowData,tableData){
+	var ite = &quot;scoy&quot;+$params.idi;&#xD;
+	$view.listaccount.addRowData($params.idi,{idcrm:ite},&quot;last&quot;,null);&#xD;
+	$params.idi++;
+},
+
+buttonAccountDel_click:function(rowId,rowData,tableData){
+	
+},
+
+listaccount_loadComplete:function(data){
+	var listleng = $view.listaccount.getRowData();&#xD;
+	$params.idi= listleng.length+1;&#xD;
+	alert($params.idi);&#xD;
+	
 }</form:scripts>
 </form:Form>
