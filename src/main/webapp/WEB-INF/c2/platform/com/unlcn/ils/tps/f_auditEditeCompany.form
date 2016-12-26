@@ -44,6 +44,10 @@
               </dync:render>
               <dync:children/>
             </dync:attribute>
+            <dync:attribute default="true" group="HTML设置" id="show" name="可见" value="false">
+              <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
+              <dync:children/>
+            </dync:attribute>
           </form:attributes>
         </form:control>
         <form:validation/>
@@ -68,6 +72,10 @@
                 <dync:item name="链接" value="btn-link"/>
                 <dync:item name="通用" value="btn-white no-border"/>
               </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="true" group="HTML设置" id="show" name="可见" value="false">
+              <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>

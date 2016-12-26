@@ -44,6 +44,10 @@
               </dync:render>
               <dync:children/>
             </dync:attribute>
+            <dync:attribute default="true" group="HTML设置" id="show" name="可见" value="false">
+              <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
+              <dync:children/>
+            </dync:attribute>
           </form:attributes>
         </form:control>
         <form:validation/>
@@ -68,6 +72,10 @@
                 <dync:item name="链接" value="btn-link"/>
                 <dync:item name="通用" value="btn-white no-border"/>
               </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="true" group="HTML设置" id="show" name="可见" value="false">
+              <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
@@ -706,6 +714,8 @@
     <form:datasource xsi:type="form:LogicDataSource" id="provinceNames" name="省份名称" logic="rule:com.unlcn.ils.tps.s_getProvinceName" sn="s_getProvinceName"/>
     <form:datasource xsi:type="form:PagingDataSource" id="list1" name="列表型数据源" elementType="entity:com.unlcn.ils.tps.e_join_intentline" logic="com.unlcn.ils.tps.services.JoinInterLine" pageSize="10" type="custom"/>
     <form:datasource xsi:type="form:EntityDataSource" id="join_interline" name="单实体数据源" entity="entity:com.unlcn.ils.tps.e_join_intentline"/>
+    <form:datasource xsi:type="form:PagingDataSource" id="accountlist" name="列表型数据源" elementType="entity:com.unlcn.ils.tps.e_account" pageSize="10"/>
+    <form:datasource xsi:type="form:PagingDataSource" id="linkmanlist" name="列表型数据源" elementType="entity:com.unlcn.ils.tps.e_linkman" pageSize="10"/>
   </form:datasources>
   <form:scripts>
 
