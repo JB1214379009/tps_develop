@@ -14,7 +14,6 @@ import com.chinacreator.c2.dao.mybatis.enhance.Page;
 import com.chinacreator.c2.web.ds.ArrayContentProvider;
 import com.chinacreator.c2.web.ds.ArrayContext;
 import com.unlcn.ils.tps.E_account;
-import com.unlcn.ils.tps.E_join_intentline;
 
 public class JoinAccount implements ArrayContentProvider{
 	private static Logger logger=Logger.getLogger(Logger.class );
