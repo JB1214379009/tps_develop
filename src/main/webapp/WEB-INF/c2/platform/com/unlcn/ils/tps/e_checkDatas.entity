@@ -21,7 +21,7 @@
     <docket:attribute code="check_month" length="11" name="考核月份" nullable="true" type="string20" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="check_year" length="0" name="考核年份" nullable="true" type="int" default="">
+    <docket:attribute code="check_year" length="11" name="考核年份" nullable="true" type="string20" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="check_cycle" length="0" name="考核周期" nullable="true" type="int" default="">
