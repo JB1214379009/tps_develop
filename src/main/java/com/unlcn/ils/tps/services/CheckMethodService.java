@@ -14,6 +14,12 @@ import com.unlcn.ils.tps.E_method;
 import com.unlcn.ils.tps.ininterface.SqlInterface;
 
 public class CheckMethodService {
+	/**
+	 * 
+	 * @param data
+	 * @return
+	 * @Description:方法保存前处理
+	 */
 	public E_method checkMethod(E_method data) {
 		WebOperationContext context = (WebOperationContext)OperationContextHolder.getContext();
 		String username = context.getUser().getName();
@@ -22,6 +28,12 @@ public class CheckMethodService {
 		data.setCreateUser(username);
 		return data;
 	}
+	/**
+	 * 
+	 * @param idList
+	 * @return
+	 * @Description:删除方法
+	 */
 	public boolean deleteMethod( List<Integer> idList) {
 		Dao<E_method> dao=DaoFactory.create(E_method.class);
 		for (int i = 0; i <idList.size(); i++) {
@@ -32,6 +44,12 @@ public class CheckMethodService {
 		
 		return true;
 	}
+	/**
+	 * 
+	 * @param datas
+	 * @return
+	 * @Description:保存方法
+	 */
 	public boolean saveMethod(List<E_method> datas) {
 		WebOperationContext context = (WebOperationContext)OperationContextHolder.getContext();
 		String username = context.getUser().getName();
@@ -62,6 +80,9 @@ public class CheckMethodService {
 		}
 		return false;
 	}
+	/**
+	 * 返回所有方法
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public List<Map> getMethods() {
 		new DaoFactory();
@@ -84,6 +105,12 @@ public class CheckMethodService {
 		}
 		return returnList;
 	}
+	/**
+	 * 
+	 * @param methodName
+	 * @return
+	 * @Description:获取方法id
+	 */
 	public int getMethodLineid(String methodName) {
 		Dao<E_method> dao=DaoFactory.create(E_method.class);
 		E_method method=new E_method();

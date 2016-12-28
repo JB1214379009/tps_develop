@@ -8,8 +8,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import ch.qos.logback.core.joran.conditional.IfAction;
-
 import com.chinacreator.c2.context.OperationContextHolder;
 import com.chinacreator.c2.context.WebOperationContext;
 import com.chinacreator.c2.ioc.ApplicationContextManager;
