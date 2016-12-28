@@ -1525,7 +1525,7 @@
 //保存按钮，对错误信息和未填写的必填信息进行验证
 btn_add_click:function($event){
 	//alert($params.fileID)
-   /*if (!$view.mainForm.check())
+   if (!$view.mainForm.check())
 	{
 		Messenger.error('有错误或未填写的信息');
 		return;
@@ -1538,7 +1538,7 @@ btn_add_click:function($event){
 	if(idArr.length==0){
 		Messenger.post({message:&quot;意向线路至少添加一条以上！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;		
-	}*/
+	}
 	var accountRoData = $view.accountlist.getRowData();
 	if(accountRoData.length==0){
 		Messenger.post({message:&quot;账户信息至少添加一条以上！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	

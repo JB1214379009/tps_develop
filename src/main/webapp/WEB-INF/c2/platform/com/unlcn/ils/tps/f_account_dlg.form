@@ -308,14 +308,14 @@ colJqgrid_customFormatter:function(cellvalue,options,rowObject,dictValueExpressi
 	return &quot;&lt;button ng-click='functions.view(rowObject)'>预览照片&lt;/button>&quot;;
 },
 view:function(rowObject){
-	//alert(rowObject.accountFilepath);
-	$img_view = $(&quot;&lt;img/>&quot;);
-	$img_view.attr(&quot;src&quot;,rowObject.accountFilepath);
-	$('#img_id').empty().append($img_view);
+
+	/*$img_view = $(&quot;&lt;img/>&quot;);
+	$img_view.attr(&quot;src&quot;,rowObject.accountFilepath);*/
+	$('#img_id').empty().attr(&quot;src&quot;,rowObject.accountFilepath);
 	$view.div1.toggle();
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;div1_html&quot;>
-	&lt;div id=&quot;img_id&quot;>&lt;/div>
+	&lt;img id=&quot;img_id&quot; height=&quot;240&quot; width=&quot;320&quot;/>
 &lt;/script></form:htmls>
 </form:Form>
