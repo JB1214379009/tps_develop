@@ -30,13 +30,14 @@
   <form:scripts>
 
 page_onload:function(){
-	//alert($params.url);
+	/*//alert($params.url);
 	$img_person = $('&lt;img/>');
 	$img_person.attr('src', $params.url);
-	$('#img_div11').empty().append($img_person); 
+	$('#img_div11').empty().append($img_person); */
+	$('#img_div11').empty().attr('src', $params.url);
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;div_html&quot;>
-	&lt;div id=&quot;img_div11&quot;>&lt;/div>
+	&lt;img id=&quot;img_div11&quot; height=&quot;240&quot; width=&quot;320&quot;/>
 &lt;/script></form:htmls>
 </form:Form>

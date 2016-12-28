@@ -201,7 +201,7 @@ fileInputIframe_onSuccess:function(data){
 },
 
 fileInputIframe_onError:function(data){
-	Messenger.post({message:&quot;文件上传失败!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
+	Messenger.post({message:&quot;文件加载失败，请重新加载!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 },
 
 buttonAA_click:function($event){
