@@ -47,8 +47,8 @@ public class E_checkDatas implements Serializable {
 	/**
 	 *考核年份
 	 */
-	@Column(id = "check_year", datatype = "int")
-	private java.lang.Integer checkYear;
+	@Column(id = "check_year", datatype = "string20")
+	private java.lang.String checkYear;
 
 	/**
 	 *考核周期
@@ -189,14 +189,14 @@ public class E_checkDatas implements Serializable {
 	/**
 	 * 设置考核年份
 	 */
-	public void setCheckYear(java.lang.Integer checkYear) {
+	public void setCheckYear(java.lang.String checkYear) {
 		this.checkYear = checkYear;
 	}
 
 	/**
 	 * 获取考核年份
 	 */
-	public java.lang.Integer getCheckYear() {
+	public java.lang.String getCheckYear() {
 		return checkYear;
 	}
 
