@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dync="http://www.chinacreator.com/platform/mvc/ui/dync" xmlns:form="http://www.chinacreator.com/platform/mvc/form" name="分供方初步认证个人认证页面" sn="auditCertificDriver" type="form">
-  <form:control type="page/modal">
-    <form:attributes source="page/modal">
+  <form:control type="page/normal">
+    <form:attributes source="page/normal">
       <dync:attribute default="" group="事件" id="onload" name="页面加载完成" value="page_onload()">
         <dync:render colSpan="2" height="0" multi="false" name="event">
           <dync:item name="param" value=""/>
         </dync:render>
-        <dync:children/>
-      </dync:attribute>
-      <dync:attribute default="" group="HTML" id="width" name="页面宽度" value="80%">
-        <dync:render colSpan="2" height="0" multi="false" name="text"/>
         <dync:children/>
       </dync:attribute>
     </form:attributes>
@@ -1221,11 +1217,9 @@ button1_click:function($event){
 },
 
 page_onload:function(){
-	//var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
-	//alert(shippperid.cityid);
-	//$params.shippperid = shippperid;
-	$params.shippperid = $params.lineId;
-	//alert($params.shippperid.carNumber);
+	var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
+	$params.shippperid = shippperid;
+	//$params.shippperid = $params.lineId;
 	var cityName=functions.getCityName($params.shippperid.cityid);
 	$params.carNumber=$params.shippperid.carNumber;
 	$params.driverName=$params.shippperid.driverName;

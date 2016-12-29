@@ -601,7 +601,7 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -616,10 +616,6 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
             </form:attributes>
           </form:control>
         </form:child>
@@ -627,10 +623,6 @@
           <form:control type="widget/col_jqgrid">
             <form:attributes source="widget/col_jqgrid">
               <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -655,8 +647,25 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="number">
+                <dync:render colSpan="2" height="0" multi="false" name="select">
+                  <dync:item name="自定义" value="custom"/>
+                  <dync:item name="数字" value="number"/>
+                  <dync:item name="中文" value="zhCn"/>
+                  <dync:item name="手机号" value="mobile"/>
+                  <dync:item name="QQ" value="qq"/>
+                  <dync:item name="身份证" value="idCard"/>
+                  <dync:item name="邮箱" value="email"/>
+                  <dync:item name="URL" value="url"/>
+                </dync:render>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[0-9]*$">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="手机号码不正确!">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -676,10 +685,6 @@
           <form:control type="widget/col_jqgrid">
             <form:attributes source="widget/col_jqgrid">
               <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -858,10 +863,6 @@
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
               <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
@@ -891,10 +892,6 @@
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
               <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
@@ -907,10 +904,6 @@
           <form:control type="widget/col_jqgrid">
             <form:attributes source="widget/col_jqgrid">
               <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -929,12 +922,29 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="zhCn">
+                <dync:render colSpan="2" height="0" multi="false" name="select">
+                  <dync:item name="自定义" value="custom"/>
+                  <dync:item name="数字" value="number"/>
+                  <dync:item name="中文" value="zhCn"/>
+                  <dync:item name="手机号" value="mobile"/>
+                  <dync:item name="QQ" value="qq"/>
+                  <dync:item name="身份证" value="idCard"/>
+                  <dync:item name="邮箱" value="email"/>
+                  <dync:item name="URL" value="url"/>
+                </dync:render>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[\u4e00-\u9fa5]{0,}$">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="银行信息不正确!">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -945,10 +955,6 @@
           <form:control type="widget/col_jqgrid">
             <form:attributes source="widget/col_jqgrid">
               <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -994,6 +1000,23 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
+          </form:control>
+          <form:validation/>
+        </form:child>
+        <form:child xsi:type="form:Field" binding="fileUpPath" id="fileUpPath" name="银行卡照片" customize="true">
+          <form:control type="widget/col_jqgrid">
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="fileUpPath_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+                <dync:render colSpan="2" height="0" multi="false" name="event">
+                  <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+                </dync:render>
+                <dync:children/>
+              </dync:attribute>
             </form:attributes>
           </form:control>
           <form:validation/>
@@ -1002,10 +1025,6 @@
           <form:control type="widget/col_jqgrid">
             <form:attributes source="widget/col_jqgrid">
               <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
@@ -1024,12 +1043,29 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="zhCn">
+                <dync:render colSpan="2" height="0" multi="false" name="select">
+                  <dync:item name="自定义" value="custom"/>
+                  <dync:item name="数字" value="number"/>
+                  <dync:item name="中文" value="zhCn"/>
+                  <dync:item name="手机号" value="mobile"/>
+                  <dync:item name="QQ" value="qq"/>
+                  <dync:item name="身份证" value="idCard"/>
+                  <dync:item name="邮箱" value="email"/>
+                  <dync:item name="URL" value="url"/>
+                </dync:render>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[\u4e00-\u9fa5]{0,}$">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="开户行信息不正确!">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -1075,6 +1111,21 @@
                 <dync:render colSpan="2" height="0" multi="false" name="event">
                   <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
                 </dync:render>
+                <dync:children/>
+              </dync:attribute>
+            </form:attributes>
+          </form:control>
+          <form:validation/>
+        </form:child>
+        <form:child xsi:type="form:Field" binding="lineid" id="lineid" name="表格列" customize="true">
+          <form:control type="widget/col_jqgrid">
+            <form:attributes source="widget/col_jqgrid">
+              <dync:attribute default="false" group="表格设置" id="key" name="主键列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -1442,6 +1493,7 @@ getiIndex:function(){
 page_onload:function(){
 	var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
 	$params.info=shippperid;
+
 	$http.post(&quot;ws/s_getShipperFromCrmById&quot;,{&quot;shipperId&quot;:$params.info.shipperId})
 		.success(function(data){
 			console.info(data.result);
@@ -1597,14 +1649,66 @@ button5_click:function($event){
 		Messenger.post({message:&quot;手机未填写&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;		
 	}
-	var listLinkmanList = $view.linkmanlist.getRowData();
+	var linkmanRowData = $view.linkmanlist.getRowData();
+	if(linkmanRowData.length==0){
+		Messenger.post({message:&quot;联系人信息至少添加一条以上！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
+		return;		
+	}
+	var linkmanList = new Array();
+	for(var i in linkmanRowData){
+		if(linkmanRowData[i].department ==null || linkmanRowData[i].department == &quot;&quot;){
+			Messenger.post({message:&quot;联系人信息中有部门信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(linkmanRowData[i].job ==null || linkmanRowData[i].job == &quot;&quot;){
+			Messenger.post({message:&quot;联系人信息中有岗位信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(linkmanRowData[i].name ==null || linkmanRowData[i].name == &quot;&quot;){
+			Messenger.post({message:&quot;联系人信息中有联系人信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(linkmanRowData[i].phone ==null || linkmanRowData[i].phone == &quot;&quot;){
+			Messenger.post({message:&quot;联系人信息中有手机号码信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(linkmanRowData[i].email ==null || linkmanRowData[i].email == &quot;&quot;){
+			Messenger.post({message:&quot;联系人信息中有邮箱号信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		linkmanList[i] = linkmanRowData[i];
+	}
 	var listAccountList = $view.accountlist.getRowData();
+	if(listAccountList.length==0){
+		Messenger.post({message:&quot;账户信息至少添加一条以上！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
+		return;		
+	}
 	var accountList = new Array();
 	for(var i in listAccountList ){
 		var id = listAccountList[i].idcrm;
 		var pathid = id+'path';
 		if($(&quot;#&quot;+pathid).text()==&quot;上传后显示&quot;){
 			Messenger.post({message:&quot;账户信息中有银行卡照片未上传！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(listAccountList[i].bank ==null || listAccountList[i].bank == &quot;&quot;){
+			Messenger.post({message:&quot;账户信息中有银行名称信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(listAccountList[i].name ==null || listAccountList[i].name == &quot;&quot;){
+			Messenger.post({message:&quot;账户信息中有所有人名称信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(listAccountList[i].accountNumber ==null || listAccountList[i].accountNumber == &quot;&quot;){
+			Messenger.post({message:&quot;账户信息中有帐号信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(listAccountList[i].bankOpenBranch ==null || listAccountList[i].bankOpenBranch == &quot;&quot;){
+			Messenger.post({message:&quot;账户信息中有开户行信息称未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		if(listAccountList[i].ownerName ==null || listAccountList[i].ownerName == &quot;&quot;){
+			Messenger.post({message:&quot;账户信息中有开户人信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
 			return;
 		}
 		listAccountList[i].accountFilepath = $(&quot;#&quot;+pathid).text();
@@ -1618,7 +1722,7 @@ button5_click:function($event){
 		.success(function(data){
 			Messenger.post({message:&quot;基础信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 			Messenger.post({message:&quot;正在更新联系人信息&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
-			$http.post(&quot;ws/s_updatelinkman2Crm&quot;,{listLinkmanList:listLinkmanList,&quot;csdmid&quot;:$params.info.shipperId})
+			$http.post(&quot;ws/s_updatelinkman2Crm&quot;,{listLinkmanList:linkmanList,&quot;csdmid&quot;:$params.info.shipperId})
 				.success(function(data){
 					Messenger.post({message:&quot;联系人信息更新成功&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 					Messenger.post({message:&quot;正在更新账户信息&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
@@ -1816,9 +1920,12 @@ tableButton_customFormatter:function(cellvalue,options,rowObject,dictValueExpres
 },
 print:function(rowObject){
 	var i = rowObject.idcrm;
-	var pathid = i+&quot;path&quot;; 
+	var pathid = i+&quot;path&quot;;
+	var pathView = i+&quot;pathView&quot;;
 	Modal.open(&quot;f/accountFileUp&quot;,{},function(id){
 		$(&quot;#&quot;+pathid).text(id);
+		if(id!=null)
+		$(&quot;#&quot;+pathView).text(&quot;已上传&quot;);
 	});
 },
 
@@ -1844,5 +1951,15 @@ accountFilepath_customFormatter:function(cellvalue,options,rowObject,dictValueEx
 accountlist_loadComplete:function(data){
 	var accountlength = $view.accountlist.getRowData();
 	$params.idi = accountlength.length+1;
+},
+
+fileUpPath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	var i = rowObject.idcrm;
+	if(rowObject.accountFilepath == &quot;上传后显示&quot;||rowObject.accountFilepath == undefined){
+		rowObject.fileUpPath = &quot;未上传&quot;;
+	}else{
+		rowObject.fileUpPath = &quot;已上传&quot;;
+	}
+	return '&lt;span id=&quot;'+i+'pathView&quot;>'+rowObject.fileUpPath+'&lt;/span>'
 }</form:scripts>
 </form:Form>
