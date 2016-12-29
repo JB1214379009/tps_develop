@@ -1045,6 +1045,10 @@
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
           </form:attributes>
         </form:control>
       </form:child>
@@ -1816,9 +1820,10 @@ tableButton_customFormatter:function(cellvalue,options,rowObject,dictValueExpres
 print:function(rowObject){
 	var i = rowObject.lineid
 	var pathid = i+&quot;path&quot;; 
+	var viewPath = i+&quot;pathView&quot;;
 	Modal.open(&quot;f/accountFileUp&quot;,{},function(id){
 		$(&quot;#&quot;+pathid).text(id);
-		$(&quot;#&quot;+pathid).text(&quot;已上传&quot;);
+		$(&quot;#&quot;+viewPath).text(&quot;已上传&quot;);
 	});
 },
 accountFilepath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
@@ -1866,7 +1871,7 @@ buttonAddLinkman_click:function(rowId,rowData,tableData){
 
 fileUpPath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
 	var i = rowObject.lineid
-	return '&lt;span id=&quot;'+i+'pathView&quot;>'+&quot;上传后显示&quot;+'&lt;/span>'
+	return '&lt;span id=&quot;'+i+'pathView&quot;>'+&quot;未上传&quot;+'&lt;/span>'
 }</form:scripts>
   <form:htmls>&lt;script type=&quot;text/ng-template&quot; id=&quot;div1_html&quot;>
 *

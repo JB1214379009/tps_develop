@@ -122,7 +122,12 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="accountFilepath" id="accountFilepath" name="银行账号照片">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="ownerName" id="ownerName" name="开户人">
@@ -263,7 +268,34 @@
           </form:control>
         </form:child>
       </form:child>
+      <form:child xsi:type="form:Field" id="colJqgrid" name="照片预览" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="colJqgrid_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+              <dync:render colSpan="2" height="0" multi="false" name="event">
+                <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
     </form:child>
+  </form:child>
+  <form:child xsi:type="form:Group" id="div1" name="简单容器(DIV)">
+    <form:control type="container/div">
+      <form:attributes source="container/div">
+        <dync:attribute default="" group="高级自定义" id="html" name="自定义HTML" value="div1_html">
+          <dync:render colSpan="2" height="0" multi="false" name="html"/>
+          <dync:children/>
+        </dync:attribute>
+        <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="text-align:center ">
+          <dync:render colSpan="2" height="0" multi="false" name="text"/>
+          <dync:children/>
+        </dync:attribute>
+      </form:attributes>
+    </form:control>
   </form:child>
   <form:datasources>
     <form:datasource xsi:type="form:Inputs"/>
@@ -278,5 +310,17 @@ page_onload:function(){
 		var conditions = { groupOp:&quot;AND&quot;, rules:[{field:&quot;customerId&quot;,op:&quot;eq&quot;,data:$params.lineId.joinid},{field:&quot;flag&quot;,op:&quot;eq&quot;,data:1}]};
 	}
 	$view.list.refresh({filters:conditions});
+},
+
+colJqgrid_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	return &quot;&lt;button ng-click='functions.view(rowObject)'>预览照片&lt;/button>&quot;;
+},
+view:function(rowObject){
+	$('#img_id').empty().attr(&quot;src&quot;,rowObject.accountFilepath);
+	$view.div1.toggle();
 }</form:scripts>
+  <form:htmls>
+&lt;script type=&quot;text/ng-template&quot; id=&quot;div1_html&quot;>
+	&lt;img id=&quot;img_id&quot; height=&quot;240&quot; width=&quot;320&quot;/>
+&lt;/script></form:htmls>
 </form:Form>

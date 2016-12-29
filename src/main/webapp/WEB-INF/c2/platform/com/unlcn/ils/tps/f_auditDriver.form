@@ -1217,14 +1217,14 @@ buttonAuditUp_click:function($event){
 		Messenger.post({message:&quot;不能重复认证!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;		
 	}	
-	Modal.open(&quot;f/auditCertificDriver&quot;,{&quot;lineId&quot;:selArr[0]},function($params){
+/*	Modal.open(&quot;f/auditCertificDriver&quot;,{&quot;lineId&quot;:selArr[0]},function($params){
 		$view.custom_audit.refresh();
-	});		
-	/*var url='/tps/f/auditCertificDriver';
+	});*/		
+	var url='/tps/f/auditCertificDriver';
 	var title='加盟初步认证确认';
 	window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid =selArr[0];
 	functions.newTabop(url,title);
-	return;*/
+	return;
 },
 newTabop:function(url,title){
 	var a = $(&quot;&lt;a>&quot;);

@@ -122,7 +122,12 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="accountFilepath" id="accountFilepath" name="银行账号照片">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="ownerName" id="ownerName" name="开户人">
@@ -145,7 +150,7 @@
           <form:attributes source="widget/col_jqgrid"/>
         </form:control>
       </form:child>
-      <form:child xsi:type="form:Field" id="colJqgrid" name="表格列" customize="true">
+      <form:child xsi:type="form:Field" id="colJqgrid" name="照片预览" customize="true">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid">
             <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="colJqgrid_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
