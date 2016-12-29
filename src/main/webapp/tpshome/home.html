@@ -63,6 +63,16 @@
 		<script type="text/javascript" src="assets/jquery.min.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
+				  var w=window.parent.document.getElementsByTagName("div");
+				  var $w=$(w);
+				  var $thisIf = $(window.parent.document.getElementsByTagName("iframe"));
+				  $thisIf.each(function(index, el) {
+				    var strsrc = $(this).attr('src');
+				    if (strsrc.indexOf('tps/') != -1) {
+				        console.log('find');
+				        $(this).parent().parent().attr('style','padding-top:0px !important;');
+				      }
+				  });	
 				//给定顶部楼层宽度和间隙
 				var attWidth = $(".attic").width();
 				var floorWidth = $(".floor").width();

@@ -205,10 +205,10 @@ fileInputIframe_onError:function(data){
 },
 
 buttonAA_click:function($event){
-	var uur = $params.URL.url;
-	$img_view = $(&quot;&lt;img/>&quot;);
-	$img_view.attr(&quot;src&quot;,uur);
-	$('#img_id').empty().append($img_view);
+	var uur = $params.URL;
+/*	$img_view = $(&quot;&lt;img/>&quot;);
+	$img_view.attr(&quot;src&quot;,uur);*/
+	$('#img_id').empty().attr(&quot;src&quot;,uur);
 	$view.divView.toggle();
 },
 
@@ -217,6 +217,6 @@ page_onload:function(){
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;divView_html&quot;>
-	&lt;div id=&quot;img_id&quot;>&lt;/div>
+	&lt;img id=&quot;img_id&quot; height=&quot;240&quot; width=&quot;320&quot;/>
 &lt;/script></form:htmls>
 </form:Form>
