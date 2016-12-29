@@ -344,6 +344,6 @@ buttonA1_click:function($event){
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;divView_html&quot;>
-	&lt;div id=&quot;img_id&quot;>&lt;/div>
+	&lt;img id=&quot;img_id&quot; height=&quot;240&quot; width=&quot;320&quot; />
 &lt;/script></form:htmls>
 </form:Form>

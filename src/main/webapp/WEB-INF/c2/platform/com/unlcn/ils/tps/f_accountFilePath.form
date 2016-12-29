@@ -179,6 +179,10 @@
           <dync:render colSpan="2" height="0" multi="false" name="html"/>
           <dync:children/>
         </dync:attribute>
+        <dync:attribute default="" group="HTML配置" id="collapse" name="隐藏" value="true">
+          <dync:render colSpan="2" height="0" multi="false" name="text"/>
+          <dync:children/>
+        </dync:attribute>
       </form:attributes>
     </form:control>
   </form:child>
