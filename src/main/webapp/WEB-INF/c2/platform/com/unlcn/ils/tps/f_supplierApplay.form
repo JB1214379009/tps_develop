@@ -1048,6 +1048,19 @@
           </form:attributes>
         </form:control>
       </form:child>
+      <form:child xsi:type="form:Field" binding="fileUpPath" id="fileUpPath" name="银行卡照片" customize="true">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="" group="格式设置" id="customFormatter" name="自定义格式" value="fileUpPath_customFormatter(cellvalue,options,rowObject,dictValueExpression)">
+              <dync:render colSpan="2" height="0" multi="false" name="event">
+                <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+        <form:validation/>
+      </form:child>
       <form:child xsi:type="form:Field" binding="bankOpenBranch" id="bankOpenBranch" name="开户行">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid">
@@ -1525,7 +1538,7 @@
 //保存按钮，对错误信息和未填写的必填信息进行验证
 btn_add_click:function($event){
 	//alert($params.fileID)
-   /*if (!$view.mainForm.check())
+   if (!$view.mainForm.check())
 	{
 		Messenger.error('有错误或未填写的信息');
 		return;
@@ -1538,7 +1551,7 @@ btn_add_click:function($event){
 	if(idArr.length==0){
 		Messenger.post({message:&quot;意向线路至少添加一条以上！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;		
-	}*/
+	}
 	var accountRoData = $view.accountlist.getRowData();
 	if(accountRoData.length==0){
 		Messenger.post({message:&quot;账户信息至少添加一条以上！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
@@ -1805,6 +1818,7 @@ print:function(rowObject){
 	var pathid = i+&quot;path&quot;; 
 	Modal.open(&quot;f/accountFileUp&quot;,{},function(id){
 		$(&quot;#&quot;+pathid).text(id);
+		$(&quot;#&quot;+pathid).text(&quot;已上传&quot;);
 	});
 },
 accountFilepath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
@@ -1848,6 +1862,11 @@ buttonA_click:function($event){
 buttonAddLinkman_click:function(rowId,rowData,tableData){
 	$view.linkmanlist.addRowData($params.idd,{lineid:$params.idd},&quot;last&quot;,null);
 	$params.idd++;
+},
+
+fileUpPath_customFormatter:function(cellvalue,options,rowObject,dictValueExpression){
+	var i = rowObject.lineid
+	return '&lt;span id=&quot;'+i+'pathView&quot;>'+&quot;上传后显示&quot;+'&lt;/span>'
 }</form:scripts>
   <form:htmls>&lt;script type=&quot;text/ng-template&quot; id=&quot;div1_html&quot;>
 *
