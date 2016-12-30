@@ -199,7 +199,7 @@ button_click:function($event){
 		Messenger.post({message:&quot;文件上传成功!&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 	Modal.instance.close(id);
 	}else{
-		Messenger.post({message:&quot;文件上传失败，请重新上传!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+		Messenger.post({message:&quot;文件上传失败!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
 	}
 },
 

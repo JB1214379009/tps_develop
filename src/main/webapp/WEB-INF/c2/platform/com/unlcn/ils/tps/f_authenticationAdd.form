@@ -933,7 +933,17 @@ filedata_customFormatter:function(cellvalue,options,rowObject){
 	return &quot;&lt;button class='c2-button btn  btn-primary btn-sm no-border' ng-click='functions.showfile(rowObject)'>查看附件&lt;/button>&quot;;
 },
 
-page_beforeDataSourceLoad:function($params){
+page_beforeDataSourceLoad:function($params){&#xD;
+ var w=window.parent.document.getElementsByTagName(&quot;div&quot;);&#xD;
+  var $w=$(w);&#xD;
+  var $thisIf = $(window.parent.document.getElementsByTagName(&quot;iframe&quot;));&#xD;
+  $thisIf.each(function(index, el) {&#xD;
+    var strsrc = $(this).attr('src');&#xD;
+    if (strsrc.indexOf('tps/') != -1) {&#xD;
+        console.log('find');&#xD;
+        $(this).parent().parent().attr('style','padding-top:0px !important;');&#xD;
+      }&#xD;
+  });	
 },
 
 button_click:function($event){

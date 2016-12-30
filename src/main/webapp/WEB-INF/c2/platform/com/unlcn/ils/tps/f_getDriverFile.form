@@ -622,6 +622,7 @@ view:function(rowObject){
 
 buttonUP_click:function($event){
 	Modal.open(&quot;f/driverAttched_dlg&quot;,{&quot;info&quot;:$params.info},function(){
+		$view.cutom_join_file.refresh();
 	}); 
 }</form:scripts>
   <form:htmls>

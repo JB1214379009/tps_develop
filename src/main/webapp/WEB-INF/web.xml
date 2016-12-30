@@ -106,7 +106,7 @@
     <!-- shiro配置开始 -->
     
 
-  <!--   <filter>
+    <filter>
         <filter-name>shiroFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
         <init-param>
@@ -123,11 +123,11 @@
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping> -->
+    </filter-mapping>
 	 
    
 	<!-- 正式环境如下 -->
-	<filter>
+	<!-- <filter>
 	<filter-name>shiroOAuth2SSOFilter</filter-name>
 	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	<init-param>
@@ -166,7 +166,7 @@
 <filter-mapping>
 	<filter-name>shiroOAuth2SSOFilter</filter-name>
 	<url-pattern>/*</url-pattern>
-</filter-mapping>
+</filter-mapping> -->
 
   <servlet>
     <servlet-name>ExcelController</servlet-name>

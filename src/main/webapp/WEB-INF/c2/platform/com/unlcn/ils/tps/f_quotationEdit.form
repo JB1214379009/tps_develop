@@ -36,6 +36,12 @@
         </dync:render>
         <dync:children/>
       </dync:attribute>
+      <dync:attribute default="" group="事件" id="beforeDataSourceLoad" name="数据源加载前" value="page_beforeDataSourceLoad($params)">
+        <dync:render colSpan="2" height="0" multi="false" name="event">
+          <dync:item name="param" value="$params"/>
+        </dync:render>
+        <dync:children/>
+      </dync:attribute>
     </form:attributes>
   </form:control>
   <form:child xsi:type="form:Group" id="toolbarInnerWidget" name="顶部工具条">
@@ -2089,7 +2095,16 @@ btnremove_click:function($event){&#xD;
 },&#xD;
 &#xD;
 page_beforeDataSourceLoad:function($params){&#xD;
-	&#xD;
+		 var w=window.parent.document.getElementsByTagName(&quot;div&quot;);&#xD;
+  var $w=$(w);&#xD;
+  var $thisIf = $(window.parent.document.getElementsByTagName(&quot;iframe&quot;));&#xD;
+  $thisIf.each(function(index, el) {&#xD;
+    var strsrc = $(this).attr('src');&#xD;
+    if (strsrc.indexOf('tps/') != -1) {&#xD;
+        console.log('find');&#xD;
+        $(this).parent().parent().attr('style','padding-top:0px !important;');&#xD;
+      }&#xD;
+  });&#xD;
 },&#xD;
 &#xD;
 //增加支付方式列表&#xD;

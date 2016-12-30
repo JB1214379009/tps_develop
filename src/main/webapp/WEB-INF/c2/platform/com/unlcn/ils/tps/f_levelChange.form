@@ -18,7 +18,7 @@
         <dync:render/>
         <dync:children/>
       </dync:attribute>
-      <dync:attribute default="" group="事件" id="beforeDataSourceLoad" name="数据源加载前" value="">
+      <dync:attribute default="" group="事件" id="beforeDataSourceLoad" name="数据源加载前" value="page_beforeDataSourceLoad($params)">
         <dync:render/>
         <dync:children/>
       </dync:attribute>
@@ -1176,7 +1176,20 @@ select_click:function($event){&#xD;
 				});	&#xD;
 		return;&#xD;
 	}&#xD;
-}&#xD;
+},&#xD;
 &#xD;
-</form:scripts>
+
+
+page_beforeDataSourceLoad:function($params){
+	 var w=window.parent.document.getElementsByTagName(&quot;div&quot;);&#xD;
+  var $w=$(w);&#xD;
+  var $thisIf = $(window.parent.document.getElementsByTagName(&quot;iframe&quot;));&#xD;
+  $thisIf.each(function(index, el) {&#xD;
+    var strsrc = $(this).attr('src');&#xD;
+    if (strsrc.indexOf('tps/') != -1) {&#xD;
+        console.log('find');&#xD;
+        $(this).parent().parent().attr('style','padding-top:0px !important;');&#xD;
+      }&#xD;
+  });	
+}</form:scripts>
 </form:Form>
