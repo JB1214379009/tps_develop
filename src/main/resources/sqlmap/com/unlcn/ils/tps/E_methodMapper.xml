@@ -126,11 +126,11 @@
 </select>
 
 <!-- ElementID:selectByID,Generated=true -->
-<select id="selectByID" parameterType="java.lang.Integer" resultMap="E_methodResult">
+<select id="selectByID" parameterType="java.lang.String" resultMap="E_methodResult">
 	select 
 		<include refid="column_sql"/>
 	    from td_method 
-		 where td_method.lineid = #{lineid,jdbcType=NUMERIC}
+		 where td_method.lineid = #{lineid,jdbcType=VARCHAR}
 </select>
 
 <!-- ElementID:selectByPage,Generated=true -->
@@ -171,32 +171,27 @@ select
 </select>
 
 <!-- ElementID:insert,Generated=true -->
-<insert id="insert" parameterType="com.unlcn.ils.tps.E_method" useGeneratedKeys="true">
-	<selectKey keyProperty="lineid" resultType="java.lang.Integer" order="AFTER">
-        select LAST_INSERT_ID()
-    </selectKey>
-insert into td_method(
-		<trim prefixOverrides=",">
-		    <if test="method != null">method</if>
-		    <if test="leftNode != null">,left_node</if>
-		    <if test="rightNode != null">,right_node</if>
-		    <if test="subMoney != null">,sub_money</if>
-		    <if test="target != null">,target</if>
-		    <if test="createTime != null">,create_time</if>
-		    <if test="createUser != null">,create_user</if>
-		</trim>
-	 )
+<insert id="insert" parameterType="com.unlcn.ils.tps.E_method">
+	insert into td_method(
+	         <if test="lineid != null">lineid</if>
+	         <if test="method != null">,method</if>
+	         <if test="leftNode != null">,left_node</if>
+	         <if test="rightNode != null">,right_node</if>
+	         <if test="subMoney != null">,sub_money</if>
+	         <if test="target != null">,target</if>
+	         <if test="createTime != null">,create_time</if>
+	         <if test="createUser != null">,create_user</if>
+	 	 	 )
 	 values (
-		<trim prefixOverrides=",">
-		    <if test="method != null">#{method,jdbcType=VARCHAR}</if>
-		    <if test="leftNode != null">,#{leftNode,jdbcType=NUMERIC}</if>
-		    <if test="rightNode != null">,#{rightNode,jdbcType=NUMERIC}</if>
-		    <if test="subMoney != null">,#{subMoney,jdbcType=NUMERIC}</if>
-		    <if test="target != null">,#{target,jdbcType=NUMERIC}</if>
-		    <if test="createTime != null">,#{createTime,jdbcType=TIMESTAMP}</if>
-		    <if test="createUser != null">,#{createUser,jdbcType=VARCHAR}</if>
-        </trim>
-	 )
+	         <if test="lineid != null">#{lineid,jdbcType=VARCHAR}</if>
+	         <if test="method != null">,#{method,jdbcType=VARCHAR}</if>
+	         <if test="leftNode != null">,#{leftNode,jdbcType=NUMERIC}</if>
+	         <if test="rightNode != null">,#{rightNode,jdbcType=NUMERIC}</if>
+	         <if test="subMoney != null">,#{subMoney,jdbcType=NUMERIC}</if>
+	         <if test="target != null">,#{target,jdbcType=NUMERIC}</if>
+	         <if test="createTime != null">,#{createTime,jdbcType=TIMESTAMP}</if>
+	         <if test="createUser != null">,#{createUser,jdbcType=VARCHAR}</if>
+	 	 	 )
 </insert>
 
 <!-- ElementID:insertBatch,Generated=true -->
@@ -215,19 +210,19 @@ insert into td_method(
 				)
 </foreach>
 </insert> -->
-<insert id="insertBatch" parameterType="list" useGeneratedKeys="true">
-	insert into td_method (method,left_node,right_node,sub_money,target,create_time,create_user)
-			values 
-			<foreach collection="list" item="entity" index="index" separator=",">
-				(
-		         #{entity.method,jdbcType = VARCHAR},
-		         #{entity.leftNode,jdbcType = NUMERIC},
-		         #{entity.rightNode,jdbcType = NUMERIC},
-		         #{entity.subMoney,jdbcType = NUMERIC},
-		         #{entity.target,jdbcType = NUMERIC},
-		         #{entity.createTime,jdbcType = TIMESTAMP},
-		         #{entity.createUser,jdbcType = VARCHAR}
-				)
+<insert id="insertBatch" parameterType="list">
+	insert into td_method (lineid,method,left_node,right_node,sub_money,target,create_time,create_user) 
+<foreach collection="list" item="entity" index="index" separator="union all">
+		select 
+		#{entity.lineid,jdbcType = VARCHAR},
+				#{entity.method,jdbcType = VARCHAR},
+				#{entity.leftNode,jdbcType = NUMERIC},
+				#{entity.rightNode,jdbcType = NUMERIC},
+				#{entity.subMoney,jdbcType = NUMERIC},
+				#{entity.target,jdbcType = NUMERIC},
+				#{entity.createTime,jdbcType = TIMESTAMP},
+				#{entity.createUser,jdbcType = VARCHAR}
+		from dual
 </foreach>
 </insert>
 </mapper>

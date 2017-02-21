@@ -12,8 +12,7 @@ import com.unlcn.ils.erp.service.*;
 
   
 //得到物货型号信息
-public class StyleInterface {       
-	
+public class StyleInterface {
 	static VehicleService dbService=(VehicleService)ApplicationContextManager.getContext().getBean("vehicleService");
 	public static List<Map<String,String>> getDataByCustomer(String customerid)
 	{
@@ -89,4 +88,6 @@ public class StyleInterface {
 			return map;	
 		}	
 	}
+	
+	
 }

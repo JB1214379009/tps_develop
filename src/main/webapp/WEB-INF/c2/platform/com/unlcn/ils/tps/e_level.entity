@@ -35,11 +35,6 @@
   <docket:events>
     <docket:event id="add" name="新增">
       <docket:logic>
-        <node xsi:type="RuleRef" id="s_addLevel" name="新增级别" ruleId="rule:com.unlcn.ils.tps.s_addLevel">
-          <inputs>
-            <input code="data" from="data"/>
-          </inputs>
-        </node>
         <node xsi:type="RuleRef" id="insert" name="单记录插入" ruleId="rule:c2.dao.insert">
           <inputs>
             <input autoFrom="data" code="entity"/>

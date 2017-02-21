@@ -375,10 +375,14 @@ buttonView_click:function(rowId,rowData,tableData){
 		tableData[i].rightNode=&quot;&quot;;
 		if(tableData[i].subMoney==undefined||tableData[i].subMoney.length==0)
 		tableData[i].subMoney=&quot;&quot;;
+		if(tableData[i].lineid==undefined||tableData[i].lineid.length==0)
+		tableData[i].lineid=&quot;-1&quot;;
+		
 		var value=tableData[i].target;
 		value=functions.nameToValue(value);
 		tableData[i].target=value;
 	}
+	debugger;
 	$http.post(&quot;ws/s_saveMethod&quot;,{&quot;datas&quot;:tableData})
 	.success(function(){
 		 Messenger.post({type:'success',message:'保存成功'});
@@ -436,6 +440,7 @@ list_beforeProcessing:function(data,status,xhr){
 buttonDel_click:function(rowId,rowData,tableData){
 	var data=$view.list.getSelectDatas();
 	var id=	$view.list.getSelectRowIds();
+	debugger;
 	Modal.openConfirm({message:&quot;是否确认删除?&quot;},function($params){
 		var arr=new Array();
 		for(var i=0, j=0;i&lt;data.length;i++){	

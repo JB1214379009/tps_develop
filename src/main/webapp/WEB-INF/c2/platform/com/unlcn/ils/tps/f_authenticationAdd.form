@@ -843,7 +843,8 @@ mulifile_onError:function(data){&#xD;
 
 page_onload:function(){&#xD;
 	debugger;&#xD;
-	var shipperId=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shipperid;&#xD;
+	//var shipperId=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shipperid;&#xD;
+	var shipperId=3252;&#xD;
 	var strshipper=shipperId+&quot;&quot;;&#xD;
 	$params.shipperid=strshipper;&#xD;
 	$http.post(&quot;ws/s_getShipperById&quot;,{&quot;shippperid&quot;:strshipper})&#xD;

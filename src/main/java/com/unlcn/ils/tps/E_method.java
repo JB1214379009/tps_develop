@@ -17,8 +17,8 @@ public class E_method implements Serializable {
 	/**
 	 *序号
 	 */
-	@Column(id = "lineid", type = ColumnType.increment, datatype = "int")
-	private java.lang.Integer lineid;
+	@Column(id = "lineid", type = ColumnType.uuid, datatype = "string32")
+	private java.lang.String lineid;
 
 	/**
 	 *方法名
@@ -65,14 +65,14 @@ public class E_method implements Serializable {
 	/**
 	 * 设置序号
 	 */
-	public void setLineid(java.lang.Integer lineid) {
+	public void setLineid(java.lang.String lineid) {
 		this.lineid = lineid;
 	}
 
 	/**
 	 * 获取序号
 	 */
-	public java.lang.Integer getLineid() {
+	public java.lang.String getLineid() {
 		return lineid;
 	}
 

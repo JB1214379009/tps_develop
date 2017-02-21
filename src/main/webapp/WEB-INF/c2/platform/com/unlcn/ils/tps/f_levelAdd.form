@@ -360,14 +360,16 @@ button3_click:function($event){
 },
 
 edit_click:function($event){
+	var data=$view.list.getTableData().contents;
 	var ob=$view.list.getSelectDatas();
 	if(ob.length!=1)
 	{
 		Messenger.post({type:'error',message:'请选择一条数据'});
 		return false;
 	}
-	var DataList=ob[0].lineid;
-	Modal.open(&quot;f/quotationDelete&quot;,{&quot;DataList&quot;:DataList},function($params){
+	var DataList=ob[0];
+	debugger
+	Modal.open(&quot;f/levelEdit&quot;,{&quot;DataList&quot;:DataList,&quot;data&quot;:data},function($params){
 	$view.list.refresh();
 		});
 },

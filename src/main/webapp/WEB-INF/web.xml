@@ -127,7 +127,7 @@
 	 
    
 	<!-- 正式环境如下 -->
-	<!-- <filter>
+<!-- 	<filter>
 	<filter-name>shiroOAuth2SSOFilter</filter-name>
 	<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	<init-param>

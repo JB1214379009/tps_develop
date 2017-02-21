@@ -9,7 +9,7 @@ import com.chinacreator.c2.annotation.Entity;
 /**
  * 级别字典
  * @author 
- * @generated  
+ * @generated
  */
 @Entity(id = "entity:com.unlcn.ils.tps.e_level", table = "tps_level", ds = "ilsdb")
 public class E_level implements Serializable {

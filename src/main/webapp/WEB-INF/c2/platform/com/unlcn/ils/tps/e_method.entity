@@ -3,10 +3,10 @@
   <docket:name>计算方法表</docket:name>
   <docket:createType>来自数据库</docket:createType>
   <docket:primaryKey>
-    <docket:pkAttribute attribute="lineid"/>
+    <docket:pkAttribute attribute="lineid" type="UUID"/>
   </docket:primaryKey>
   <docket:attributes>
-    <docket:attribute code="lineid" length="0" name="序号" nullable="false" type="int" default="">
+    <docket:attribute code="lineid" length="25" name="序号" nullable="false" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="method" length="50" name="方法名" nullable="true" type="string64" default="">

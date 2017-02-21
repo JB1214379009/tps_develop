@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.chinacreator.c2.context.OperationContextHolder;
 import com.chinacreator.c2.context.WebOperationContext;
 import com.chinacreator.c2.dao.Dao;
@@ -14,6 +16,7 @@ import com.unlcn.ils.tps.E_method;
 import com.unlcn.ils.tps.ininterface.SqlInterface;
 
 public class CheckMethodService {
+	private static  final Logger log = Logger.getLogger(Logger .class);
 	/**
 	 * 
 	 * @param data
@@ -65,13 +68,14 @@ public class CheckMethodService {
 			e_method.setRightNode(datas.get(i).getRightNode());
 			e_method.setSubMoney(datas.get(i).getSubMoney());
 			e_method.setTarget(datas.get(i).getTarget());
-			
-			if(datas.get(i).getLineid()==null)
-			{
+			log.info("lineid为："+datas.get(i).getLineid());
+			if(datas.get(i).getLineid().equals("-1"))
+			{	log.info("判断了lineid");
 				SqlInterface sqlInterface=new SqlInterface();
 				String lineid=sqlInterface.getNextVal("SEQ_TPS_TD_METHOD");
-				e_method.setLineid(Integer.valueOf(lineid));
+				e_method.setLineid(lineid);
 				dao.insert(e_method);
+				log.info("新增了数据");
 			}
 			else {
 				e_method.setLineid(datas.get(i).getLineid());
@@ -117,6 +121,6 @@ public class CheckMethodService {
 		method.setMethod(methodName);
 		method=dao.selectOne(method);
 		
-		return method.getLineid();
+		return Integer.valueOf(method.getLineid());
 	}
 }
