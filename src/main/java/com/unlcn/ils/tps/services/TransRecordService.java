@@ -49,6 +49,7 @@ public class TransRecordService implements ArrayContentProvider{
 		TransportInterface transportInterface=new TransportInterface();
 		FleetDto fleetDto=new FleetDto();
 		fleetDto.setVcfleetname(lineid);
+		//fleetDto.setVcfleetname("中联景德镇队");
 		 GregorianCalendar startCalendar=new GregorianCalendar();
 		 Integer startyear=startCalendar.get(Calendar.YEAR);
 		 Integer startmonth=startCalendar.get(Calendar.MONTH)+1;
@@ -58,8 +59,8 @@ public class TransRecordService implements ArrayContentProvider{
 		 Integer endyear=endCalendar.get(Calendar.YEAR);
 		 Integer endmonth=endCalendar.get(Calendar.MONTH)+1;
 		 Integer endday=endCalendar.get(Calendar.DAY_OF_MONTH);		 
-		 String startDate=startyear+"-"+startmonth+"-"+startday;
-		 String endDate=endyear+"-"+endmonth+"-"+endday;
+		 String endDate=startyear+"-"+startmonth+"-"+startday;
+		 String startDate=endyear+"-"+endmonth+"-"+endday;
 		fleetDto.setStartDate(startDate);
 		fleetDto.setEndDate(endDate);
 		List<Map<String, String>>	returnlist=transportInterface.getTransByidFromCrm(fleetDto);

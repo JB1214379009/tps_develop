@@ -475,6 +475,10 @@
             </dync:render>
             <dync:children/>
           </dync:attribute>
+          <dync:attribute default="" group="排序" id="sortname" name="排序列" value="audit_time">
+            <dync:render colSpan="1" height="0" multi="false" name="text"/>
+            <dync:children/>
+          </dync:attribute>
         </form:attributes>
       </form:control>
       <form:child xsi:type="form:Field" binding="lineId" id="lineId" name="初审表主键" customize="true">
@@ -709,6 +713,10 @@
             </dync:attribute>
             <dync:attribute default="" group="格式设置" id="formatoptions" name="预定格式设置" value="{dateFormat:&quot;yyyy-MM-dd&quot;}">
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="表格设置" id="sortable" name="排序" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>

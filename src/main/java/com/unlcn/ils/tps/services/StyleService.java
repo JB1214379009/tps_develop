@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List; 
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.chinacreator.c2.config.ConfigManager;
 import com.chinacreator.c2.ioc.ApplicationContextManager;
 import com.unlcn.ils.erp.dto.CargoDto;
@@ -25,49 +27,12 @@ public class StyleService {
 	 * @return
 	 * @Description:根据客户id，返回货物型号记录
 	 */
-	//static VehicleService dbService=(VehicleService)ApplicationContextManager.getContext().getBean("vehicleService");
+	private static  final Logger log = Logger.getLogger(Logger .class);
 	public List<Map<String,String>> getDataByCustomerId(String customerid)
 	{	
-		//return StyleInterface.getDataByCustomer(customerid);
-		//返回数据
-				List<Map<String,String>> mapresult=new ArrayList<Map<String,String>>();
-				
-				
-				//接口数据源方式
-				String datasouce = ConfigManager.getInstance().getConfig("datasouce");
-				VehicleService dbService=(VehicleService)ApplicationContextManager.getContext().getBean("vehicleService");
-				if (!datasouce.equals("local"))
-				{
-					CargoDto cargo = new CargoDto();
-					//customerid="1";
-					cargo.setCustomerId(customerid);
-					if ( dbService==null )
-						dbService=(VehicleService)ApplicationContextManager.getContext().getBean("vehicleService");
-					List<CargoDto> listdata= dbService.queryVehicle(cargo);
-					
-					for(int i=0;i<listdata.size();i++)
-					{
-						Map<String,String> map=new HashMap<String,String> ();
-						CargoDto data= listdata.get(i);
-						map.put("lineid", data.getStyleId().toString());
-						//map.put("lineid",String.valueOf(i));
-						map.put("stylename", data.getVcstylename());
-						mapresult.add(map);
-					}			
-					return mapresult;
-					
-				}
-				else
-				{	
-					for(int i=0;i<10;i++)
-					{
-						Map<String,String> map=new HashMap<String,String> ();
-						map.put("lineid",String.valueOf(i));
-						map.put("stylename","style"+String.valueOf(i));
-						mapresult.add(map);
-					}
-					return mapresult;
-				}
+		log.info("开始调用车型接口");
+		return StyleInterface.getDataByCustomer(customerid);
+		
 	}
 	
 	public Map<String,String> getStyleById(String styleid)

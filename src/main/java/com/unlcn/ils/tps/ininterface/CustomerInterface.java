@@ -41,6 +41,7 @@ public class CustomerInterface {
 			Consigner searchconsignor = new Consigner();
 			CustomerInfo info = new CustomerInfo();
 			info.setId("C"+customerid);
+			//info.setId(customerid);
 			searchconsignor.setCustomerId(info);
 			
 			List<Consigner> objcustom=dbService.getConsignor(searchconsignor);

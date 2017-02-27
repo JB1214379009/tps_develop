@@ -726,8 +726,8 @@
   </form:datasources>
   <form:scripts>
 page_onload:function(){
-	//var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
-	var shippperid=1000;
+	var shippperid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid;
+	//var shippperid=3270;
 	$params.shipper_lineid=shippperid;
 	$http.post(&quot;ws/s_getinfo&quot;,{&quot;shippperid&quot;:$params.shipper_lineid})
 		.success(function(data){ 

@@ -1,33 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form:Form xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dync="http://www.chinacreator.com/platform/mvc/ui/dync" xmlns:form="http://www.chinacreator.com/platform/mvc/form" name="认证确定" sn="authenticationadd" type="form">
-  <form:control type="page/normal">
-    <form:attributes source="page/normal">
-      <dync:attribute default="" group="HTML" id="showHead" name="显示标题" value="true">
-        <dync:render/>
-        <dync:children/>
-      </dync:attribute>
-      <dync:attribute default="" group="HTML" id="title" name="标题" value="认证确定">
-        <dync:render/>
-        <dync:children/>
-      </dync:attribute>
-      <dync:attribute default="" group="HTML" id="desc" name="描述" value="">
-        <dync:render/>
-        <dync:children/>
-      </dync:attribute>
-      <dync:attribute default="false" group="HTML" id="fixedHeight" name="自动高度" value="false">
-        <dync:render/>
-        <dync:children/>
-      </dync:attribute>
-      <dync:attribute default="false" group="HTML" id="compact" name="紧凑页面" value="false">
-        <dync:render/>
-        <dync:children/>
-      </dync:attribute>
-      <dync:attribute default="false" group="HTML" id="dirtyCheck" name="脏检查" value="false">
-        <dync:render/>
-        <dync:children/>
-      </dync:attribute>
-      <dync:attribute default="" group="事件" id="afterDataSourceLoad" name="数据源加载后" value="">
-        <dync:render/>
+  <form:control type="page/modal">
+    <form:attributes source="page/modal">
+      <dync:attribute default="" group="事件" id="beforeDataSourceLoad" name="数据源加载前" value="page_beforeDataSourceLoad($params)">
+        <dync:render colSpan="2" height="0" multi="false" name="event">
+          <dync:item name="param" value="$params"/>
+        </dync:render>
         <dync:children/>
       </dync:attribute>
       <dync:attribute default="" group="事件" id="onload" name="页面加载完成" value="page_onload()">
@@ -36,10 +14,8 @@
         </dync:render>
         <dync:children/>
       </dync:attribute>
-      <dync:attribute default="" group="事件" id="beforeDataSourceLoad" name="数据源加载前" value="page_beforeDataSourceLoad($params)">
-        <dync:render colSpan="2" height="0" multi="false" name="event">
-          <dync:item name="param" value="$params"/>
-        </dync:render>
+      <dync:attribute default="" group="HTML" id="width" name="页面宽度" value="90%">
+        <dync:render colSpan="2" height="0" multi="false" name="text"/>
         <dync:children/>
       </dync:attribute>
     </form:attributes>
@@ -167,20 +143,6 @@
             </dync:attribute>
           </form:attributes>
         </form:control>
-        <form:child xsi:type="form:Group" id="div2" name="简单容器(DIV)">
-          <form:control type="container/div">
-            <form:attributes source="container/div">
-              <dync:attribute default="12" group="HTML配置" id="span" name="占位数" value="1">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="高级自定义" id="style" name="自定义style" value="width:20px;">
-                <dync:render colSpan="2" height="0" multi="false" name="text"/>
-                <dync:children/>
-              </dync:attribute>
-            </form:attributes>
-          </form:control>
-        </form:child>
         <form:child xsi:type="form:Field" binding="$params.begindate" id="begindate" name="有效日" customize="true">
           <form:control type="widget/date_picker">
             <form:attributes source="widget/date_picker">
@@ -188,11 +150,11 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="6" group="基本设置" id="span" name="控件宽度" value="3">
+              <dync:attribute default="6" group="基本设置" id="span" name="控件宽度" value="4">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="75" group="基本设置" id="lableWidth" name="文字宽度" value="55">
+              <dync:attribute default="75" group="基本设置" id="lableWidth" name="文字宽度" value="45">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
@@ -203,7 +165,7 @@
         <form:child xsi:type="form:Field" binding="$params.enddate" id="enddate" name="到">
           <form:control type="widget/date_picker">
             <form:attributes source="widget/date_picker">
-              <dync:attribute default="6" group="基本设置" id="span" name="控件宽度" value="3">
+              <dync:attribute default="6" group="基本设置" id="span" name="控件宽度" value="4">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
@@ -221,7 +183,7 @@
         <form:child xsi:type="form:Field" binding="$params.okmemo" id="txamemo" name="备注" customize="true">
           <form:control type="widget/textarea">
             <form:attributes source="widget/textarea">
-              <dync:attribute default="12" group="HTML设置" id="span" name="占位数" value="5">
+              <dync:attribute default="12" group="HTML设置" id="span" name="占位数" value="4">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
@@ -362,12 +324,7 @@
   </form:child>
   <form:child xsi:type="form:Group" id="div11" name="简单容器(DIV)">
     <form:control type="container/div">
-      <form:attributes source="container/div">
-        <dync:attribute default="" group="高级自定义" id="cssClass" name="自定义class" value="condition_div">
-          <dync:render colSpan="2" height="0" multi="false" name="text"/>
-          <dync:children/>
-        </dync:attribute>
-      </form:attributes>
+      <form:attributes source="container/div"/>
     </form:control>
     <form:child xsi:type="form:Group" id="div4" name="简单容器(DIV)">
       <form:control type="container/div">
@@ -799,9 +756,10 @@ savedata:function(filedata)&#xD;
         url: 'ws/s_authenticationadd',&#xD;
         headers: {'Content-Type': 'application/json'},&#xD;
         data:{'postdata':postdata,'filedata':file,'shipper_id':shipperid,'result':authresult,'filecount':filecount}&#xD;
-    }).success(function(data,status,headers,config) {    &#xD;
+    }).success(function(data,status,headers,config) {  &#xD;
+    debugger;  &#xD;
     	Messenger.success('保存成功');&#xD;
-    	&#xD;
+    	Modal.instance.close();&#xD;
     	var ravalue = $view.raresult.getDefaultValue(&quot;yes&quot;);&#xD;
     	$view.mainForm.clean();&#xD;
     	$view.raresult.setDefaultValue(ravalue);//默认选择&#xD;
@@ -844,7 +802,7 @@ mulifile_onError:function(data){&#xD;
 page_onload:function(){&#xD;
 	debugger;&#xD;
 	//var shipperId=window.parent.angular.element(&quot;#indexConScope&quot;).scope().shipperid;&#xD;
-	var shipperId=3252;&#xD;
+	var shipperId=$params.shipperid;&#xD;
 	var strshipper=shipperId+&quot;&quot;;&#xD;
 	$params.shipperid=strshipper;&#xD;
 	$http.post(&quot;ws/s_getShipperById&quot;,{&quot;shippperid&quot;:strshipper})&#xD;
