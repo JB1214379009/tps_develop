@@ -46,6 +46,7 @@ public class LinkmanInterface {
 	public List<Map<String, String>> getLinkmanByidFromCrm(Linkman linkman,String lineid){
 		log.info("获取联系人信息开始");
 		List<Linkman> lists=getLinkmanByid(linkman);
+		log.info("获取的联系人长度为："+lists.size());
 		List<Map<String,String>> returnlist=new ArrayList<Map<String,String>>();
 		for(int i=0;i<lists.size();i++)
 		{
@@ -77,9 +78,11 @@ public class LinkmanInterface {
 			map.put("qq", linkmanlist.getQq());
 			if(linkmanlist.getEmail()!=null)
 			map.put("email", linkmanlist.getEmail());
+			log.info(map);
 			returnlist.add(map);
 	}
 		log.info("获取结束");
+		
 		return returnlist;
 	}
 	public boolean updateLinkman2Crm_dlg(List<E_linkman>listLinkmanList,String csdmid) {

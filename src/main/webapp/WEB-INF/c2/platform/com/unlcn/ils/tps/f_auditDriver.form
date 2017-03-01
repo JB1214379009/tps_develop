@@ -493,7 +493,7 @@
             </dync:render>
             <dync:children/>
           </dync:attribute>
-          <dync:attribute default="" group="排序" id="sortname" name="排序列" value="lineId">
+          <dync:attribute default="" group="排序" id="sortname" name="排序列" value="createTime">
             <dync:render colSpan="1" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
@@ -669,10 +669,6 @@
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="false" group="表格设置" id="sortable" name="排序" value="true">
-              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-              <dync:children/>
-            </dync:attribute>
           </form:attributes>
         </form:control>
         <form:validation/>
@@ -814,6 +810,10 @@
               <dync:children/>
             </dync:attribute>
             <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="表格设置" id="sortable" name="排序" value="true">
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
