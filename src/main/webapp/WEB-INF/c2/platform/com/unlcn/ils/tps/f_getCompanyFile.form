@@ -8,6 +8,10 @@
         </dync:render>
         <dync:children/>
       </dync:attribute>
+      <dync:attribute default="" group="HTML" id="width" name="页面宽度" value="80%">
+        <dync:render colSpan="2" height="0" multi="false" name="text"/>
+        <dync:children/>
+      </dync:attribute>
     </form:attributes>
   </form:control>
   <form:child xsi:type="form:Group" id="widgetbox" name="附件一览表">
@@ -532,6 +536,7 @@ view:function(rowObject){
 
 buttonUp_click:function($event){
 	Modal.open(&quot;f/companyAttched_dlg&quot;,{&quot;info&quot;:$params.info},function(){
+	$view.cutom_join_file.refresh();
 	});
 }</form:scripts>
   <form:htmls>

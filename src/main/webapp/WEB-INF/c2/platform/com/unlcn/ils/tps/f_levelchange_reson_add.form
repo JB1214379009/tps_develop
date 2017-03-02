@@ -123,7 +123,7 @@ button2_click:function($event){
 		Messenger.post({type:'error',message:'级别调整原因未填写!'});
 		return;
 	}
-	for(var i=0;i&lt;$params.data.length;i++){
+	/*for(var i=0;i&lt;$params.data.length;i++){
 		if($model.entity.resonchangeName==$params.data[i].resonchangeName)
 		{	Messenger.post({type:'info',message:'该原因已存在'})
 				return false;
@@ -132,7 +132,16 @@ button2_click:function($event){
 	$model.entity.$save(function(){
         Modal.instance.close();
         Messenger.post({type:'success',message:'新增成功'});
-    });
+    });*/
+    $http.post(&quot;ws/s_addReason&quot;,{&quot;data&quot;:$model.entity})
+		.success(function(data){
+		if(data.result==true)
+		Messenger.post({type:'error',message:'该原因已存在'});
+		else{
+			Messenger.post({type:'success',message:'新增成功'});
+			Modal.instance.close();
+		}
+	});
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;div6_html&quot;>

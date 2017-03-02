@@ -12,6 +12,12 @@
         <dync:render colSpan="2" height="0" multi="false" name="text"/>
         <dync:children/>
       </dync:attribute>
+      <dync:attribute default="" group="事件" id="beforeDataSourceLoad" name="数据源加载前" value="page_beforeDataSourceLoad($params)">
+        <dync:render colSpan="2" height="0" multi="false" name="event">
+          <dync:item name="param" value="$params"/>
+        </dync:render>
+        <dync:children/>
+      </dync:attribute>
     </form:attributes>
   </form:control>
   <form:child xsi:type="form:Group" id="newGroupId" name="新分组">
@@ -97,33 +103,62 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="ownerType" id="ownerType" name="账户所有人类型">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="type" id="type" name="账户类型">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="name" id="name" name="账户名称">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="bank" id="bank" name="银行">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="accountNumber" id="accountNumber" name="账号">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="accountFilepath" id="accountFilepath" name="银行账号照片">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid">
             <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
@@ -142,12 +177,22 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="bankOpenBranch" id="bankOpenBranch" name="开户行">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="desc" id="desc" name="备注">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" id="colJqgrid" name="照片预览" customize="true">
@@ -157,6 +202,10 @@
               <dync:render colSpan="2" height="0" multi="false" name="event">
                 <dync:item name="param" value="cellvalue,options,rowObject,dictValueExpression"/>
               </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
@@ -318,6 +367,19 @@ view:function(rowObject){
 	$img_view.attr(&quot;src&quot;,rowObject.accountFilepath);*/
 	$('#img_id').empty().attr(&quot;src&quot;,rowObject.accountFilepath);
 	$view.div1.toggle();
+},
+
+page_beforeDataSourceLoad:function($params){
+	var w=window.parent.document.getElementsByTagName(&quot;div&quot;);
+  var $w=$(w);
+  var $thisIf = $(window.parent.document.getElementsByTagName(&quot;iframe&quot;));
+  $thisIf.each(function(index, el) {
+    var strsrc = $(this).attr('src');
+    if (strsrc.indexOf('tps/') != -1) {
+        console.log('find');
+        $(this).parent().parent().attr('style','padding-top:0px !important;');
+      }
+  });	
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;div1_html&quot;>

@@ -92,37 +92,72 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="department" id="department" name="部门">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="job" id="job" name="联系人岗位">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="name" id="name" name="联系人名称">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="phone" id="phone" name="手机">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="tel" id="tel" name="联系电话">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="email" id="email" name="邮箱">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="qq" id="qq" name="QQ">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Group" id="toolbar_table1" name="toolbar_table">

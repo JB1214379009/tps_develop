@@ -1,8 +1,14 @@
 package com.unlcn.ils.tps.ininterface;
   
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +40,7 @@ public class ShipperInterface
 	{
 		CrmInformationService dbService=(CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
 		Map<String,String> map = new HashMap<String,String> ();
-		log.info("名字为"+shipper.getName()+"的开始转换");
+		//log.info("名字为"+shipper.getName()+"的开始转换");
 		if (shipper.getName().equals("冯锡范大水果")) {
 			log.info("我是"+shipper.getName());
 		}
@@ -101,6 +107,10 @@ public class ShipperInterface
 		map.put("carNumber", shipper.getCarNumber().toString());
 		if(shipper.getOwner()!=null)
 		map.put("owner", shipper.getOwner());
+		if(shipper.getCreateTime()!=null)
+		map.put("createTime", shipper.getCreateTime().toString());
+		if(shipper.getCreateTime()==null)
+		map.put("createTime", "2016-02-23 13:52:27.862");
 		if(shipper.getCertStatus()!=null){
 			map.put("certStatus", shipper.getCertStatus());
 			Timestamp timestampnow=new Timestamp(System.currentTimeMillis());
@@ -146,7 +156,7 @@ public class ShipperInterface
 		map.put("regAddress", shipper.getRegAddress());
 		if(shipper.getCapital()!=null)
 		map.put("capital", shipper.getCapital().toString());	
-		log.info("名字为"+shipper.getName()+"的结束转换");
+		//log.info("名字为"+shipper.getName()+"的结束转换");
 		return map;
 	}
 	
@@ -291,6 +301,9 @@ public class ShipperInterface
 			map = returnShipper(shipper);
 			if ( map != null) listshipper.add(map);
 		}
+		//List<Map<String, String>> list=listshipper.subList(500, 600);
+		//log.info("长度为"+list.size());
+		sortList(listshipper);
 		return listshipper;
 	}
 	public static List<Map<String,String>> getData(Map<String,Object> con)
@@ -321,11 +334,36 @@ public class ShipperInterface
 			map = returnShipper(shipper);		
 			if ( map != null) listshipper.add(map);
 		}
+		
 		return listshipper;
 
 	}
 	
-	
+	private static  void sortList(List<Map<String, String>> listshipper) {
+		Collections.sort(listshipper,  new Comparator<Map<String, String>>(){
+
+			@Override
+			public int compare(Map<String, String> o1, Map<String, String> o2) {
+				// TODO Auto-generated method stub
+				SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
+							//if(null==o1.get("createTime")||o1.get("createTime").isEmpty())
+								
+				                try {
+				                	 Date dt1 = format.parse(o1.get("createTime"));
+				                     Date dt2 = format.parse(o2.get("createTime"));
+				                     if (dt1.getTime() < dt2.getTime()) {
+				                         return 1;
+				                     } else if (dt1.getTime() > dt2.getTime()) {
+				                        return -1;
+				                     } else {
+				                        return 0;
+				                     }
+				                 } catch (Exception e) {
+				                     e.printStackTrace();
+				                 }
+				                 return 0;
+			}});
+	}
 	public static Map<String,String> getShipperByID(String shipperid)
 	{
 		Map<String,String> map=new HashMap<String,String>();

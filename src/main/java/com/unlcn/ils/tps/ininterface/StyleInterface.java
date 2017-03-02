@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.chinacreator.c2.config.ConfigManager;
 import com.chinacreator.c2.ioc.ApplicationContextManager;
 import com.unlcn.ils.erp.dto.CargoDto;
@@ -12,15 +14,16 @@ import com.unlcn.ils.erp.service.*;
 
   
 //得到物货型号信息
-public class StyleInterface {       
-	
+public class StyleInterface {
+	private static  final Logger log = Logger.getLogger(Logger .class);
 	static VehicleService dbService=(VehicleService)ApplicationContextManager.getContext().getBean("vehicleService");
 	public static List<Map<String,String>> getDataByCustomer(String customerid)
-	{
+	{	
+		String id=customerid.replaceAll("C", "");
 		//返回数据
 		List<Map<String,String>> mapresult=new ArrayList<Map<String,String>>();
 		
-		
+		log.info("设置客户id后调用");
 		//接口数据源方式
 		String datasouce = ConfigManager.getInstance().getConfig("datasouce");
 		
@@ -28,11 +31,15 @@ public class StyleInterface {
 		{
 			CargoDto cargo = new CargoDto();
 			//customerid="1";
-			cargo.setCustomerId(customerid);
-			if ( dbService==null )
+			cargo.setCustomerId(id);
+			if ( dbService==null ){
+			log.info("dbService为空");
 				dbService=(VehicleService)ApplicationContextManager.getContext().getBean("vehicleService");
-			List<CargoDto> listdata= dbService.queryVehicle(cargo);
+			}
+			log.info("初始化后dbService"+dbService);	
 			
+			List<CargoDto> listdata= dbService.queryVehicle(cargo);
+			log.info("listdata的长度为"+listdata.size());
 			for(int i=0;i<listdata.size();i++)
 			{
 				Map<String,String> map=new HashMap<String,String> ();
@@ -41,7 +48,8 @@ public class StyleInterface {
 				//map.put("lineid",String.valueOf(i));
 				map.put("stylename", data.getVcstylename());
 				mapresult.add(map);
-			}			
+			}	
+			log.info("调用成功后返回车型");
 			return mapresult;
 			
 		}
@@ -89,4 +97,6 @@ public class StyleInterface {
 			return map;	
 		}	
 	}
+	
+	
 }

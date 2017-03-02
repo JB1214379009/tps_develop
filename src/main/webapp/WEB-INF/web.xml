@@ -138,6 +138,9 @@
 		<param-name>targetFilterLifecycle</param-name>
 		<param-value>true</param-value>
 	</init-param>
+	
+	rd需注释如下参数
+	
 	<init-param>
 		<param-name>clientId</param-name>
 		<param-value>1585A9C8C2BC4F04A4C481595EA9BB74</param-value>

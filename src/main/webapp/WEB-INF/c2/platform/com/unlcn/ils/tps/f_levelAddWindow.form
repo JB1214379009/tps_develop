@@ -122,16 +122,23 @@ button_click:function($event){&#xD;
 		Messenger.post({type:'error',message:'级别名称未填写'});&#xD;
 		return;&#xD;
 	}&#xD;
-	for(var i=0;i&lt;$params.data.length;i++){&#xD;
+	/*for(var i=0;i&lt;$params.data.length;i++){&#xD;
 		if($model.entity.levelName==$params.data[i].levelName)&#xD;
 		{	Messenger.post({type:'info',message:'该等级已存在'})&#xD;
 				return false;&#xD;
 		}&#xD;
-	}
-	$model.entity.$save(function(){&#xD;
-        Modal.instance.close();&#xD;
-        Messenger.post({type:'success',message:'新增成功'});&#xD;
-    });
+	}*/
+	$http.post(&quot;ws/s_addLevel&quot;,{&quot;data&quot;:$model.entity})&#xD;
+		.success(function(data){&#xD;
+		debugger;&#xD;
+		if(data.result==true)&#xD;
+		Messenger.post({type:'error',message:'该等级已存在'});&#xD;
+		else{&#xD;
+			Messenger.post({type:'success',message:'新增成功'});&#xD;
+			Modal.instance.close();&#xD;
+		}&#xD;
+			&#xD;
+	});
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;div4_html&quot;>

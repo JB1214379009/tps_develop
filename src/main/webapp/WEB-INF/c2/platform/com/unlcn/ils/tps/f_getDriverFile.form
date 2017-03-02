@@ -8,6 +8,10 @@
         </dync:render>
         <dync:children/>
       </dync:attribute>
+      <dync:attribute default="" group="HTML" id="width" name="页面宽度" value="80%">
+        <dync:render colSpan="2" height="0" multi="false" name="text"/>
+        <dync:children/>
+      </dync:attribute>
     </form:attributes>
   </form:control>
   <form:child xsi:type="form:Group" id="div" name="简单容器(DIV)">
@@ -220,12 +224,21 @@
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
           </form:child>
           <form:child xsi:type="form:Field" binding="fileName" id="fileName" name="文件名">
             <form:control type="widget/col_jqgrid">
-              <form:attributes source="widget/col_jqgrid"/>
+              <form:attributes source="widget/col_jqgrid">
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
             </form:control>
           </form:child>
           <form:child xsi:type="form:Field" binding="fileMemo" id="fileMemo" name="文件说明">
@@ -235,12 +248,21 @@
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
           </form:child>
           <form:child xsi:type="form:Field" binding="createUser" id="createUser" name="创建人">
             <form:control type="widget/col_jqgrid">
-              <form:attributes source="widget/col_jqgrid"/>
+              <form:attributes source="widget/col_jqgrid">
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
             </form:control>
           </form:child>
           <form:child xsi:type="form:Field" binding="createTime" id="createTime" name="创建时间">
@@ -266,6 +288,10 @@
                   <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
           </form:child>
@@ -273,6 +299,10 @@
             <form:control type="widget/col_jqgrid">
               <form:attributes source="widget/col_jqgrid">
                 <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
@@ -286,6 +316,10 @@
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
           </form:child>
@@ -293,6 +327,10 @@
             <form:control type="widget/col_jqgrid">
               <form:attributes source="widget/col_jqgrid">
                 <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
@@ -306,6 +344,10 @@
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
           </form:child>
@@ -313,6 +355,10 @@
             <form:control type="widget/col_jqgrid">
               <form:attributes source="widget/col_jqgrid">
                 <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
@@ -326,6 +372,10 @@
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
           </form:child>
@@ -333,6 +383,10 @@
             <form:control type="widget/col_jqgrid">
               <form:attributes source="widget/col_jqgrid">
                 <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
@@ -348,6 +402,10 @@
                   </dync:render>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
             <form:validation/>
@@ -356,6 +414,10 @@
             <form:control type="widget/col_jqgrid">
               <form:attributes source="widget/col_jqgrid">
                 <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+                  <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                   <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                   <dync:children/>
                 </dync:attribute>
@@ -560,6 +622,7 @@ view:function(rowObject){
 
 buttonUP_click:function($event){
 	Modal.open(&quot;f/driverAttched_dlg&quot;,{&quot;info&quot;:$params.info},function(){
+		$view.cutom_join_file.refresh();
 	}); 
 }</form:scripts>
   <form:htmls>

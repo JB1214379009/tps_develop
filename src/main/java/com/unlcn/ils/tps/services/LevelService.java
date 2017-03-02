@@ -11,6 +11,7 @@ import com.unlcn.ils.tps.E_level;
 import com.unlcn.ils.tps.E_levelchange;
 import com.unlcn.ils.tps.E_levelchange_reson;
 import com.unlcn.ils.tps.E_line;
+import com.unlcn.ils.tps.common.TpsRuntimeException;
 import com.unlcn.ils.tps.ininterface.CrmInformationInterface;
 import com.unlcn.ils.tps.ininterface.SqlInterface;
 
@@ -171,16 +172,16 @@ public class LevelService {
 	 * @return
 	 * @Description:新增原因字典
 	 */
-	public E_levelchange_reson addReason(E_levelchange_reson data){
+	public boolean addReason(E_levelchange_reson data){
 		WebOperationContext context = (WebOperationContext)OperationContextHolder.getContext();
 		String username = context.getUser().getName();
-		/*Dao<E_levelchange_reson> dao=DaoFactory.create(E_levelchange_reson.class);
+		Dao<E_levelchange_reson> dao=DaoFactory.create(E_levelchange_reson.class);
 		E_levelchange_reson reason=new E_levelchange_reson();
 		reason.setResonchangeName(data.getResonchangeName());
-		reason=dao.selectOne(reason);
-		if(reason!=null){
-			throw new TpsRuntimeException("该原因已存在");
-		}*/
+		List<E_levelchange_reson> reasonList=dao.select(reason);
+		if(reasonList.size()!=0){
+			return true;
+		}
 		data.setActive(1);
 		data.setActiveMemo("");
 		java.sql.Timestamp currdate = new java.sql.Timestamp(new Date().getTime());
@@ -188,8 +189,8 @@ public class LevelService {
 		data.setActiveUser("");
 		data.setCreateTime(currdate);
 		data.setCreateUsername(username);
-		
-		return data;
+		dao.insert(data);
+		return false;
 	}
 	/**
 	 * @param idList
@@ -227,12 +228,13 @@ public boolean editReason(Integer idList ,E_levelchange_reson data){
 	WebOperationContext context = (WebOperationContext)OperationContextHolder.getContext();
 	String username = context.getUser().getName();	
 	Dao<E_levelchange_reson> reasonDao=new DaoFactory().create(E_levelchange_reson.class);
-	/*	E_levelchange_reson reason  = new E_levelchange_reson();
+		E_levelchange_reson reason  = new E_levelchange_reson();
 		reason.setResonchangeName(data.getResonchangeName());
-		reason=reasonDao.selectOne(reason);
-		if(reason!=null){
-			throw new TpsRuntimeException("该原因已存在");
-		}*/
+		List<E_levelchange_reson> reasonList=reasonDao.select(reason);
+		if(reasonList.size()!=0){
+			return true;
+		}
+		
 		E_levelchange_reson e_levelchange_reson=reasonDao.selectByID(idList);
 		java.sql.Timestamp currdate = new java.sql.Timestamp(new Date().getTime());
 		e_levelchange_reson.setCreateTime(currdate);
@@ -292,25 +294,29 @@ public boolean deleteReason(List<Integer> idList){
  * @return
  * @Description:新增级别字典
  */
-public E_level addLevel(E_level data){
+public boolean addLevel(E_level data){
 	WebOperationContext context = (WebOperationContext)OperationContextHolder.getContext();
 	String username = context.getUser().getName();
-/*	Dao<E_level> levelDao=new DaoFactory().create(E_level.class);
+	new DaoFactory();
+	Dao<E_level> levelDao=DaoFactory.create(E_level.class);
 	E_level level  = new E_level();
 	level.setLevelName(data.getLevelName());
-	level=levelDao.selectOne(level);
-	if(level!=null){
-		throw new TpsRuntimeException("该等级已存在");
-	}*/
-	data.setActive(1);
-	data.setActiveMemo("");
-	java.sql.Timestamp currdate = new java.sql.Timestamp(new Date().getTime());
-	data.setActiveTime(currdate);
-	data.setActiveUser("");
-	data.setCreateTime(currdate);
-	data.setCreateUsername(username);
+	List<E_level> levelList=levelDao.select(level);
+	if(levelList.size()!=0){
+		return true;
+	}
+	else {
+		data.setActive(1);
+		data.setActiveMemo("");
+		java.sql.Timestamp currdate = new java.sql.Timestamp(new Date().getTime());
+		data.setActiveTime(currdate);
+		data.setActiveUser("");
+		data.setCreateTime(currdate);
+		data.setCreateUsername(username);
+		levelDao.insert(data);
+		return false;
+	}
 	
-	return data;
 }
 /**
  * 
@@ -367,14 +373,16 @@ public boolean editLevel(Integer idList ,E_level data ){
 	WebOperationContext context = (WebOperationContext)OperationContextHolder.getContext();
 	String username = context.getUser().getName();
 	Dao<E_level> reasonDao=new DaoFactory().create(E_level.class);
-	/*Dao<E_level> levelDao=new DaoFactory().create(E_level.class);
+	Dao<E_level> levelDao=new DaoFactory().create(E_level.class);
 	E_level levels  = new E_level();
+	List<E_level> levelList=new ArrayList<>();
 	levels.setLevelName(data.getLevelName());
-	levels=levelDao.selectOne(levels);
-	if(levels!=null){
-		throw new TpsRuntimeException("该等级已存在");
+	levelList=levelDao.select(levels);
+	if(levelList.size()!=0){
+		return true;
 		
-	}*/
+	}
+	else {
 		E_level level=reasonDao.selectByID(idList);
 		java.sql.Timestamp currdate = new java.sql.Timestamp(new Date().getTime());
 		level.setCreateTime(currdate);
@@ -386,6 +394,8 @@ public boolean editLevel(Integer idList ,E_level data ){
 		reasonDao.update(level);
 	
 		return false;
+	}
+		
 		
 	}
 /**

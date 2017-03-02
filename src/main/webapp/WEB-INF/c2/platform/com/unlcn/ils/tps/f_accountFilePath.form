@@ -179,6 +179,10 @@
           <dync:render colSpan="2" height="0" multi="false" name="html"/>
           <dync:children/>
         </dync:attribute>
+        <dync:attribute default="" group="HTML配置" id="collapse" name="隐藏" value="true">
+          <dync:render colSpan="2" height="0" multi="false" name="text"/>
+          <dync:children/>
+        </dync:attribute>
       </form:attributes>
     </form:control>
   </form:child>
@@ -195,7 +199,7 @@ button_click:function($event){
 		Messenger.post({message:&quot;文件上传成功!&quot;,type:&quot;success&quot;,hideAfter:2,showCloseButton:true});
 	Modal.instance.close(id);
 	}else{
-		Messenger.post({message:&quot;文件上传失败，请重新上传!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+		Messenger.post({message:&quot;文件上传失败!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
 	}
 },
 
@@ -209,10 +213,10 @@ fileInputIframe_onError:function(data){
 },
 
 buttonAA_click:function($event){
-	var uur = $params.URL.url;
-	$img_view = $(&quot;&lt;img/>&quot;);
-	$img_view.attr(&quot;src&quot;,uur);
-	$('#img_id').empty().append($img_view);
+	var uur = $params.URL;
+/*	$img_view = $(&quot;&lt;img/>&quot;);
+	$img_view.attr(&quot;src&quot;,uur);*/
+	$('#img_id').empty().attr(&quot;src&quot;,uur);
 	$view.divView.toggle();
 },
 
@@ -221,6 +225,6 @@ page_onload:function(){
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;divView_html&quot;>
-	&lt;div id=&quot;img_id&quot;>&lt;/div>
+	&lt;img id=&quot;img_id&quot; height=&quot;240&quot; width=&quot;320&quot;/>
 &lt;/script></form:htmls>
 </form:Form>

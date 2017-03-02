@@ -30,7 +30,7 @@
         <dync:render/>
         <dync:children/>
       </dync:attribute>
-      <dync:attribute default="" group="事件" id="beforeDataSourceLoad" name="数据源加载前" value="">
+      <dync:attribute default="" group="事件" id="beforeDataSourceLoad" name="数据源加载前" value="page_beforeDataSourceLoad($params)">
         <dync:render/>
         <dync:children/>
       </dync:attribute>
@@ -1471,6 +1471,19 @@ fileManage_click:function($event){
 	var j_son={&quot;flag&quot;:1,&quot;id&quot;:selArr[0].lineid};
 	Modal.open(&quot;f/f_fileManage_dlg&quot;,{&quot;info&quot;:j_son},function($params){
 	});		
+},
+
+page_beforeDataSourceLoad:function($params){
+		 var w=window.parent.document.getElementsByTagName(&quot;div&quot;);
+  var $w=$(w);
+  var $thisIf = $(window.parent.document.getElementsByTagName(&quot;iframe&quot;));
+  $thisIf.each(function(index, el) {
+    var strsrc = $(this).attr('src');
+    if (strsrc.indexOf('tps/') != -1) {
+        console.log('find');
+        $(this).parent().parent().attr('style','padding-top:0px !important;');
+      }
+  });
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;div_html&quot;>

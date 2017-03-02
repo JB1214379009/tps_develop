@@ -32,7 +32,7 @@ public class ShipperConditionService implements TreeContentProvider{
 				{
 					Map<String,String> shipper = shipperlist.get(i);
 					log.info("我要返回"+shipper.get("certStatus"));
-					if(shipper.get("certStatus").equals("认证通过")){
+					if(null!=shipper.get("certStatus")&&shipper.get("certStatus").equals("认证通过")){
 					String lineid =shipper.get("id");
 					String name =shipper.get("name");
 					DefaultTreeNode node = new DefaultTreeNode("root_0",

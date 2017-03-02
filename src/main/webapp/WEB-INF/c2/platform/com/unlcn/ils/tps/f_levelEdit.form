@@ -156,18 +156,22 @@ button_click:function($event){
 		Messenger.post({type:'info',message:'没有任何改动'});
 		return;
 	}
-	for(var i=0;i&lt;$params.data.length;i++){
+	/*for(var i=0;i&lt;$params.data.length;i++){
 		if($model.entity.levelName==$params.data[i].levelName)
-		{	if($model.entity.levelName!=$params.DataList.levelName)
 			{	Messenger.post({type:'info',message:'该等级已存在'})
 				return false;
 			}
-		}
-	}
+	}*/
+	
 	$http.post(&quot;ws/s_levelEdit&quot;,{&quot;idList&quot;:$params.DataList.lineid,&quot;data&quot;:$model.entity})
-		.success(function(){
+		.success(function(data){
+		debugger;
+		if(data.result==true)
+		Messenger.post({type:'error',message:'该等级已存在'});
+		else{
 			Messenger.post({type:'success',message:'修改成功'});
 			Modal.instance.close();
+		}
 			
 	});
 },
