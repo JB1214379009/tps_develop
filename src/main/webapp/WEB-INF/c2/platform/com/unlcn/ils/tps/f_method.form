@@ -235,11 +235,11 @@
               </dync:render>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[0-9]*$">
+            <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^\d+(\.\d+)?$">
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="数字格式不正确!">
+            <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="浮点数格式不正确!">
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
@@ -266,12 +266,18 @@
               </dync:render>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[0-9]*$">
+            <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^\d+(\.\d+)?$">
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="数字格式不正确!">
+            <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="浮点数格式不正确!">
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="" group="编辑验证" id="editverifyCustom" name="自定义验证" value="rightNode_editverifyCustom(verify,rowData)">
+              <dync:render colSpan="1" height="0" multi="false" name="event">
+                <dync:item name="params" value="verify,rowData"/>
+              </dync:render>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
@@ -282,6 +288,14 @@
           <form:attributes source="widget/col_jqgrid">
             <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="编辑验证" id="editverifyRequired" name="必填" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^\d+(\.\d+)?$">
+              <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
             <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="number">
@@ -297,11 +311,7 @@
               </dync:render>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[0-9]*$">
-              <dync:render colSpan="1" height="0" multi="false" name="text"/>
-              <dync:children/>
-            </dync:attribute>
-            <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="数字格式不正确!">
+            <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="浮点数格式不正确!">
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
@@ -368,8 +378,11 @@ buttonAdd_click:function(rowId,rowData,tableData){
 
 buttonView_click:function(rowId,rowData,tableData){
 	var length=tableData.length;
+	var pos=0;
 	for(var i=0;i&lt;length;i++)
-	{	if(tableData[i].leftNode==undefined||tableData[i].leftNode.length==0)
+	{	if(tableData[i].leftNode>=tableData[i].rightNode)
+		pos=1;
+		if(tableData[i].leftNode==undefined||tableData[i].leftNode.length==0)
 		tableData[i].leftNode=&quot;&quot;;
 		if(tableData[i].rightNode==undefined||tableData[i].rightNode.length==0)
 		tableData[i].rightNode=&quot;&quot;;
@@ -381,6 +394,11 @@ buttonView_click:function(rowId,rowData,tableData){
 		var value=tableData[i].target;
 		value=functions.nameToValue(value);
 		tableData[i].target=value;
+	}
+	if(pos==1)
+	{
+		Messenger.post({type:'error',message:'左区间须小于右区间'});
+		return;
 	}
 	debugger;
 	$http.post(&quot;ws/s_saveMethod&quot;,{&quot;datas&quot;:tableData})
@@ -480,5 +498,10 @@ page_beforeDataSourceLoad:function($params){
         $(this).parent().parent().attr('style','padding-top:0px !important;');
       }
   });	
+},
+
+rightNode_editverifyCustom:function(verify,rowData){
+	if(rowData.rightNode&lt;=rowData.leftNode)
+	Messenger.post({message:&quot;左区间须小于右区间&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:false});
 }</form:scripts>
 </form:Form>
