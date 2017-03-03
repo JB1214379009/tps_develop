@@ -657,27 +657,6 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="number">
-                <dync:render colSpan="2" height="0" multi="false" name="select">
-                  <dync:item name="自定义" value="custom"/>
-                  <dync:item name="数字" value="number"/>
-                  <dync:item name="中文" value="zhCn"/>
-                  <dync:item name="手机号" value="mobile"/>
-                  <dync:item name="QQ" value="qq"/>
-                  <dync:item name="身份证" value="idCard"/>
-                  <dync:item name="邮箱" value="email"/>
-                  <dync:item name="URL" value="url"/>
-                </dync:render>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[0-9]*$">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="手机号码不正确!">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
-                <dync:children/>
-              </dync:attribute>
             </form:attributes>
           </form:control>
         </form:child>
@@ -936,27 +915,6 @@
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="zhCn">
-                <dync:render colSpan="2" height="0" multi="false" name="select">
-                  <dync:item name="自定义" value="custom"/>
-                  <dync:item name="数字" value="number"/>
-                  <dync:item name="中文" value="zhCn"/>
-                  <dync:item name="手机号" value="mobile"/>
-                  <dync:item name="QQ" value="qq"/>
-                  <dync:item name="身份证" value="idCard"/>
-                  <dync:item name="邮箱" value="email"/>
-                  <dync:item name="URL" value="url"/>
-                </dync:render>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[\u4e00-\u9fa5]{0,}$">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="银行信息不正确!">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
-                <dync:children/>
-              </dync:attribute>
             </form:attributes>
           </form:control>
           <form:validation/>
@@ -966,27 +924,6 @@
             <form:attributes source="widget/col_jqgrid">
               <dync:attribute default="false" group="编辑" id="editable" name="启用编辑" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="number">
-                <dync:render colSpan="2" height="0" multi="false" name="select">
-                  <dync:item name="自定义" value="custom"/>
-                  <dync:item name="数字" value="number"/>
-                  <dync:item name="中文" value="zhCn"/>
-                  <dync:item name="手机号" value="mobile"/>
-                  <dync:item name="QQ" value="qq"/>
-                  <dync:item name="身份证" value="idCard"/>
-                  <dync:item name="邮箱" value="email"/>
-                  <dync:item name="URL" value="url"/>
-                </dync:render>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[0-9]*$">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="帐号信息不正确!">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
               <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
@@ -1055,27 +992,6 @@
               </dync:attribute>
               <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="zhCn">
-                <dync:render colSpan="2" height="0" multi="false" name="select">
-                  <dync:item name="自定义" value="custom"/>
-                  <dync:item name="数字" value="number"/>
-                  <dync:item name="中文" value="zhCn"/>
-                  <dync:item name="手机号" value="mobile"/>
-                  <dync:item name="QQ" value="qq"/>
-                  <dync:item name="身份证" value="idCard"/>
-                  <dync:item name="邮箱" value="email"/>
-                  <dync:item name="URL" value="url"/>
-                </dync:render>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[\u4e00-\u9fa5]{0,}$">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
-                <dync:children/>
-              </dync:attribute>
-              <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="开户行信息不正确!">
-                <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -1682,8 +1598,18 @@ button5_click:function($event){
 			Messenger.post({message:&quot;联系人信息中有手机号码信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
 			return;
 		}
+		var rePhone = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+		if(!rePhone.test(linkmanRowData[i].phone)){
+			Messenger.post({message:&quot;联系人信息中有手机号码填写不正确！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
 		if(linkmanRowData[i].email ==null || linkmanRowData[i].email == &quot;&quot;){
 			Messenger.post({message:&quot;联系人信息中有邮箱号信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		var reEmail = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		if(!reEmail.test(linkmanRowData[i].email)){
+			Messenger.post({message:&quot;联系人信息中有邮箱填写不正确！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
 			return;
 		}
 		linkmanList[i] = linkmanRowData[i];
@@ -1711,6 +1637,11 @@ button5_click:function($event){
 		}
 		if(listAccountList[i].accountNumber ==null || listAccountList[i].accountNumber == &quot;&quot;){
 			Messenger.post({message:&quot;账户信息中有帐号信息未填写！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+		var regular = /^(\d{16}|\d{19})$/;
+		if(!regular.test(accountRoData[i].accountNumber)){
+			Messenger.post({message:&quot;账户信息中有帐号填写不正确！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
 			return;
 		}
 		if(listAccountList[i].bankOpenBranch ==null || listAccountList[i].bankOpenBranch == &quot;&quot;){
