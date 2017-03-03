@@ -1246,27 +1246,6 @@
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="custom" group="编辑验证" id="valitype" name="数据验证" value="number">
-              <dync:render colSpan="2" height="0" multi="false" name="select">
-                <dync:item name="自定义" value="custom"/>
-                <dync:item name="数字" value="number"/>
-                <dync:item name="中文" value="zhCn"/>
-                <dync:item name="手机号" value="mobile"/>
-                <dync:item name="QQ" value="qq"/>
-                <dync:item name="身份证" value="idCard"/>
-                <dync:item name="邮箱" value="email"/>
-                <dync:item name="URL" value="url"/>
-              </dync:render>
-              <dync:children/>
-            </dync:attribute>
-            <dync:attribute default="" group="编辑验证" id="editverifyRegExp" name="正则表达式" value="^[0-9]*$">
-              <dync:render colSpan="1" height="0" multi="false" name="text"/>
-              <dync:children/>
-            </dync:attribute>
-            <dync:attribute default="" group="编辑验证" id="editverifyRegExpMessage" name="正则错误信息" value="帐号信息不正确!">
-              <dync:render colSpan="1" height="0" multi="false" name="text"/>
-              <dync:children/>
-            </dync:attribute>
           </form:attributes>
         </form:control>
       </form:child>
@@ -1855,18 +1834,14 @@ btn_add_click:function($event){
 				Messenger.post({type:'success',message:'新增成功'});	
 				/*Modal.open(&quot;f/companyAttched_dlg&quot;,{&quot;info&quot;:data.result},function(){
 			    }); */	
-				$view.mainForm.clean();
-				var ids=$view.list.getDataIDs();
-				for(var i=0;i&lt;ids.length;i++){
-					$view.list.delRowData(ids[i]);
-				}
-				$view.accountlist.clearGridData(true);
-				$view.linkmanlist.clearGridData(true);
+				functions.btn_clean_click();
 			});		
 	});
 },
 
 btn_clean_click:function($event){
+	$(&quot;.remove&quot;).click();
+	
 	$view.mainForm.clean();
 	var ids=$view.list.getDataIDs();
 	for(var i=0;i&lt;ids.length;i++){

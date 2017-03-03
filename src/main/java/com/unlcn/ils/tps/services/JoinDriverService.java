@@ -194,6 +194,15 @@ public class JoinDriverService implements ArrayContentProvider{
 			
 			throw new RuntimeException("可用车辆数不能为空");
 		};
+		//判断是否存在该分供方
+		String driverName=data.getDriverName();
+		String carno=data.getCardno();
+		E_join_driver driver=new E_join_driver();
+		driver.setDriverName(driverName);
+		driver.setCardno(carno);
+		List<E_join_driver> list=driverDao.select(driver);
+		if(list.size()!=0)
+			return false;
 		//创建时间、创建人、取消标志、默认的初审状态、Lineid设置；
 		java.sql.Timestamp currdate = new java.sql.Timestamp(new Date().getTime());
 		data.setCreateTime(currdate);
@@ -203,10 +212,7 @@ public class JoinDriverService implements ArrayContentProvider{
 		SqlInterface sqlInterface=new SqlInterface();
 		String driverLineid=sqlInterface.getNextVal("SEQ_TPS_TPS_JOIN_DRIVER");
 		data.setLineid(driverLineid);
-		String driverName=data.getDriverName();
-		String carno=data.getCardno();
-		String realName=driverName+carno;
-		data.setDriverName(realName);
+		
 		driverDao.insert(data);
 		//获取刚刚插入的司机表主键
 		String getMaxIdPath="com.unlcn.ils.tps.E_join_driverMapper.getMaxId";

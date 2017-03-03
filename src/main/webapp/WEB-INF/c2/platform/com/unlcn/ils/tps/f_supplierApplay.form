@@ -1533,18 +1533,14 @@ btn_add_click:function($event){
 			&quot;price&quot;:prices,&quot;qty&quot;:qtys,
 			linkmanList:linkmanList,accountList:accountList,&quot;urlString&quot;:urlString,&quot;nameString&quot;:nameString})
 			.success(function(data){
+				if(data.result==false){
+					Messenger.post({type:'info',message:'您已申请过，无需重复申请！'});
+					return;
+				}
+					
 				Messenger.post({type:'success',message:'新增成功'});	
 				
-				/*Modal.open(&quot;f/driverAttched_dlg&quot;,{&quot;info&quot;:data.result},function(){
-			    }); */ 
-			    
-				$view.mainForm.clean(); 
-				var ids=$view.list.getDataIDs();
-				for(var i=0;i&lt;ids.length;i++){
-					$view.list.delRowData(ids[i]);
-				}
-				$view.accountlist.clearGridData(true);	
-				$view.linkmanlist.clearGridData(true);
+				functions.btn_clean_click();
 							
 			});
 			
@@ -1552,6 +1548,8 @@ btn_add_click:function($event){
 },
 
 btn_clean_click:function($event){
+	$(&quot;.remove&quot;).click();
+	
 	$view.mainForm.clean();
 	var ids=$view.list.getDataIDs();
 	for(var i=0;i&lt;ids.length;i++){
@@ -1559,7 +1557,6 @@ btn_clean_click:function($event){
 	}
 	$view.accountlist.clearGridData(true);	
 	$view.linkmanlist.clearGridData(true);
-	$view.fileUpload.reset();
 },
 
 cityId_beforeClick:function(treeId,treeNode,clickFlag){

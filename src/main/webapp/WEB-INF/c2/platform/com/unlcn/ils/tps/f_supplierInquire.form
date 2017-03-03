@@ -718,7 +718,7 @@ btn_select_click:function($event){
 	Messenger.post({message:&quot;正在查询请稍后&quot;,type:&quot;info&quot;,hideAfter:2,showCloseButton:true});
 	var rules=new Array();
 	rules[0]={field:&quot;cardno&quot;,op:&quot;eq&quot;,data:$params.cardno};
-	rules[1]={field:&quot;driverName&quot;,op:&quot;eq&quot;,data:$params.driverName+$params.cardno};
+	rules[1]={field:&quot;driverName&quot;,op:&quot;eq&quot;,data:$params.driverName};
 	rules[2]={field:&quot;licenseno&quot;,op:&quot;eq&quot;,data:$params.licenseno};
 	var conditions = { groupOp:&quot;AND&quot;, rules:rules};	
 		$view.custom_join_driver.refresh({filters:conditions});

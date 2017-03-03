@@ -470,8 +470,8 @@ public class CrmInformationInterface {
 			shipper.setAccountPhone((String) map.get("accountPhone"));
 		}
 		log.info("时间，任务"+map.get("createUser")+map.get("createTime"));
-		shipper.setCreateUser((String) map.get("createUser"));
-		shipper.setCreateTime(Timestamp.valueOf(map.get("createTime").toString()));
+		//shipper.setCreateUser((String) map.get("createUser"));
+		//shipper.setCreateTime(Timestamp.valueOf(map.get("createTime").toString()));
 		Timestamp now=new Timestamp(System.currentTimeMillis());
 		//shipper.setCreateTime(now);
 		shipper.setUpdateTime(now);
