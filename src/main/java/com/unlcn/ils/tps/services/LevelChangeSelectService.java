@@ -44,6 +44,7 @@ public class LevelChangeSelectService implements ArrayContentProvider{
 		return code;
 	}
 	
+	
 	@Override
 	public Page<Map<String,String>> getElements(ArrayContext context) {
 		Dao<E_currentlevel> dao = DaoFactory.create(E_currentlevel.class) ;
