@@ -147,6 +147,8 @@ public class CrmInformationInterface {
 		try {
 		List<Shipper> shippers=dbService.getShipper(shipper);
 		log.info("调用CrmInformationService的getShipper方法后，获取的集合长度为："+shippers.size());
+		if(shippers.size()==0)
+			return null;
 		Shipper shipper3=shippers.get(0);
 		Map<String,String> map=new HashMap<String, String>();
 		if(shipper3.getId()!=null)
@@ -251,7 +253,7 @@ public class CrmInformationInterface {
 		return map;			
 		} catch (Exception e) {
 			// TODO: handle exception
-			throw new RuntimeException("网络原因未能推送成功,请重新点击保存按钮");
+			throw new RuntimeException("网络原因未能推送成功,请重试");
 		}
 
 	}

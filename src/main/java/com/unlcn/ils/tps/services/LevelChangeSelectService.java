@@ -38,7 +38,10 @@ public class LevelChangeSelectService implements ArrayContentProvider{
 		//Map<String,String> map=ShipperInterface.getShipperByID(shipperid.toString());
 		CrmInformationInterface crmInformationInterface=new CrmInformationInterface();
 		Map<String, String> map=crmInformationInterface.getShipperFromCrmById(shipperid);
-		return map.get("code");
+		String code="";
+		if(map!=null)
+			code=map.get("code");
+		return code;
 	}
 	
 	@Override
