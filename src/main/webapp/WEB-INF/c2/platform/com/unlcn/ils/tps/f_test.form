@@ -322,12 +322,31 @@
       </form:control>
       <form:validation/>
     </form:child>
+    <form:child xsi:type="form:Field" id="zhengze" name="请输入" customize="true">
+      <form:control type="widget/text">
+        <form:attributes source="widget/text"/>
+      </form:control>
+      <form:validation/>
+    </form:child>
+    <form:child xsi:type="form:Field" id="button333" name="普通按钮444" customize="true">
+      <form:control type="widget/button">
+        <form:attributes source="widget/button">
+          <dync:attribute default="" group="事件设置" id="click" name="点击事件" value="button333_click($event)">
+            <dync:render colSpan="1" height="0" multi="false" name="event">
+              <dync:item name="params" value="$event"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
+        </form:attributes>
+      </form:control>
+      <form:validation/>
+    </form:child>
   </form:child>
   <form:child xsi:type="form:Group" id="div2" name="简单容器(DIV)">
     <form:control type="container/div">
       <form:attributes source="container/div"/>
     </form:control>
-    <form:child xsi:type="form:Field" id="fileInputIframe" name="Iframe单文件上传" customize="true">
+    <form:child xsi:type="form:Field" binding="$params.fileInputIframe" id="aaa" name="Iframe单文件上传" customize="true">
       <form:control type="widget/file_input_iframe">
         <form:attributes source="widget/file_input_iframe">
           <dync:attribute default="dbdir" group="HTML属性" id="process" name="上传处理器" value="dir">
@@ -361,6 +380,10 @@
             <dync:render colSpan="2" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
+          <dync:attribute default="" group="HTML配置" id="collapse" name="隐藏" value="true">
+            <dync:render colSpan="2" height="0" multi="false" name="text"/>
+            <dync:children/>
+          </dync:attribute>
         </form:attributes>
       </form:control>
       <form:child xsi:type="form:Field" id="buttonA1" name="照片预览" customize="true">
@@ -380,6 +403,19 @@
         </form:control>
         <form:validation/>
       </form:child>
+    </form:child>
+    <form:child xsi:type="form:Field" id="button1" name="普通按钮qingch" customize="true">
+      <form:control type="widget/button">
+        <form:attributes source="widget/button">
+          <dync:attribute default="" group="事件设置" id="click" name="点击事件" value="button1_click($event)">
+            <dync:render colSpan="1" height="0" multi="false" name="event">
+              <dync:item name="params" value="$event"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
+        </form:attributes>
+      </form:control>
+      <form:validation/>
     </form:child>
   </form:child>
   <form:child xsi:type="form:Group" id="div4" name="简单容器(DIV)">
@@ -797,21 +833,23 @@ page_onload:function(){&#xD;
 },
 
 buttonAccountUp_click:function($event){&#xD;
-	var accountRoData = $view.listaccount.getRowData();&#xD;
-	alert(accountRoData);
+	var accountRoData = $view.listaccount.getRowData();
 	var accountList = new Array();&#xD;
 	for(var i in accountRoData ){&#xD;
 		var id = accountRoData[i].idcrm;&#xD;
 		var pathid = id+'path';&#xD;
-		alert(pathid);&#xD;
-		alert($(&quot;#&quot;+pathid).text());&#xD;
-		alert($(&quot;#&quot;+pathid).text()==&quot;上传后显示&quot;);&#xD;
-		if($(&quot;#&quot;+pathid).text()==&quot;上传后显示&quot;){&#xD;
+/*		if($(&quot;#&quot;+pathid).text()==&quot;上传后显示&quot;){&#xD;
 			Messenger.post({message:&quot;账户信息中有银行卡照片未上传！&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});&#xD;
 			return;&#xD;
-		}&#xD;
+		}*/&#xD;
 		accountRoData[i].accountFilepath = $(&quot;#&quot;+pathid).text();&#xD;
 		accountList[i] = accountRoData[i];&#xD;
+		alert(typeof accountRoData[i].accountNumber);&#xD;
+		var j = accountRoData[i].accountNumber;&#xD;
+		var sss = /^\d{3}$/;&#xD;
+		if(sss.test(j)){&#xD;
+		alert(&quot;hhh&quot;);&#xD;
+		}&#xD;
 	}
 },
 
@@ -855,5 +893,20 @@ buttonA_click:function($event){
 	var urr = $params.fileID.url;&#xD;
 	Modal.open(&quot;f/Viewtest&quot;,{&quot;url&quot;:urr},function(){&#xD;
 			    });
+},
+
+button333_click:function($event){
+	var i = 621700202002124007;&#xD;
+	var j = &quot;aaa111###&quot;;&#xD;
+	var sss = /^[A-Za-z0-9]+$/;&#xD;
+	var str =/^[0-9]*$/;&#xD;
+	var stt = /^\d{19}$/;&#xD;
+	if(sss.test(j)){&#xD;
+	alert(&quot;hhh&quot;);&#xD;
+	}
+},
+
+button1_click:function($event){&#xD;
+    $view.aaa.reset()
 }</form:scripts>
 </form:Form>
