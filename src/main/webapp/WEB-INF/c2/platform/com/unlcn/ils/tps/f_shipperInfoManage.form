@@ -78,6 +78,36 @@
       </form:control>
       <form:validation/>
     </form:child>
+    <form:child xsi:type="form:Field" id="button65" name="查看" customize="true">
+      <form:control type="widget/button">
+        <form:attributes source="widget/button">
+          <dync:attribute default="btn-primary" group="HTML设置" id="style" name="样式" value="btn-default">
+            <dync:render colSpan="1" height="0" multi="false" name="select">
+              <dync:item name="默认" value="btn-default"/>
+              <dync:item name="主要" value="btn-primary"/>
+              <dync:item name="成功" value="btn-success"/>
+              <dync:item name="信息" value="btn-info"/>
+              <dync:item name="警告" value="btn-warning"/>
+              <dync:item name="危险" value="btn-danger"/>
+              <dync:item name="链接" value="btn-link"/>
+              <dync:item name="通用" value="btn-white no-border"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
+          <dync:attribute default="" group="HTML设置" id="icon" name="图标" value="fa-bars">
+            <dync:render colSpan="1" height="0" multi="false" name="selectIcon"/>
+            <dync:children/>
+          </dync:attribute>
+          <dync:attribute default="" group="事件设置" id="click" name="点击事件" value="button65_click($event)">
+            <dync:render colSpan="1" height="0" multi="false" name="event">
+              <dync:item name="params" value="$event"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
+        </form:attributes>
+      </form:control>
+      <form:validation/>
+    </form:child>
     <form:child xsi:type="form:Field" id="button59" name="编辑" customize="true">
       <form:control type="widget/button">
         <form:attributes source="widget/button">
@@ -618,7 +648,12 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="shipperId" id="shipperId" name="分供方编号" customize="true">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
         <form:validation/>
       </form:child>
@@ -1127,6 +1162,7 @@ button59_click:function($event){
 	if(selArr[0].joinFlag==&quot;个人&quot;)
 		selArr[0].joinFlag=0;
 	else selArr[0].joinFlag=1;
+	
 /*	Modal.open(&quot;f/shipperInfoEdit_dlg&quot;,{&quot;info&quot;:selArr[0]},function($params){
 		var rules=new Array();
 		var pos=0;	
@@ -1138,11 +1174,21 @@ button59_click:function($event){
 		}
 		$view.custom_shipperinfo.refresh({filters:conditions});			
 	});	*/	
-	var url='/tps/f/shipperInfoEdit_dlg';
-	var title='信息管理编辑';
-	window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid =selArr[0];
-	functions.newTabop(url,title);
-	return;
+	debugger;
+	$http.post(&quot;ws/s_getShipperFromCrmById&quot;,{&quot;shipperId&quot;:selArr[0].shipperId})
+		.success(function(data){
+		debugger;
+		if(data.result==null){
+			Messenger.post({message:&quot;该数据有误!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+			var url='/tps/f/shipperInfoEdit_dlg';
+			var title='信息管理编辑';
+			window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid =selArr[0];
+			functions.newTabop(url,title);
+			return;
+		})
+
 },
 newTabop:function(url,title){
 	var a = $(&quot;&lt;a>&quot;);
@@ -1215,5 +1261,41 @@ page_beforeDataSourceLoad:function($params){
         $(this).parent().parent().attr('style','padding-top:0px !important;');
       }
   });	
+},
+
+button65_click:function($event){
+	
+	var selArr=$view.custom_shipperinfo.getSelectDatas();
+	if(selArr.length==0){
+		Messenger.post({message:&quot;请勾选记录!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
+		return;
+	}
+	if(selArr.length>1){
+		Messenger.post({message:&quot;请勾选单条记录!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
+		return;
+	}	
+	
+	if(selArr[0].joinFlag==&quot;个人&quot;)
+		selArr[0].joinFlag=0;
+	else selArr[0].joinFlag=1;
+	debugger;
+	/*Modal.open(&quot;f/shipperInfos&quot;,{&quot;info&quot;:selArr[0]},function($params){		
+	});
+		*/
+	
+	$http.post(&quot;ws/s_getShipperFromCrmById&quot;,{&quot;shipperId&quot;:selArr[0].shipperId})
+		.success(function(data){
+		debugger;
+		if(data.result==null){
+			Messenger.post({message:&quot;该数据有误!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});
+			return;
+		}
+			var url='/tps/f/shipperInfos';
+			var title='分供方信息';
+			window.parent.angular.element(&quot;#indexConScope&quot;).scope().shippperid =selArr[0];
+			functions.newTabop(url,title);
+			return;
+		})
+	
 }</form:scripts>
 </form:Form>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form:Form xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dync="http://www.chinacreator.com/platform/mvc/ui/dync" xmlns:form="http://www.chinacreator.com/platform/mvc/form" name="" sn="test_dlg" type="form">
-  <form:control type="page/modal">
-    <form:attributes source="page/modal"/>
+<form:Form xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dync="http://www.chinacreator.com/platform/mvc/ui/dync" xmlns:form="http://www.chinacreator.com/platform/mvc/form" name="" sn="shipperInfo" type="form">
+  <form:control type="page/normal">
+    <form:attributes source="page/normal"/>
   </form:control>
   <form:child xsi:type="form:Group" id="newGroupId" name="新分组">
     <form:control type="container/div">
