@@ -11,7 +11,6 @@ import com.unlcn.ils.tps.E_level;
 import com.unlcn.ils.tps.E_levelchange;
 import com.unlcn.ils.tps.E_levelchange_reson;
 import com.unlcn.ils.tps.E_line;
-import com.unlcn.ils.tps.common.TpsRuntimeException;
 import com.unlcn.ils.tps.ininterface.CrmInformationInterface;
 import com.unlcn.ils.tps.ininterface.SqlInterface;
 

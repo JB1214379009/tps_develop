@@ -3,12 +3,9 @@ package com.unlcn.ils.tps.ininterface;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +25,7 @@ import org.apache.log4j.Logger;
 public class ShipperInterface   
 
 {
-	//static CrmInformationService dbService=(CrmInformationService)ApplicationContextManager.getContext().getBean("crmInformationService");
+	
 	private static  final Logger log = Logger.getLogger(Logger .class);
 	public ShipperInterface()
 	{ 
@@ -44,38 +41,7 @@ public class ShipperInterface
 		if (shipper.getName().equals("冯锡范大水果")) {
 			log.info("我是"+shipper.getName());
 		}
-/*		if ( shipper.getCustomerId() ==null) return null;
-		map.put("id", shipper.getCustomerId().getId().toString());
-		if(shipper.getCode()!=null)
-		map.put("code", shipper.getCode().toString());
-		if(shipper.getName()!=null)
-		map.put("name", shipper.getName());
-		if(shipper.getLinkman()!=null)
-		map.put("linkman", shipper.getLinkman());
-		if(shipper.getPhone()!=null)
-		map.put("phone", shipper.getPhone());
-		if(shipper.getTel()!=null)
-		map.put("tel", shipper.getTel());
-		if(shipper.getHasPermit()!=null)
-		map.put("hasPermit", shipper.getHasPermit());
-		if(shipper.getShortName()!=null)
-		map.put("shortName", shipper.getShortName());
-		if(shipper.getTaxNo()!=null)
-		map.put("taxNo", shipper.getTaxNo());
-		if(shipper.getBusinessType()!=null)
-		map.put("businessType", shipper.getBusinessType());
-		if(shipper.getCarNumber()!=null)
-		map.put("carNumber", shipper.getCarNumber().toString());
-		if(shipper.getOwner()!=null)
-		map.put("owner", shipper.getOwner());
-		if(shipper.getCertStatus()!=null)
-		map.put("certStatus", shipper.getCertStatus());
-		if(shipper.getCertValidTime()!=null)
-		map.put("certValidTime", shipper.getCertValidTime().toString());
-		if(shipper.getHasInvoice()!=null)
-		map.put("hasInovice", shipper.getHasInvoice());
-		if(shipper.getDesc()!=null)
-		map.put("desc", shipper.getDesc());	*/
+
 		if ( shipper.getCustomerId() ==null) return null;
 		map.put("id", shipper.getCustomerId().getId().toString());
 		if(shipper.getCustomerId()!=null){

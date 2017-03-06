@@ -43,32 +43,7 @@ public class AuditDriverService implements ArrayContentProvider{
 		List<E_audit> lists=result.getContents();
 		List<Map<String,String>> updateList=new ArrayList<Map<String,String>>();
 		Integer nums=0;
-		//下面进行过期检测
-/*		Timestamp timestampnow=new Timestamp(System.currentTimeMillis());
-		boolean updateFlag=false;
-		for(int i=0;i<lists.size();i++){
-			//先做过期检测
-			E_audit temp=lists.get(i);
-			if(temp.getAuditFlag()==0)
-				continue;
-			if(temp.getEndDate().before(timestampnow)){
-				temp.setAuditFlag(5);
-				auditDao.update(temp);
-				//同时更新相应的司机公司表
-				if(temp.getJoinFlag()==0){
-					E_join_driver tempDriver=driveDao.selectByID(temp.getJoinId());
-					tempDriver.setCheckFlag(5);
-					driveDao.update(tempDriver);
-				}
-				updateFlag=true;
-			}
-		}
-		if(updateFlag==true){
-			lists.clear();
-			result=auditDao.selectPageByCondition(conditions,
-			condition,context.getPageable() ,context.getSortable(), true);	
-			lists=result.getContents();
-		}	*/
+		
 		for(int i=0;i<lists.size();i++){
 			E_audit e_temp=lists.get(i);
 			Map<String, String> map=new HashMap<String, String>();	

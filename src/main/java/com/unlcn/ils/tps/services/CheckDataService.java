@@ -1,7 +1,6 @@
 package com.unlcn.ils.tps.services;
 
 import java.math.BigDecimal; 
-import java.sql.Date; 
 import java.util.List;
 
 import com.chinacreator.c2.dao.Dao;
@@ -12,14 +11,14 @@ import com.unlcn.ils.tps.E_method;
 public class CheckDataService {
 	public void createCheckDatas(String shipper,String check_configure,String checkCycle,String checkDate,
 			String checkDate1,String  checkDate2,String checkDate3) {
-		Date a=new Date(Long.valueOf(checkDate));
+		//Date a=new Date(Long.valueOf(checkDate));
 		if(shipper!=null&&shipper.length()!=0){
 			E_configure_detail configure_detail=new E_configure_detail();
 			configure_detail.setConfigureLineid(check_configure);
-			Dao<E_configure_detail> configureDao=DaoFactory.create(E_configure_detail.class);
+			//Dao<E_configure_detail> configureDao=DaoFactory.create(E_configure_detail.class);
 
 			//获取计划完成率数据
-			Object[] pcr=checkByPCR(configure_detail, shipper);
+			//Object[] pcr=checkByPCR(configure_detail, shipper);
 				
 
 			//获取交付及时率数据

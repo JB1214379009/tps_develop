@@ -1,16 +1,10 @@
 package com.unlcn.ils.tps.services;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List; 
 import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.chinacreator.c2.config.ConfigManager;
-import com.chinacreator.c2.ioc.ApplicationContextManager;
-import com.unlcn.ils.erp.dto.CargoDto;
-import com.unlcn.ils.erp.service.VehicleService;
 import com.unlcn.ils.tps.ininterface.StyleInterface;
 /**
  * 
