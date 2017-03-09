@@ -158,7 +158,7 @@ public class AuthenticationService  implements ArrayContentProvider{
 			auth.setCreateTime(currdate);
 			auth.setCreateUser(userno);
 			E_authentication_type type =new E_authentication_type();   
-			type.setLineid(Integer.parseInt(reasonid));
+			//type.setLineid(Integer.parseInt(reasonid));
 			auth.setAuthenticationReasonid(type);
 			dao.insert(auth);
 		}
@@ -180,9 +180,9 @@ public class AuthenticationService  implements ArrayContentProvider{
 		if ( filedata.size() >  0)
 		{
 			logger.info("正在处理获取附件章程");
-			String filelineid = sqlinterface.getNextVal("SEQ_TPS_AUTHENTICATIONFILE");//取流水号  
+			
 			for (int i =0;i<filedata.size();i++)
-			{
+			{	String filelineid = sqlinterface.getNextVal("SEQ_TPS_AUTHENTICATIONFILE");//取流水号  
 				Map<String,String> file = filedata.get(i);
 				if ( file==null) continue;//没有文件
 				String filesize =String.valueOf(file.get("filesize"));

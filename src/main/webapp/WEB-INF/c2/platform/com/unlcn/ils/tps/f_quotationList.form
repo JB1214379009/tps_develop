@@ -266,6 +266,10 @@
             <dync:render colSpan="2" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
+          <dync:attribute default="" group="HTML配置" id="collapse" name="隐藏" value="true">
+            <dync:render colSpan="2" height="0" multi="false" name="text"/>
+            <dync:children/>
+          </dync:attribute>
         </form:attributes>
       </form:control>
       <form:child xsi:type="form:Group" id="div" name="简单容器(DIV)">
@@ -474,6 +478,12 @@
             <dync:render colSpan="1" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
+          <dync:attribute default="" group="加载后事件" id="onSelectRow" name="选择行" value="maindata_onSelectRow(rowid,status,e)">
+            <dync:render colSpan="1" height="0" multi="false" name="event">
+              <dync:item name="param" value="rowid,status,e"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
         </form:attributes>
       </form:control>
       <form:child xsi:type="form:Field" binding="lineid" id="colJqgrid23" name="序号" customize="true">
@@ -610,6 +620,10 @@
               <dync:render colSpan="2" height="0" multi="false" name="event">
                 <dync:item name="param" value="cellvalue,options,rowObject"/>
               </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
@@ -1012,6 +1026,8 @@ status_customFormatter:function(cellvalue,options,rowObject){
 		html = &quot;&lt;span style='color:black' ng-click='functions.showchecklist(rowObject)'>审核中&lt;/span>&quot;;
 	if ( parseInt(checkflag)==2)
 		html = &quot;&lt;span ng-click='functions.showchecklist(rowObject)'>审核完成&lt;/span>&quot;;		
+	if ( parseInt(checkflag)==3)
+		html = &quot;&lt;span ng-click='functions.showchecklist(rowObject)'>审核不通过&lt;/span>&quot;;
 	return html;
 },
 showchecklist:function()
@@ -1025,9 +1041,13 @@ operate_customFormatter:function(cellvalue,options,rowObject){
 	html = &quot;&lt;button style='border:none;background:transparent;' ng-click='functions.showdetail(rowObject)'>点击查看详情&lt;/button>&quot;;
 	return html;
 },
-showdetail:function(rowObject)
+showdetail:function(lineid)
 {
-	var lineid = rowObject.lineid;
+		//var lineid = rowObject.lineid;
+		/*var lineid=&quot;&quot;;
+		lineid=$(&quot;tr[aria-selected=true]&quot;).find(&quot;td[aria-describedby=maindata_lineid]&quot;).text();*/
+		debugger;
+
 	$http
 	({
         method: 'post',
@@ -1220,8 +1240,9 @@ btnadd_click:function($event){
 },
 
 page_onload:function(){
+	
 	functions.searchdata();
-	$view.divsearch.toggle();
+	
 },
 
 btnedit_click:function($event){
@@ -1244,6 +1265,9 @@ btnedit_click:function($event){
 	window.parent.angular.element(&quot;#indexConScope&quot;).scope().quotationid =selectData[0];
 	functions.newTabop(url,title);
 	return;
+	/*Modal.open(&quot;f/quotationEdit&quot;,{&quot;quotationid&quot;:selectData[0]},function(data){
+        return;
+    })*/
 },
 
 button1_click:function($event){
@@ -1311,5 +1335,12 @@ page_beforeDataSourceLoad:function($params){
         $(this).parent().parent().attr('style','padding-top:0px !important;');
       }
   });
+},
+
+maindata_onSelectRow:function(rowid,status,e){
+		var lineid=rowid;
+		debugger;
+		if(lineid!=undefined)
+		functions.showdetail(lineid);
 }</form:scripts>
 </form:Form>

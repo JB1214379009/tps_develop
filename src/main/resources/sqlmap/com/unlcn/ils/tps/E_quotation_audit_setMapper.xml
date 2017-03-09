@@ -272,7 +272,7 @@ insert into tps_quotation_audit_set(
 
 <!-- ElementID:selectsAuditSet,Generated=false -->
 <!-- 得到当前审核用户id -->
-<select id="selectsAuditSet" parameterType="map" resultType="map">
+<select id="selectsAuditSet" parameterType="map" resultType="java.util.Map">
 
 	SELECT a1.flowid,a1.audit_user FROM (
 SELECT 
@@ -290,7 +290,7 @@ WHERE tps_quotation_audit_set.TYPE = #{type}
   WHERE #{price} &gt; tps_quotation_audit_set.overflow_down 
     AND #{price} &lt;= tps_quotation_audit_set.overflow_up 
     AND tps_quotation_audit_set.type = #{type})  ORDER BY flowid
-    ) a1 LIMIT 0,1
+    ) a1 
     	
 		
 </select>

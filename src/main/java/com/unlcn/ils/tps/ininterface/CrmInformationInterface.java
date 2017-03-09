@@ -531,8 +531,8 @@ public class CrmInformationInterface {
 					audit.setAuditFlag(driver.getCheckFlag());
 				}
 			}				
-			if(map.get("certValidTime")!=null)
-				audit.setAuditTime(Timestamp.valueOf(map.get("certValidTime").toString()));
+			/*if(map.get("certValidTime")!=null)
+				audit.setAuditTime(Timestamp.valueOf(map.get("certValidTime").toString()));*/
 			auditDao.update(audit);
 		}
 		if(flag==1){
@@ -587,8 +587,8 @@ public class CrmInformationInterface {
 			}	
 			if(map.get("certStatus")!=null)
 				audit.setAuditFlag(company.getCheckFlag());
-			if(map.get("certValidTime")!=null)
-				audit.setAuditTime(Timestamp.valueOf(map.get("certValidTime").toString()));
+			/*if(map.get("certValidTime")!=null)
+				audit.setAuditTime(Timestamp.valueOf(map.get("certValidTime").toString()));*/
 			auditDao.update(audit);
 		}
 

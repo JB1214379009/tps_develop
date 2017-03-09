@@ -237,6 +237,10 @@
                 </dync:render>
                 <dync:children/>
               </dync:attribute>
+              <dync:attribute default="true" group="基本设置" id="show" name="可见" value="false">
+                <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
+                <dync:children/>
+              </dync:attribute>
             </form:attributes>
           </form:control>
           <form:validation/>
@@ -641,7 +645,12 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="authenticationreason" id="authentication_reasonid" name="不通过原因">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="beginDate" id="beginDate" name="有效日期">

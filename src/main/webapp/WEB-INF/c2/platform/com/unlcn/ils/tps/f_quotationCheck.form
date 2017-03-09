@@ -358,8 +358,10 @@
             <dync:render colSpan="1" height="0" multi="false" name="text"/>
             <dync:children/>
           </dync:attribute>
-          <dync:attribute default="true" group="基本配置" id="autowidth" name="自动宽度" value="false">
-            <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+          <dync:attribute default="" group="加载后事件" id="onSelectRow" name="选择行" value="maindata_onSelectRow(rowid,status,e)">
+            <dync:render colSpan="1" height="0" multi="false" name="event">
+              <dync:item name="param" value="rowid,status,e"/>
+            </dync:render>
             <dync:children/>
           </dync:attribute>
         </form:attributes>
@@ -446,7 +448,12 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="audituser" id="audituser" name="审核人" customize="true">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
         <form:validation/>
       </form:child>
@@ -504,6 +511,10 @@
               <dync:render colSpan="2" height="0" multi="false" name="event">
                 <dync:item name="param" value="cellvalue,options,rowObject"/>
               </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
@@ -962,9 +973,10 @@ operate_customFormatter:function(cellvalue,options,rowObject){
 	html = &quot;&lt;button style='border:none;background:transparent;' ng-click='functions.showdetail(rowObject)'>点击查看详情&lt;/button>&quot;;
 	return html;
 },
-showdetail:function(rowObject)
-{
-	var lineid = rowObject.lineid;
+showdetail:function(lineid)
+{	
+	//var lineid = rowObject.lineid;
+	var lineid=($(&quot;tr[aria-selected=true]&quot;).find(&quot;td[aria-describedby=maindata_lineid]&quot;).text());
 	$http
 	({
         method: 'post',
@@ -1088,7 +1100,7 @@ refreshdata:function(){
 	pos++;
 	rules[pos]={field:&quot;quotationType&quot;,op:&quot;eq&quot;,data:&quot;1&quot;};//查询临时报价单	
 	pos++;
-	rules[pos]={field:&quot;auditUser&quot;,op:&quot;eq&quot;,data:user};
+	rules[pos]={field:&quot;auditUser&quot;,op:&quot;cn&quot;,data:user};
 	pos++;
 	var conditions = { groupOp:&quot;AND&quot;, rules:rules};	
 	if(pos==0){
@@ -1123,6 +1135,7 @@ btnadd_click:function($event){
 page_onload:function(){
 	//$view.divsearch.toggle();
 	functions.refreshdata();
+	
 },
 
 page_beforeDataSourceLoad:function($params){
@@ -1136,5 +1149,12 @@ page_beforeDataSourceLoad:function($params){
         $(this).parent().parent().attr('style','padding-top:0px !important;');
       }
   });
+},
+
+maindata_onSelectRow:function(rowid,status,e){
+		var lineid=rowid;
+		debugger;
+		if(lineid!=undefined)
+		functions.showdetail(lineid);
 }</form:scripts>
 </form:Form>

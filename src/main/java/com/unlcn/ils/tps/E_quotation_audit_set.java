@@ -8,8 +8,8 @@ import com.chinacreator.c2.annotation.Entity;
 
 /**
  * 报价单审核规则设置表
- * @author  
- * @generated 
+ * @author 
+ * @generated
  */
 @Entity(id = "entity:com.unlcn.ils.tps.e_quotation_audit_set", table = "tps_quotation_audit_set", ds = "ilsdb")
 public class E_quotation_audit_set implements Serializable {

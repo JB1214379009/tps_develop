@@ -78,7 +78,7 @@ public class AuthenticationFileService  implements ArrayContentProvider{
 			else
 				map.put("endDate", dfdate.format(auth.getEndDate()));
 			map.put("authenticationmemo", auth.getAuthenticationMemo());
-			map.put("authenticationreason", (auth.getAuthenticationReasonid()==null?"":auth.getAuthenticationReasonid().getLinename()));
+			//map.put("authenticationreason", (auth.getAuthenticationReasonid()==null?"":auth.getAuthenticationReasonid().getLinename()));
 			listdata.add(map);			
 		}
 		int pagesize = context.getPageable().getPageSize();

@@ -474,6 +474,12 @@
             <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
             <dync:children/>
           </dync:attribute>
+          <dync:attribute default="" group="加载后事件" id="onSelectRow" name="选择行" value="maindata_onSelectRow(rowid,status,e)">
+            <dync:render colSpan="1" height="0" multi="false" name="event">
+              <dync:item name="param" value="rowid,status,e"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
         </form:attributes>
       </form:control>
       <form:child xsi:type="form:Field" binding="lineid" id="colJqgrid23" name="序号" customize="true">
@@ -638,6 +644,10 @@
               <dync:render colSpan="2" height="0" multi="false" name="event">
                 <dync:item name="param" value="cellvalue,options,rowObject"/>
               </dync:render>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>
@@ -1039,7 +1049,9 @@ status_customFormatter:function(cellvalue,options,rowObject){
 	if ( parseInt(checkflag)==1)
 		html = &quot;&lt;span style='color:black' ng-click='functions.showchecklist(rowObject)'>审核中&lt;/span>&quot;;
 	if ( parseInt(checkflag)==2)
-		html = &quot;&lt;span ng-click='functions.showchecklist(rowObject)'>审核完成&lt;/span>&quot;;		
+		html = &quot;&lt;span ng-click='functions.showchecklist(rowObject)'>审核完成&lt;/span>&quot;;	
+		if ( parseInt(checkflag)==3)
+		html = &quot;&lt;span ng-click='functions.showchecklist(rowObject)'>审核不通过&lt;/span>&quot;;		
 	return html;
 },
 showchecklist:function()
@@ -1053,9 +1065,9 @@ operate_customFormatter:function(cellvalue,options,rowObject){
 	html = &quot;&lt;button style='border:none;background:transparent;' ng-click='functions.showdetail(rowObject)'>点击查看详情&lt;/button>&quot;;
 	return html;
 },
-showdetail:function(rowObject)
+showdetail:function(lineid)
 {
-	var lineid = rowObject.lineid;
+	//var lineid = rowObject.lineid;
 	$http
 	({
         method: 'post',
@@ -1343,5 +1355,12 @@ page_beforeDataSourceLoad:function($params){
         $(this).parent().parent().attr('style','padding-top:0px !important;');
       }
   });	
+},
+
+maindata_onSelectRow:function(rowid,status,e){
+		var lineid=rowid;
+		debugger;
+		if(lineid!=undefined)
+		functions.showdetail(lineid);
 }</form:scripts>
 </form:Form>

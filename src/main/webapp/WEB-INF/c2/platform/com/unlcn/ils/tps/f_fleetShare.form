@@ -402,6 +402,18 @@
             <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
             <dync:children/>
           </dync:attribute>
+          <dync:attribute default="" group="排序" id="sortname" name="排序列" value="createTime">
+            <dync:render colSpan="1" height="0" multi="false" name="text"/>
+            <dync:children/>
+          </dync:attribute>
+          <dync:attribute default="asc" group="排序" id="sortorder" name="排序方式" value="desc">
+            <dync:render colSpan="1" height="0" multi="false" name="select">
+              <dync:item name="空" value=""/>
+              <dync:item name="正序" value="asc"/>
+              <dync:item name="倒序" value="desc"/>
+            </dync:render>
+            <dync:children/>
+          </dync:attribute>
         </form:attributes>
       </form:control>
       <form:child xsi:type="form:Field" binding="lineid" id="lineid" name="序号">
@@ -442,32 +454,17 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="lineno" id="lineno" name="份额编号">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid">
-            <dync:attribute default="false" group="表格设置" id="sortable" name="排序" value="true">
-              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-              <dync:children/>
-            </dync:attribute>
-          </form:attributes>
+          <form:attributes source="widget/col_jqgrid"/>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="startCity" id="startCity" name="起运城市">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid">
-            <dync:attribute default="false" group="表格设置" id="sortable" name="排序" value="true">
-              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-              <dync:children/>
-            </dync:attribute>
-          </form:attributes>
+          <form:attributes source="widget/col_jqgrid"/>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="destProvince" id="destProince" name="目的地省份">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid">
-            <dync:attribute default="false" group="表格设置" id="sortable" name="排序" value="true">
-              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-              <dync:children/>
-            </dync:attribute>
-          </form:attributes>
+          <form:attributes source="widget/col_jqgrid"/>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="scale" id="scale" name="份额比(%)">
@@ -521,10 +518,6 @@
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="false" group="表格设置" id="sortable" name="排序" value="true">
-              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
-              <dync:children/>
-            </dync:attribute>
           </form:attributes>
         </form:control>
       </form:child>
@@ -549,10 +542,6 @@
             </dync:attribute>
             <dync:attribute default="" group="格式设置" id="formatoptions" name="预定格式设置" value="{dateFormat:&quot;yyyy-MM-dd&quot;}">
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
-              <dync:children/>
-            </dync:attribute>
-            <dync:attribute default="false" group="表格设置" id="sortable" name="排序" value="true">
-              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
           </form:attributes>

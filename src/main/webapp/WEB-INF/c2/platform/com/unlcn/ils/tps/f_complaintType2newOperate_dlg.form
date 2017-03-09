@@ -365,7 +365,7 @@
   </form:child>
   <form:datasources>
     <form:datasource xsi:type="form:Inputs"/>
-    <form:datasource xsi:type="form:LogicDataSource" id="items" name="项目" logic="rule:com.unlcn.ils.tps.s_items" sn="s_items"/>
+    <form:datasource xsi:type="form:LogicDataSource" id="items" name="项目" logic="rule:com.unlcn.ils.tps.s_getOperateItems" sn="s_getOperateItems"/>
     <form:datasource xsi:type="form:EntityDataSource" id="e_checkrule" name="考核类型" entity="entity:com.unlcn.ils.tps.e_checkrule"/>
     <form:datasource xsi:type="form:EntityDataSource" id="e_crm_complaint_type" name="单实体数据源" entity="entity:com.unlcn.ils.tps.e_crm_complaint_type"/>
   </form:datasources>

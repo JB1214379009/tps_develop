@@ -36,7 +36,7 @@ import com.chinacreator.c2.web.ds.ArrayContext;
  *@Version:1.1.0
  */
 public class QutoationService  implements ArrayContentProvider
-{	
+{	private static int id;
 	private static Logger logger=Logger.getLogger(Logger.class );
 	@Override
 	public Page<?> getElements(ArrayContext context) 
@@ -267,6 +267,8 @@ public class QutoationService  implements ArrayContentProvider
 		head.setActive(1);
 		head.setPrintCount(0);
 		head.setIsapply(0);
+		//设置checkflag为0，表示为未提交
+		head.setCheckFlag(0);
 		
 		if ( !isdata )
 			daohead.insert(head);
@@ -525,18 +527,29 @@ public class QutoationService  implements ArrayContentProvider
 			E_quotation_head updatequotation =new E_quotation_head();
 			updatequotation.setLineid(quotation.getLineid());
 			//找到相应审核人			
-			HashMap<String,Object> curruser = getAuditUser(quotation);				
-			if ( curruser ==null )
-			{	//没有下一个审批人,则审核通过
-				updatequotation.setCheckFlag(2);
+			List<HashMap<String, Object>> curruser = getAuditUser(quotation);				
+			if ( curruser.size()==0 )
+			{	
+				if(id==-666){
+					updatequotation.setCheckFlag(3);
+				}
+				else{
+					updatequotation.setCheckFlag(2);//没有下一个审批人,则审核通过
+				}	
+				
 				updatequotation.setFlowid(999);
 			}
 			else 
 			{
 				updatequotation.setCheckFlag(1);//审批 中，则确定下一个
-				Object flowid = curruser.get("flowid");
+				Object flowid = curruser.get(0).get("flowid");
 				updatequotation.setFlowid((Integer)flowid);//确定下一个节点序号
-				updatequotation.setAuditUser((String)curruser.get("audit_user"));				
+				StringBuilder result=new StringBuilder();
+				for (HashMap<String, Object> hashMap : curruser) {
+					result.append(",");
+					result.append(hashMap.get("audit_user"));
+				}
+				updatequotation.setAuditUser(result.toString());				
 			}
 			dao.update(updatequotation);
 		}
@@ -593,18 +606,22 @@ public class QutoationService  implements ArrayContentProvider
 				E_quotation_head quotation = dao.selectByID(lineid);
 				//找到相应审核人
 				
-				HashMap<String,Object> curruser = getAuditUser(quotation);				
-				if ( curruser ==null )
+				List<HashMap<String, Object>> curruser = getAuditUser(quotation);				
+				if ( curruser.size()==0 )
 				{	//没有下一个审批人,则审核完成
 					updatequotation.setCheckFlag(2);//完成标志
 					updatequotation.setFlowid(999);//序号设置比较大
 				}
-				else 
-				{
+				else{
 					updatequotation.setCheckFlag(1);//审批 中，则确定下一个
-					Object flowid = curruser.get("flowid");
+					Object flowid = curruser.get(0).get("flowid");
 					updatequotation.setFlowid((Integer)flowid);//确定下一个节点序号
-					updatequotation.setAuditUser((String)curruser.get("audit_user"));
+					StringBuilder result=new StringBuilder();
+					for (HashMap<String, Object> hashMap : curruser) {
+						result.append(",");
+						result.append(hashMap.get("audit_user"));
+					}
+					updatequotation.setAuditUser(result.toString());
 					
 				}				
 			}
@@ -630,7 +647,7 @@ public class QutoationService  implements ArrayContentProvider
 		return 0;
 	}
 	
-	public HashMap<String,Object> getAuditUser(E_quotation_head quotation)
+	public List<HashMap<String, Object>> getAuditUser(E_quotation_head quotation)
 	{//找到相应的审核人
 		BigDecimal overflowlv = quotation.getPriceOverflow();
 		int flowid = (quotation.getFlowid()==null?0:quotation.getFlowid());
@@ -640,15 +657,32 @@ public class QutoationService  implements ArrayContentProvider
 		logger.info("传到getAuditUser的overflowlv为"+overflowlv);
 		overflowlv = overflowlv.multiply(new BigDecimal(100));
 		logger.info("溢价比入参为"+overflowlv);
-		dataparam.put("price",overflowlv);          
+		dataparam.put("price",overflowlv); 
 		dataparam.put("flowid",flowid);		
 		dataparam.put("type",type);
 		Dao<E_quotation_audit_set> daoset=DaoFactory.create(E_quotation_audit_set.class);
-		HashMap<String,Object> auditset = 
-				daoset.getSession().selectOne("com.unlcn.ils.tps.E_quotation_audit_setMapper.selectsAuditSet",dataparam);
+		E_quotation_audit_set audit_set=new E_quotation_audit_set();
+		audit_set.setOverflowUp(quotation.getPriceOverflow());
+		audit_set.setType(type);
+		List<E_quotation_audit_set> list=daoset.selectAll();
+		 id = 0;
+		for(int i=0;i<list.size();i++){
+			int a=list.get(i).getOverflowUp().compareTo(quotation.getPriceOverflow());
+			if(a==1){
+				id=flowid;
+				break;
+			}
+			else {
+				id=-666;
+			}
+			
+		}
+		List<HashMap<String,Object>> auditset=new ArrayList<>();
+		 auditset = 
+				daoset.getSession().selectList("com.unlcn.ils.tps.E_quotation_audit_setMapper.selectsAuditSet",dataparam);
 		String userid = "0";
-		if (auditset!=null) {
-			HashMap<String,Object> audit = (HashMap<String,Object>) auditset;
+		if (auditset.size()!=0) {
+			HashMap<String,Object> audit = (HashMap<String,Object>) auditset.get(0);
 			logger.info("获取的audit_user"+audit.get("audit_user"));
 			if (audit.get("audit_user")==null) {
 				logger.info("获取的audit_user的账号为空的");
@@ -658,11 +692,12 @@ public class QutoationService  implements ArrayContentProvider
 				logger.info("获取的audit_user的账号为"+userid);
 			}
 		}
-		if ( auditset !=null )
+		if ( auditset.size()!=0 )
 		{
 			logger.info("auditset不为空");
 		
 		}
+
 		logger.info("auditset为空");
 		return auditset;
 	}

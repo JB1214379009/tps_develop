@@ -162,7 +162,7 @@
   </form:child>
   <form:datasources>
     <form:datasource xsi:type="form:Inputs"/>
-    <form:datasource xsi:type="form:LogicDataSource" id="items" name="项目" logic="rule:com.unlcn.ils.tps.s_items" sn="s_items"/>
+    <form:datasource xsi:type="form:LogicDataSource" id="items" name="项目" logic="rule:com.unlcn.ils.tps.s_getOperateItems" sn="s_getOperateItems"/>
     <form:datasource xsi:type="form:LogicDataSource" id="types" name="types" logic="rule:com.unlcn.ils.tps.s_types" sn="s_types"/>
     <form:datasource xsi:type="form:LogicDataSource" id="itemsid" name="项目编号" logic="rule:com.unlcn.ils.tps.s_itemsid" sn="s_itemsid"/>
     <form:datasource xsi:type="form:EntityDataSource" id="e_crm_complaint_type" name="客服标准" entity="entity:com.unlcn.ils.tps.e_crm_complaint_type"/>
