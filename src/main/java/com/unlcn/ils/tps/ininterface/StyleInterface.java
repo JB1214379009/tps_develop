@@ -72,8 +72,9 @@ public class StyleInterface {
 		String datasouce = ConfigManager.getInstance().getConfig("datasouce");
 		if (!datasouce.equals("local"))
 		{
-			CargoDto cargo = new CargoDto(); 
-			cargo.setRetCode(styleid);
+			CargoDto cargo = new CargoDto();
+			cargo.setStyleId(Integer.valueOf(styleid));
+			//cargo.setRetCode(styleid);
 			if ( dbService==null )
 				dbService=(VehicleService)ApplicationContextManager.getContext().getBean("vehicleService");
 			

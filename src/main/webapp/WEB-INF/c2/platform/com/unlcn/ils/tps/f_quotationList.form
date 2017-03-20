@@ -959,7 +959,7 @@
 }
 ,
 searchdata:function()
-{
+{	functions.showdetail(&quot;&quot;);
 	var tshipper = $view.treeshipper.getTree();
 	var nodes= tshipper.getCheckedNodes(true);	
 	//分供方查询

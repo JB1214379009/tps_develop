@@ -1040,6 +1040,9 @@ addrow:function(data,table)
 
 btnrefresh_click:function($event){
 	$view.maindata.refresh();
+	$view.linedata.clearGridData();
+	$view.paydata.clearGridData();
+	$view.chargedata.clearGridData();
 },
 
 btnsubmit_click:function($event){

@@ -40,8 +40,8 @@ public class CustomerInterface {
 			Map<String,String> map=new HashMap<String,String> ();
 			Consigner searchconsignor = new Consigner();
 			CustomerInfo info = new CustomerInfo();
-			info.setId("C"+customerid);
-			//info.setId(customerid);
+			//info.setId("C"+customerid);
+			info.setId(customerid);
 			searchconsignor.setCustomerId(info);
 			
 			List<Consigner> objcustom=dbService.getConsignor(searchconsignor);

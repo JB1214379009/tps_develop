@@ -1048,7 +1048,11 @@ addrow:function(data,table)
 ,
 
 btnrefresh_click:function($event){
+	$view.linedata.clearGridData();
+	$view.paydata.clearGridData();
+	$view.chargedata.clearGridData();
 	$view.maindata.refresh();
+	
 },
 
 btnsubmit_click:function($event){
