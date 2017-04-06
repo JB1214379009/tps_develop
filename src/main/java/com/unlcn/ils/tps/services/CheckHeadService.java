@@ -83,14 +83,14 @@ public class CheckHeadService implements ArrayContentProvider{
 			e_checkhead.setShipperLineid(shipperLineid);
 			e_checkhead.setShipperName(tempCheckdocuments.get(0).getShipperName());
 			e_checkhead.setCountmonth(checkTime);
-			Integer StandardSubvalue=0;
-			Integer StandardValue=0;
+			double StandardSubvalue=0;
+			double StandardValue=0;
 			BigDecimal StandardSubmoney=new BigDecimal(0);
 			BigDecimal CheckMoney=new BigDecimal(0);
 			for(int i=0;i<tempCheckdocuments.size();i++){			
 				
 				//总扣分
-				StandardSubvalue=tempCheckdocuments.get(i).getCheckScore()+StandardSubvalue;
+				StandardSubvalue=(tempCheckdocuments.get(i).getCheckScore())*(tempCheckdocuments.get(i).getCheckNumber())+StandardSubvalue;
 				//总标准扣分
 				StandardValue=tempCheckdocuments.get(i).getCheckScoreStandard()+StandardValue;
 				//总标准考核金额

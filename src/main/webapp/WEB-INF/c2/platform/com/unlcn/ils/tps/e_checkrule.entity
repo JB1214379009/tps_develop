@@ -18,7 +18,7 @@
     <docket:attribute code="operate_name" length="50" name="考核规范操作类型名称" nullable="true" type="string64" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="subvalue" length="0" name="每发生一起扣分值" nullable="true" type="int" default="">
+    <docket:attribute code="subvalue" length="12" name="每发生一起扣分值" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="submoney" length="10" name="考核金额" nullable="true" type="bigdecimal" default="">
@@ -36,16 +36,16 @@
     <docket:attribute code="create_time" length="0" name="创建时间" nullable="true" type="timestamp" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="active" length="0" name="取消标志" nullable="false" type="tinyint" default="">
+    <docket:attribute code="active" length="0" name="取消标志" nullable="true" type="tinyint" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="active_user" length="30" name="取消操作员" nullable="false" type="string32" default="">
+    <docket:attribute code="active_user" length="30" name="取消操作员" nullable="true" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="active_time" length="0" name="取消操作时间" nullable="false" type="timestamp" default="">
+    <docket:attribute code="active_time" length="0" name="取消操作时间" nullable="true" type="timestamp" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="active_memo" length="200" name="取消说明" nullable="false" type="string256" default="">
+    <docket:attribute code="active_memo" length="200" name="取消说明" nullable="true" type="string256" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
   </docket:attributes>

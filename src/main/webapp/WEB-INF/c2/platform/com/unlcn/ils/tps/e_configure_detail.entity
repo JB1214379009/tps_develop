@@ -6,10 +6,10 @@
     <docket:pkAttribute attribute="lineid" type="UUID"/>
   </docket:primaryKey>
   <docket:attributes>
-    <docket:attribute code="lineid" length="25" name="" nullable="false" type="string32" default="">
+    <docket:attribute code="lineid" length="25" name="序号" nullable="false" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="configure_lineid" length="25" name="" nullable="true" type="string32" default="">
+    <docket:attribute code="configure_lineid" length="25" name="考核配置表表头id" nullable="true" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="item_name" length="0" name="考核规范操作序号" nullable="true" type="int" default="">
@@ -27,13 +27,13 @@
     <docket:attribute code="requirements" length="500" name="指标要求" nullable="true" type="string512" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="totalvalue" length="0" name="总分" nullable="true" type="int" default="">
+    <docket:attribute code="totalvalue" length="12" name="总分" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="subvalue" length="0" name="每降一个百分点扣分值" nullable="true" type="int" default="">
+    <docket:attribute code="subvalue" length="12" name="每降一个百分点扣分值" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="lowvalue" length="0" name="最低得分指标" nullable="true" type="int" default="">
+    <docket:attribute code="lowvalue" length="12" name="最低得分指标" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="cal_description" length="100" name="计算方法" nullable="true" type="string128" default="">

@@ -164,7 +164,7 @@ button_click:function($event){
 		Messenger.post({message:&quot;请填写审批结果!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;
 	}
-	Messenger.post({message:&quot;正在提交申诉，请稍后&quot;,type:&quot;info&quot;,hideAfter:1,showCloseButton:true});	
+	Messenger.post({message:&quot;正在提交，请稍后&quot;,type:&quot;info&quot;,hideAfter:1,showCloseButton:true});	
     $http.post(&quot;ws/s_setCheck&quot;,{&quot;idList&quot;:$params.idList,&quot;data&quot;:$model.e_checkhead})
     	.success(function(data){
     		 Modal.instance.close();

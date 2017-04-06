@@ -15,7 +15,10 @@
     <docket:attribute code="shipper_name" length="100" name="分供方名称" nullable="true" type="string128" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="subvalue" length="0" name="累计扣分" nullable="true" type="int" default="">
+    <docket:attribute code="submoney" length="10" name="累计扣款" nullable="true" type="bigdecimal" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="subvalue" length="12" name="累计扣分" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="check_month" length="11" name="考核月份" nullable="true" type="string20" default="">
@@ -24,7 +27,7 @@
     <docket:attribute code="check_year" length="11" name="考核年份" nullable="true" type="string20" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="check_cycle" length="0" name="考核周期" nullable="true" type="int" default="">
+    <docket:attribute code="check_cycle" length="11" name="考核周期" nullable="true" type="string20" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="planned_completion_rate" length="12" name="计划完成率" nullable="true" type="smalldouble" default="">
@@ -42,10 +45,10 @@
     <docket:attribute code="reply_rate" length="12" name="回单及时率" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="gps" length="12" name="GPS考核" nullable="true" type="smalldouble" default="">
+    <docket:attribute code="gps" length="25" name="GPS考核" nullable="true" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="operate_subvaule" length="0" name="规范考核扣分" nullable="true" type="int" default="">
+    <docket:attribute code="operate_subvaule" length="12" name="规范考核扣分" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="operate_submoney" length="10" name="规范考核扣款" nullable="true" type="bigdecimal" default="">

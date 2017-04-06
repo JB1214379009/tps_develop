@@ -9,8 +9,8 @@ import com.chinacreator.c2.annotation.Entity;
 /**
  * 考核操作规范表
  * @author 
- * @generated 
- */ 
+ * @generated
+ */
 @Entity(id = "entity:com.unlcn.ils.tps.e_checkrule", table = "tps_checkrule", ds = "ilsdb")
 public class E_checkrule implements Serializable {
 	private static final long serialVersionUID = 1671037854711808L;
@@ -41,8 +41,8 @@ public class E_checkrule implements Serializable {
 	/**
 	 *每发生一起扣分值
 	 */
-	@Column(id = "subvalue", datatype = "int")
-	private java.lang.Integer subvalue;
+	@Column(id = "subvalue", datatype = "smalldouble")
+	private java.lang.Double subvalue;
 
 	/**
 	 *考核金额
@@ -157,14 +157,14 @@ public class E_checkrule implements Serializable {
 	/**
 	 * 设置每发生一起扣分值
 	 */
-	public void setSubvalue(java.lang.Integer subvalue) {
+	public void setSubvalue(java.lang.Double subvalue) {
 		this.subvalue = subvalue;
 	}
 
 	/**
 	 * 获取每发生一起扣分值
 	 */
-	public java.lang.Integer getSubvalue() {
+	public java.lang.Double getSubvalue() {
 		return subvalue;
 	}
 

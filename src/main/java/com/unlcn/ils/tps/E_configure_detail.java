@@ -9,19 +9,19 @@ import com.chinacreator.c2.annotation.Entity;
 /**
  * 考核规则配置表明细
  * @author 
- * @generated  
+ * @generated
  */
 @Entity(id = "entity:com.unlcn.ils.tps.e_configure_detail", table = "tps_configure_detail", ds = "ilsdb")
 public class E_configure_detail implements Serializable {
 	private static final long serialVersionUID = 1673743456616448L;
 	/**
-	 *
+	 *序号
 	 */
 	@Column(id = "lineid", type = ColumnType.uuid, datatype = "string32")
 	private java.lang.String lineid;
 
 	/**
-	 *
+	 *考核配置表表头id
 	 */
 	@Column(id = "configure_lineid", datatype = "string32")
 	private java.lang.String configureLineid;
@@ -59,20 +59,20 @@ public class E_configure_detail implements Serializable {
 	/**
 	 *总分
 	 */
-	@Column(id = "totalvalue", datatype = "int")
-	private java.lang.Integer totalvalue;
+	@Column(id = "totalvalue", datatype = "smalldouble")
+	private java.lang.Double totalvalue;
 
 	/**
 	 *每降一个百分点扣分值
 	 */
-	@Column(id = "subvalue", datatype = "int")
-	private java.lang.Integer subvalue;
+	@Column(id = "subvalue", datatype = "smalldouble")
+	private java.lang.Double subvalue;
 
 	/**
 	 *最低得分指标
 	 */
-	@Column(id = "lowvalue", datatype = "int")
-	private java.lang.Integer lowvalue;
+	@Column(id = "lowvalue", datatype = "smalldouble")
+	private java.lang.Double lowvalue;
 
 	/**
 	 *计算方法
@@ -141,28 +141,28 @@ public class E_configure_detail implements Serializable {
 	private java.lang.String activeMemo;
 
 	/**
-	 * 设置
+	 * 设置序号
 	 */
 	public void setLineid(java.lang.String lineid) {
 		this.lineid = lineid;
 	}
 
 	/**
-	 * 获取
+	 * 获取序号
 	 */
 	public java.lang.String getLineid() {
 		return lineid;
 	}
 
 	/**
-	 * 设置
+	 * 设置考核配置表表头id
 	 */
 	public void setConfigureLineid(java.lang.String configureLineid) {
 		this.configureLineid = configureLineid;
 	}
 
 	/**
-	 * 获取
+	 * 获取考核配置表表头id
 	 */
 	public java.lang.String getConfigureLineid() {
 		return configureLineid;
@@ -241,42 +241,42 @@ public class E_configure_detail implements Serializable {
 	/**
 	 * 设置总分
 	 */
-	public void setTotalvalue(java.lang.Integer totalvalue) {
+	public void setTotalvalue(java.lang.Double totalvalue) {
 		this.totalvalue = totalvalue;
 	}
 
 	/**
 	 * 获取总分
 	 */
-	public java.lang.Integer getTotalvalue() {
+	public java.lang.Double getTotalvalue() {
 		return totalvalue;
 	}
 
 	/**
 	 * 设置每降一个百分点扣分值
 	 */
-	public void setSubvalue(java.lang.Integer subvalue) {
+	public void setSubvalue(java.lang.Double subvalue) {
 		this.subvalue = subvalue;
 	}
 
 	/**
 	 * 获取每降一个百分点扣分值
 	 */
-	public java.lang.Integer getSubvalue() {
+	public java.lang.Double getSubvalue() {
 		return subvalue;
 	}
 
 	/**
 	 * 设置最低得分指标
 	 */
-	public void setLowvalue(java.lang.Integer lowvalue) {
+	public void setLowvalue(java.lang.Double lowvalue) {
 		this.lowvalue = lowvalue;
 	}
 
 	/**
 	 * 获取最低得分指标
 	 */
-	public java.lang.Integer getLowvalue() {
+	public java.lang.Double getLowvalue() {
 		return lowvalue;
 	}
 

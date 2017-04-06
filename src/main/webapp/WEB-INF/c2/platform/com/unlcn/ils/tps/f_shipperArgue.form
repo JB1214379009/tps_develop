@@ -814,7 +814,7 @@
   </form:child>
   <form:datasources>
     <form:datasource xsi:type="form:Inputs"/>
-    <form:datasource xsi:type="form:LogicDataSource" id="items" name="项目" logic="rule:com.unlcn.ils.tps.s_items" sn="s_items"/>
+    <form:datasource xsi:type="form:LogicDataSource" id="items" name="项目" logic="rule:com.unlcn.ils.tps.s_getOperateItems" sn="s_getOperateItems"/>
     <form:datasource xsi:type="form:LogicDataSource" id="types" name="类型" logic="rule:com.unlcn.ils.tps.s_types" sn="s_types"/>
     <form:datasource xsi:type="form:LogicDataSource" id="itemsid" name="项目编号" logic="rule:com.unlcn.ils.tps.s_itemsid" sn="s_itemsid"/>
     <form:datasource xsi:type="form:TreeDataSource" id="treeshipper" name="分供方名称" impl="com.unlcn.ils.tps.services.ShipperService" type="custom"/>

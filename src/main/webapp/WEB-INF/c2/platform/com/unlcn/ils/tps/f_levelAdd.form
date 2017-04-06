@@ -38,10 +38,6 @@
         <dync:render/>
         <dync:children/>
       </dync:attribute>
-      <dync:attribute default="" group="事件" id="onload" name="页面加载完成" value="">
-        <dync:render/>
-        <dync:children/>
-      </dync:attribute>
     </form:attributes>
   </form:control>
   <form:child xsi:type="form:Group" id="div4" name="简单容器(DIV)">

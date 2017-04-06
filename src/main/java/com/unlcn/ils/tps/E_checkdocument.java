@@ -7,21 +7,21 @@ import com.chinacreator.c2.annotation.ColumnType;
 import com.chinacreator.c2.annotation.Entity;
 
 /**
- * 考核记录表 
+ * 考核记录表
  * @author 
- * @generated 
+ * @generated
  */
 @Entity(id = "entity:com.unlcn.ils.tps.e_checkdocument", table = "tps_check_document", ds = "ilsdb")
 public class E_checkdocument implements Serializable {
 	private static final long serialVersionUID = 1671120093446144L;
 	/**
-	 *
+	 *序号
 	 */
 	@Column(id = "lineid", type = ColumnType.uuid, datatype = "string32")
 	private java.lang.String lineid;
 
 	/**
-	 *
+	 *分供方id
 	 */
 	@Column(id = "shipper_lineid", datatype = "string32")
 	private java.lang.String shipperLineid;
@@ -89,14 +89,14 @@ public class E_checkdocument implements Serializable {
 	/**
 	 *扣分
 	 */
-	@Column(id = "check_score", datatype = "int")
-	private java.lang.Integer checkScore;
+	@Column(id = "check_score", datatype = "smalldouble")
+	private java.lang.Double checkScore;
 
 	/**
 	 *标准扣分
 	 */
-	@Column(id = "check_score_standard", datatype = "int")
-	private java.lang.Integer checkScoreStandard;
+	@Column(id = "check_score_standard", datatype = "smalldouble")
+	private java.lang.Double checkScoreStandard;
 
 	/**
 	 *考核操作规范类型序号
@@ -153,28 +153,28 @@ public class E_checkdocument implements Serializable {
 	private java.lang.String activeMemo;
 
 	/**
-	 * 设置
+	 * 设置序号
 	 */
 	public void setLineid(java.lang.String lineid) {
 		this.lineid = lineid;
 	}
 
 	/**
-	 * 获取
+	 * 获取序号
 	 */
 	public java.lang.String getLineid() {
 		return lineid;
 	}
 
 	/**
-	 * 设置
+	 * 设置分供方id
 	 */
 	public void setShipperLineid(java.lang.String shipperLineid) {
 		this.shipperLineid = shipperLineid;
 	}
 
 	/**
-	 * 获取
+	 * 获取分供方id
 	 */
 	public java.lang.String getShipperLineid() {
 		return shipperLineid;
@@ -323,28 +323,28 @@ public class E_checkdocument implements Serializable {
 	/**
 	 * 设置扣分
 	 */
-	public void setCheckScore(java.lang.Integer checkScore) {
+	public void setCheckScore(java.lang.Double checkScore) {
 		this.checkScore = checkScore;
 	}
 
 	/**
 	 * 获取扣分
 	 */
-	public java.lang.Integer getCheckScore() {
+	public java.lang.Double getCheckScore() {
 		return checkScore;
 	}
 
 	/**
 	 * 设置标准扣分
 	 */
-	public void setCheckScoreStandard(java.lang.Integer checkScoreStandard) {
+	public void setCheckScoreStandard(java.lang.Double checkScoreStandard) {
 		this.checkScoreStandard = checkScoreStandard;
 	}
 
 	/**
 	 * 获取标准扣分
 	 */
-	public java.lang.Integer getCheckScoreStandard() {
+	public java.lang.Double getCheckScoreStandard() {
 		return checkScoreStandard;
 	}
 

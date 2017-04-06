@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"><mapper namespace="com.unlcn.ils.tps.E_wayBillMapper">	
+
+<!-- ElementID:column_sql,Generated=true -->
+<sql id="column_sql">
+		  td_waybill_alarm.id ,
+		  td_waybill_alarm.system_waybill_id ,
+		  td_waybill_alarm.customer_order_id ,
+		  td_waybill_alarm.customer_waybill_id ,
+		  td_waybill_alarm.service_id ,
+		  td_waybill_alarm.transmode ,
+		  td_waybill_alarm.transit ,
+		  td_waybill_alarm.ship_date ,
+		  td_waybill_alarm.delivery_date ,
+		  td_waybill_alarm.goods_code ,
+		  td_waybill_alarm.ship_start_pro ,
+		  td_waybill_alarm.ship_start_city ,
+		  td_waybill_alarm.ship_end_pro ,
+		  td_waybill_alarm.ship_end_city ,
+		  td_waybill_alarm.start_province ,
+		  td_waybill_alarm.start_city ,
+		  td_waybill_alarm.end_province ,
+		  td_waybill_alarm.end_city ,
+		  td_waybill_alarm.miles ,
+		  td_waybill_alarm.count ,
+		  td_waybill_alarm.shipped_count ,
+		  td_waybill_alarm.customer_id ,
+		  td_waybill_alarm.goods_type ,
+		  td_waybill_alarm.memo ,
+		  td_waybill_alarm.shipper_car ,
+		  td_waybill_alarm.shipper_id ,
+		  td_waybill_alarm.shipper ,
+		  td_waybill_alarm.driver ,
+		  td_waybill_alarm.driver_phone ,
+		  td_waybill_alarm.command_id ,
+		  td_waybill_alarm.goods_status ,
+		  td_waybill_alarm.consignee_address ,
+		  td_waybill_alarm.consignee ,
+		  td_waybill_alarm.consignee_phone ,
+		  td_waybill_alarm.start_warehouse ,
+		  td_waybill_alarm.waybill_id ,
+		  td_waybill_alarm.status ,
+		  td_waybill_alarm.insert_time ,
+		  td_waybill_alarm.update_time ,
+		  td_waybill_alarm.create_day ,
+		  td_waybill_alarm.create_time ,
+		  td_waybill_alarm.create_stime ,
+		  td_waybill_alarm.create_rate ,
+		  td_waybill_alarm.dispatch_time ,
+		  td_waybill_alarm.dispatch_stime ,
+		  td_waybill_alarm.dispatch_rate ,
+		  td_waybill_alarm.pick_up_time ,
+		  td_waybill_alarm.pick_up_stime ,
+		  td_waybill_alarm.pick_up_rate ,
+		  td_waybill_alarm.load_time ,
+		  td_waybill_alarm.load_stime ,
+		  td_waybill_alarm.load_rate ,
+		  td_waybill_alarm.ship_time ,
+		  td_waybill_alarm.ship_stime ,
+		  td_waybill_alarm.ship_rate ,
+		  td_waybill_alarm.delivery_time ,
+		  td_waybill_alarm.delivery_stime ,
+		  td_waybill_alarm.delivery_rate ,
+		  td_waybill_alarm.receive_time ,
+		  td_waybill_alarm.receive_stime ,
+		  td_waybill_alarm.receive_rate ,
+		  td_waybill_alarm.receipt_time ,
+		  td_waybill_alarm.receipt_stime ,
+		  td_waybill_alarm.receipt_rate ,
+		  td_waybill_alarm.count_time ,
+		  td_waybill_alarm.flag ,
+		  td_waybill_alarm.current_lng ,
+		  td_waybill_alarm.current_lat ,
+		  td_waybill_alarm.current_site ,
+		  td_waybill_alarm.site_time ,
+		  td_waybill_alarm.acute ,
+		  td_waybill_alarm.service_print_time ,
+		  td_waybill_alarm.waybill_print_date ,
+		  td_waybill_alarm.dispatcher ,
+		  td_waybill_alarm.alarminfo ,
+		  td_waybill_alarm.n1 ,
+		  td_waybill_alarm.n2 ,
+		  td_waybill_alarm.n3 ,
+		  td_waybill_alarm.n4 ,
+		  td_waybill_alarm.n5 ,
+		  td_waybill_alarm.n6 ,
+		  td_waybill_alarm.n7 ,
+		  td_waybill_alarm.n8 ,
+		  td_waybill_alarm.gpsexception ,
+		  td_waybill_alarm.exception_type ,
+		  td_waybill_alarm.exception_desc ,
+		  td_waybill_alarm.exception_status ,
+		  td_waybill_alarm.exception_result ,
+		  td_waybill_alarm.c2_logicdelete_flag ,
+		  td_waybill_alarm.ccc_dx_etl_time 
+</sql>
+
+<!-- ElementID:whereClause_sql,Generated=true -->
+<sql id="whereClause_sql">
+	    <if test="id != null">and td_waybill_alarm.id = #{id}</if>
+	    <if test="systemWaybillId != null">and td_waybill_alarm.system_waybill_id = #{systemWaybillId}</if>
+	    <if test="customerOrderId != null">and td_waybill_alarm.customer_order_id = #{customerOrderId}</if>
+	    <if test="customerWaybillId != null">and td_waybill_alarm.customer_waybill_id = #{customerWaybillId}</if>
+	    <if test="serviceId != null">and td_waybill_alarm.service_id = #{serviceId}</if>
+	    <if test="transmode != null">and td_waybill_alarm.transmode = #{transmode}</if>
+	    <if test="transit != null">and td_waybill_alarm.transit = #{transit}</if>
+	    <if test="shipDate != null">and td_waybill_alarm.ship_date = #{shipDate}</if>
+	    <if test="deliveryDate != null">and td_waybill_alarm.delivery_date = #{deliveryDate}</if>
+	    <if test="goodsCode != null">and td_waybill_alarm.goods_code = #{goodsCode}</if>
+	    <if test="shipStartPro != null">and td_waybill_alarm.ship_start_pro = #{shipStartPro}</if>
+	    <if test="shipStartCity != null">and td_waybill_alarm.ship_start_city = #{shipStartCity}</if>
+	    <if test="shipEndPro != null">and td_waybill_alarm.ship_end_pro = #{shipEndPro}</if>
+	    <if test="shipEndCity != null">and td_waybill_alarm.ship_end_city = #{shipEndCity}</if>
+	    <if test="startProvince != null">and td_waybill_alarm.start_province = #{startProvince}</if>
+	    <if test="startCity != null">and td_waybill_alarm.start_city = #{startCity}</if>
+	    <if test="endProvince != null">and td_waybill_alarm.end_province = #{endProvince}</if>
+	    <if test="endCity != null">and td_waybill_alarm.end_city = #{endCity}</if>
+	    <if test="miles != null">and td_waybill_alarm.miles = #{miles}</if>
+	    <if test="count != null">and td_waybill_alarm.count = #{count}</if>
+	    <if test="shippedCount != null">and td_waybill_alarm.shipped_count = #{shippedCount}</if>
+	    <if test="customerId != null">and td_waybill_alarm.customer_id = #{customerId}</if>
+	    <if test="goodsType != null">and td_waybill_alarm.goods_type = #{goodsType}</if>
+	    <if test="memo != null">and td_waybill_alarm.memo = #{memo}</if>
+	    <if test="shipperCar != null">and td_waybill_alarm.shipper_car = #{shipperCar}</if>
+	    <if test="shipperId != null">and td_waybill_alarm.shipper_id = #{shipperId}</if>
+	    <if test="shipper != null">and td_waybill_alarm.shipper = #{shipper}</if>
+	    <if test="driver != null">and td_waybill_alarm.driver = #{driver}</if>
+	    <if test="driverPhone != null">and td_waybill_alarm.driver_phone = #{driverPhone}</if>
+	    <if test="commandId != null">and td_waybill_alarm.command_id = #{commandId}</if>
+	    <if test="goodsStatus != null">and td_waybill_alarm.goods_status = #{goodsStatus}</if>
+	    <if test="consigneeAddress != null">and td_waybill_alarm.consignee_address = #{consigneeAddress}</if>
+	    <if test="consignee != null">and td_waybill_alarm.consignee = #{consignee}</if>
+	    <if test="consigneePhone != null">and td_waybill_alarm.consignee_phone = #{consigneePhone}</if>
+	    <if test="startWarehouse != null">and td_waybill_alarm.start_warehouse = #{startWarehouse}</if>
+	    <if test="waybillId != null">and td_waybill_alarm.waybill_id = #{waybillId}</if>
+	    <if test="status != null">and td_waybill_alarm.status = #{status}</if>
+	    <if test="insertTime != null">and td_waybill_alarm.insert_time = #{insertTime}</if>
+	    <if test="updateTime != null">and td_waybill_alarm.update_time = #{updateTime}</if>
+	    <if test="createDay != null">and td_waybill_alarm.create_day = #{createDay}</if>
+	    <if test="createTime != null">and td_waybill_alarm.create_time = #{createTime}</if>
+	    <if test="createStime != null">and td_waybill_alarm.create_stime = #{createStime}</if>
+	    <if test="createRate != null">and td_waybill_alarm.create_rate = #{createRate}</if>
+	    <if test="dispatchTime != null">and td_waybill_alarm.dispatch_time = #{dispatchTime}</if>
+	    <if test="dispatchStime != null">and td_waybill_alarm.dispatch_stime = #{dispatchStime}</if>
+	    <if test="dispatchRate != null">and td_waybill_alarm.dispatch_rate = #{dispatchRate}</if>
+	    <if test="pickUpTime != null">and td_waybill_alarm.pick_up_time = #{pickUpTime}</if>
+	    <if test="pickUpStime != null">and td_waybill_alarm.pick_up_stime = #{pickUpStime}</if>
+	    <if test="pickUpRate != null">and td_waybill_alarm.pick_up_rate = #{pickUpRate}</if>
+	    <if test="loadTime != null">and td_waybill_alarm.load_time = #{loadTime}</if>
+	    <if test="loadStime != null">and td_waybill_alarm.load_stime = #{loadStime}</if>
+	    <if test="loadRate != null">and td_waybill_alarm.load_rate = #{loadRate}</if>
+	    <if test="shipTime != null">and td_waybill_alarm.ship_time = #{shipTime}</if>
+	    <if test="shipStime != null">and td_waybill_alarm.ship_stime = #{shipStime}</if>
+	    <if test="shipRate != null">and td_waybill_alarm.ship_rate = #{shipRate}</if>
+	    <if test="deliveryTime != null">and td_waybill_alarm.delivery_time = #{deliveryTime}</if>
+	    <if test="deliveryStime != null">and td_waybill_alarm.delivery_stime = #{deliveryStime}</if>
+	    <if test="deliveryRate != null">and td_waybill_alarm.delivery_rate = #{deliveryRate}</if>
+	    <if test="receiveTime != null">and td_waybill_alarm.receive_time = #{receiveTime}</if>
+	    <if test="receiveStime != null">and td_waybill_alarm.receive_stime = #{receiveStime}</if>
+	    <if test="receiveRate != null">and td_waybill_alarm.receive_rate = #{receiveRate}</if>
+	    <if test="receiptTime != null">and td_waybill_alarm.receipt_time = #{receiptTime}</if>
+	    <if test="receiptStime != null">and td_waybill_alarm.receipt_stime = #{receiptStime}</if>
+	    <if test="receiptRate != null">and td_waybill_alarm.receipt_rate = #{receiptRate}</if>
+	    <if test="countTime != null">and td_waybill_alarm.count_time = #{countTime}</if>
+	    <if test="flag != null">and td_waybill_alarm.flag = #{flag}</if>
+	    <if test="currentLng != null">and td_waybill_alarm.current_lng = #{currentLng}</if>
+	    <if test="currentLat != null">and td_waybill_alarm.current_lat = #{currentLat}</if>
+	    <if test="currentSite != null">and td_waybill_alarm.current_site = #{currentSite}</if>
+	    <if test="siteTime != null">and td_waybill_alarm.site_time = #{siteTime}</if>
+	    <if test="acute != null">and td_waybill_alarm.acute = #{acute}</if>
+	    <if test="servicePrintTime != null">and td_waybill_alarm.service_print_time = #{servicePrintTime}</if>
+	    <if test="waybillPrintDate != null">and td_waybill_alarm.waybill_print_date = #{waybillPrintDate}</if>
+	    <if test="dispatcher != null">and td_waybill_alarm.dispatcher = #{dispatcher}</if>
+	    <if test="alarminfo != null">and td_waybill_alarm.alarminfo = #{alarminfo}</if>
+	    <if test="n1 != null">and td_waybill_alarm.n1 = #{n1}</if>
+	    <if test="n2 != null">and td_waybill_alarm.n2 = #{n2}</if>
+	    <if test="n3 != null">and td_waybill_alarm.n3 = #{n3}</if>
+	    <if test="n4 != null">and td_waybill_alarm.n4 = #{n4}</if>
+	    <if test="n5 != null">and td_waybill_alarm.n5 = #{n5}</if>
+	    <if test="n6 != null">and td_waybill_alarm.n6 = #{n6}</if>
+	    <if test="n7 != null">and td_waybill_alarm.n7 = #{n7}</if>
+	    <if test="n8 != null">and td_waybill_alarm.n8 = #{n8}</if>
+	    <if test="gpsexception != null">and td_waybill_alarm.gpsexception = #{gpsexception}</if>
+	    <if test="exceptionType != null">and td_waybill_alarm.exception_type = #{exceptionType}</if>
+	    <if test="exceptionDesc != null">and td_waybill_alarm.exception_desc = #{exceptionDesc}</if>
+	    <if test="exceptionStatus != null">and td_waybill_alarm.exception_status = #{exceptionStatus}</if>
+	    <if test="exceptionResult != null">and td_waybill_alarm.exception_result = #{exceptionResult}</if>
+	    <if test="c2LogicdeleteFlag != null">and td_waybill_alarm.c2_logicdelete_flag = #{c2LogicdeleteFlag}</if>
+	    <if test="cccDxEtlTime != null">and td_waybill_alarm.ccc_dx_etl_time = #{cccDxEtlTime}</if>
+</sql>
+
+
+<!-- ElementID:E_wayBillResult,Generated=true -->
+<resultMap id="E_wayBillResult" type="com.unlcn.ils.tps.E_wayBill">
+	<id property="id" column="id"/>
+	<result property="systemWaybillId" column="system_waybill_id"/>
+	<result property="customerOrderId" column="customer_order_id"/>
+	<result property="customerWaybillId" column="customer_waybill_id"/>
+	<result property="serviceId" column="service_id"/>
+	<result property="transmode" column="transmode"/>
+	<result property="transit" column="transit"/>
+	<result property="shipDate" column="ship_date"/>
+	<result property="deliveryDate" column="delivery_date"/>
+	<result property="goodsCode" column="goods_code"/>
+	<result property="shipStartPro" column="ship_start_pro"/>
+	<result property="shipStartCity" column="ship_start_city"/>
+	<result property="shipEndPro" column="ship_end_pro"/>
+	<result property="shipEndCity" column="ship_end_city"/>
+	<result property="startProvince" column="start_province"/>
+	<result property="startCity" column="start_city"/>
+	<result property="endProvince" column="end_province"/>
+	<result property="endCity" column="end_city"/>
+	<result property="miles" column="miles"/>
+	<result property="count" column="count"/>
+	<result property="shippedCount" column="shipped_count"/>
+	<result property="customerId" column="customer_id"/>
+	<result property="goodsType" column="goods_type"/>
+	<result property="memo" column="memo"/>
+	<result property="shipperCar" column="shipper_car"/>
+	<result property="shipperId" column="shipper_id"/>
+	<result property="shipper" column="shipper"/>
+	<result property="driver" column="driver"/>
+	<result property="driverPhone" column="driver_phone"/>
+	<result property="commandId" column="command_id"/>
+	<result property="goodsStatus" column="goods_status"/>
+	<result property="consigneeAddress" column="consignee_address"/>
+	<result property="consignee" column="consignee"/>
+	<result property="consigneePhone" column="consignee_phone"/>
+	<result property="startWarehouse" column="start_warehouse"/>
+	<result property="waybillId" column="waybill_id"/>
+	<result property="status" column="status"/>
+	<result property="insertTime" column="insert_time"/>
+	<result property="updateTime" column="update_time"/>
+	<result property="createDay" column="create_day"/>
+	<result property="createTime" column="create_time"/>
+	<result property="createStime" column="create_stime"/>
+	<result property="createRate" column="create_rate"/>
+	<result property="dispatchTime" column="dispatch_time"/>
+	<result property="dispatchStime" column="dispatch_stime"/>
+	<result property="dispatchRate" column="dispatch_rate"/>
+	<result property="pickUpTime" column="pick_up_time"/>
+	<result property="pickUpStime" column="pick_up_stime"/>
+	<result property="pickUpRate" column="pick_up_rate"/>
+	<result property="loadTime" column="load_time"/>
+	<result property="loadStime" column="load_stime"/>
+	<result property="loadRate" column="load_rate"/>
+	<result property="shipTime" column="ship_time"/>
+	<result property="shipStime" column="ship_stime"/>
+	<result property="shipRate" column="ship_rate"/>
+	<result property="deliveryTime" column="delivery_time"/>
+	<result property="deliveryStime" column="delivery_stime"/>
+	<result property="deliveryRate" column="delivery_rate"/>
+	<result property="receiveTime" column="receive_time"/>
+	<result property="receiveStime" column="receive_stime"/>
+	<result property="receiveRate" column="receive_rate"/>
+	<result property="receiptTime" column="receipt_time"/>
+	<result property="receiptStime" column="receipt_stime"/>
+	<result property="receiptRate" column="receipt_rate"/>
+	<result property="countTime" column="count_time"/>
+	<result property="flag" column="flag"/>
+	<result property="currentLng" column="current_lng"/>
+	<result property="currentLat" column="current_lat"/>
+	<result property="currentSite" column="current_site"/>
+	<result property="siteTime" column="site_time"/>
+	<result property="acute" column="acute"/>
+	<result property="servicePrintTime" column="service_print_time"/>
+	<result property="waybillPrintDate" column="waybill_print_date"/>
+	<result property="dispatcher" column="dispatcher"/>
+	<result property="alarminfo" column="alarminfo"/>
+	<result property="n1" column="n1"/>
+	<result property="n2" column="n2"/>
+	<result property="n3" column="n3"/>
+	<result property="n4" column="n4"/>
+	<result property="n5" column="n5"/>
+	<result property="n6" column="n6"/>
+	<result property="n7" column="n7"/>
+	<result property="n8" column="n8"/>
+	<result property="gpsexception" column="gpsexception"/>
+	<result property="exceptionType" column="exception_type"/>
+	<result property="exceptionDesc" column="exception_desc"/>
+	<result property="exceptionStatus" column="exception_status"/>
+	<result property="exceptionResult" column="exception_result"/>
+	<result property="c2LogicdeleteFlag" column="c2_logicdelete_flag"/>
+	<result property="cccDxEtlTime" column="ccc_dx_etl_time"/>
+</resultMap>
+
+
+<!-- ElementName:cache,Generated=true -->
+<cache type="C2_Default_Dao_Cache"/>
+
+<!-- ElementID:insert,Generated=true -->
+<insert id="insert" parameterType="com.unlcn.ils.tps.E_wayBill">
+	insert into td_waybill_alarm(
+	         <if test="id != null">id</if>
+	         <if test="systemWaybillId != null">,system_waybill_id</if>
+	         <if test="customerOrderId != null">,customer_order_id</if>
+	         <if test="customerWaybillId != null">,customer_waybill_id</if>
+	         <if test="serviceId != null">,service_id</if>
+	         <if test="transmode != null">,transmode</if>
+	         <if test="transit != null">,transit</if>
+	         <if test="shipDate != null">,ship_date</if>
+	         <if test="deliveryDate != null">,delivery_date</if>
+	         <if test="goodsCode != null">,goods_code</if>
+	         <if test="shipStartPro != null">,ship_start_pro</if>
+	         <if test="shipStartCity != null">,ship_start_city</if>
+	         <if test="shipEndPro != null">,ship_end_pro</if>
+	         <if test="shipEndCity != null">,ship_end_city</if>
+	         <if test="startProvince != null">,start_province</if>
+	         <if test="startCity != null">,start_city</if>
+	         <if test="endProvince != null">,end_province</if>
+	         <if test="endCity != null">,end_city</if>
+	         <if test="miles != null">,miles</if>
+	         <if test="count != null">,count</if>
+	         <if test="shippedCount != null">,shipped_count</if>
+	         <if test="customerId != null">,customer_id</if>
+	         <if test="goodsType != null">,goods_type</if>
+	         <if test="memo != null">,memo</if>
+	         <if test="shipperCar != null">,shipper_car</if>
+	         <if test="shipperId != null">,shipper_id</if>
+	         <if test="shipper != null">,shipper</if>
+	         <if test="driver != null">,driver</if>
+	         <if test="driverPhone != null">,driver_phone</if>
+	         <if test="commandId != null">,command_id</if>
+	         <if test="goodsStatus != null">,goods_status</if>
+	         <if test="consigneeAddress != null">,consignee_address</if>
+	         <if test="consignee != null">,consignee</if>
+	         <if test="consigneePhone != null">,consignee_phone</if>
+	         <if test="startWarehouse != null">,start_warehouse</if>
+	         <if test="waybillId != null">,waybill_id</if>
+	         <if test="status != null">,status</if>
+	         <if test="insertTime != null">,insert_time</if>
+	         <if test="updateTime != null">,update_time</if>
+	         <if test="createDay != null">,create_day</if>
+	         <if test="createTime != null">,create_time</if>
+	         <if test="createStime != null">,create_stime</if>
+	         <if test="createRate != null">,create_rate</if>
+	         <if test="dispatchTime != null">,dispatch_time</if>
+	         <if test="dispatchStime != null">,dispatch_stime</if>
+	         <if test="dispatchRate != null">,dispatch_rate</if>
+	         <if test="pickUpTime != null">,pick_up_time</if>
+	         <if test="pickUpStime != null">,pick_up_stime</if>
+	         <if test="pickUpRate != null">,pick_up_rate</if>
+	         <if test="loadTime != null">,load_time</if>
+	         <if test="loadStime != null">,load_stime</if>
+	         <if test="loadRate != null">,load_rate</if>
+	         <if test="shipTime != null">,ship_time</if>
+	         <if test="shipStime != null">,ship_stime</if>
+	         <if test="shipRate != null">,ship_rate</if>
+	         <if test="deliveryTime != null">,delivery_time</if>
+	         <if test="deliveryStime != null">,delivery_stime</if>
+	         <if test="deliveryRate != null">,delivery_rate</if>
+	         <if test="receiveTime != null">,receive_time</if>
+	         <if test="receiveStime != null">,receive_stime</if>
+	         <if test="receiveRate != null">,receive_rate</if>
+	         <if test="receiptTime != null">,receipt_time</if>
+	         <if test="receiptStime != null">,receipt_stime</if>
+	         <if test="receiptRate != null">,receipt_rate</if>
+	         <if test="countTime != null">,count_time</if>
+	         <if test="flag != null">,flag</if>
+	         <if test="currentLng != null">,current_lng</if>
+	         <if test="currentLat != null">,current_lat</if>
+	         <if test="currentSite != null">,current_site</if>
+	         <if test="siteTime != null">,site_time</if>
+	         <if test="acute != null">,acute</if>
+	         <if test="servicePrintTime != null">,service_print_time</if>
+	         <if test="waybillPrintDate != null">,waybill_print_date</if>
+	         <if test="dispatcher != null">,dispatcher</if>
+	         <if test="alarminfo != null">,alarminfo</if>
+	         <if test="n1 != null">,n1</if>
+	         <if test="n2 != null">,n2</if>
+	         <if test="n3 != null">,n3</if>
+	         <if test="n4 != null">,n4</if>
+	         <if test="n5 != null">,n5</if>
+	         <if test="n6 != null">,n6</if>
+	         <if test="n7 != null">,n7</if>
+	         <if test="n8 != null">,n8</if>
+	         <if test="gpsexception != null">,gpsexception</if>
+	         <if test="exceptionType != null">,exception_type</if>
+	         <if test="exceptionDesc != null">,exception_desc</if>
+	         <if test="exceptionStatus != null">,exception_status</if>
+	         <if test="exceptionResult != null">,exception_result</if>
+	         <if test="c2LogicdeleteFlag != null">,c2_logicdelete_flag</if>
+	         <if test="cccDxEtlTime != null">,ccc_dx_etl_time</if>
+	 	 	 )
+	 values (
+	         <if test="id != null">#{id,jdbcType=VARCHAR}</if>
+	         <if test="systemWaybillId != null">,#{systemWaybillId,jdbcType=VARCHAR}</if>
+	         <if test="customerOrderId != null">,#{customerOrderId,jdbcType=VARCHAR}</if>
+	         <if test="customerWaybillId != null">,#{customerWaybillId,jdbcType=VARCHAR}</if>
+	         <if test="serviceId != null">,#{serviceId,jdbcType=VARCHAR}</if>
+	         <if test="transmode != null">,#{transmode,jdbcType=VARCHAR}</if>
+	         <if test="transit != null">,#{transit,jdbcType=VARCHAR}</if>
+	         <if test="shipDate != null">,#{shipDate,jdbcType=DATE}</if>
+	         <if test="deliveryDate != null">,#{deliveryDate,jdbcType=DATE}</if>
+	         <if test="goodsCode != null">,#{goodsCode,jdbcType=VARCHAR}</if>
+	         <if test="shipStartPro != null">,#{shipStartPro,jdbcType=VARCHAR}</if>
+	         <if test="shipStartCity != null">,#{shipStartCity,jdbcType=VARCHAR}</if>
+	         <if test="shipEndPro != null">,#{shipEndPro,jdbcType=VARCHAR}</if>
+	         <if test="shipEndCity != null">,#{shipEndCity,jdbcType=VARCHAR}</if>
+	         <if test="startProvince != null">,#{startProvince,jdbcType=VARCHAR}</if>
+	         <if test="startCity != null">,#{startCity,jdbcType=VARCHAR}</if>
+	         <if test="endProvince != null">,#{endProvince,jdbcType=VARCHAR}</if>
+	         <if test="endCity != null">,#{endCity,jdbcType=VARCHAR}</if>
+	         <if test="miles != null">,#{miles,jdbcType=NUMERIC}</if>
+	         <if test="count != null">,#{count,jdbcType=NUMERIC}</if>
+	         <if test="shippedCount != null">,#{shippedCount,jdbcType=NUMERIC}</if>
+	         <if test="customerId != null">,#{customerId,jdbcType=VARCHAR}</if>
+	         <if test="goodsType != null">,#{goodsType,jdbcType=VARCHAR}</if>
+	         <if test="memo != null">,#{memo,jdbcType=VARCHAR}</if>
+	         <if test="shipperCar != null">,#{shipperCar,jdbcType=VARCHAR}</if>
+	         <if test="shipperId != null">,#{shipperId,jdbcType=VARCHAR}</if>
+	         <if test="shipper != null">,#{shipper,jdbcType=VARCHAR}</if>
+	         <if test="driver != null">,#{driver,jdbcType=VARCHAR}</if>
+	         <if test="driverPhone != null">,#{driverPhone,jdbcType=VARCHAR}</if>
+	         <if test="commandId != null">,#{commandId,jdbcType=VARCHAR}</if>
+	         <if test="goodsStatus != null">,#{goodsStatus,jdbcType=VARCHAR}</if>
+	         <if test="consigneeAddress != null">,#{consigneeAddress,jdbcType=VARCHAR}</if>
+	         <if test="consignee != null">,#{consignee,jdbcType=VARCHAR}</if>
+	         <if test="consigneePhone != null">,#{consigneePhone,jdbcType=VARCHAR}</if>
+	         <if test="startWarehouse != null">,#{startWarehouse,jdbcType=VARCHAR}</if>
+	         <if test="waybillId != null">,#{waybillId,jdbcType=VARCHAR}</if>
+	         <if test="status != null">,#{status,jdbcType=VARCHAR}</if>
+	         <if test="insertTime != null">,#{insertTime,jdbcType=TIMESTAMP}</if>
+	         <if test="updateTime != null">,#{updateTime,jdbcType=TIMESTAMP}</if>
+	         <if test="createDay != null">,#{createDay,jdbcType=VARCHAR}</if>
+	         <if test="createTime != null">,#{createTime,jdbcType=TIMESTAMP}</if>
+	         <if test="createStime != null">,#{createStime,jdbcType=NUMERIC}</if>
+	         <if test="createRate != null">,#{createRate,jdbcType=NUMERIC}</if>
+	         <if test="dispatchTime != null">,#{dispatchTime,jdbcType=TIMESTAMP}</if>
+	         <if test="dispatchStime != null">,#{dispatchStime,jdbcType=NUMERIC}</if>
+	         <if test="dispatchRate != null">,#{dispatchRate,jdbcType=NUMERIC}</if>
+	         <if test="pickUpTime != null">,#{pickUpTime,jdbcType=TIMESTAMP}</if>
+	         <if test="pickUpStime != null">,#{pickUpStime,jdbcType=NUMERIC}</if>
+	         <if test="pickUpRate != null">,#{pickUpRate,jdbcType=NUMERIC}</if>
+	         <if test="loadTime != null">,#{loadTime,jdbcType=TIMESTAMP}</if>
+	         <if test="loadStime != null">,#{loadStime,jdbcType=NUMERIC}</if>
+	         <if test="loadRate != null">,#{loadRate,jdbcType=NUMERIC}</if>
+	         <if test="shipTime != null">,#{shipTime,jdbcType=TIMESTAMP}</if>
+	         <if test="shipStime != null">,#{shipStime,jdbcType=NUMERIC}</if>
+	         <if test="shipRate != null">,#{shipRate,jdbcType=NUMERIC}</if>
+	         <if test="deliveryTime != null">,#{deliveryTime,jdbcType=TIMESTAMP}</if>
+	         <if test="deliveryStime != null">,#{deliveryStime,jdbcType=NUMERIC}</if>
+	         <if test="deliveryRate != null">,#{deliveryRate,jdbcType=NUMERIC}</if>
+	         <if test="receiveTime != null">,#{receiveTime,jdbcType=TIMESTAMP}</if>
+	         <if test="receiveStime != null">,#{receiveStime,jdbcType=NUMERIC}</if>
+	         <if test="receiveRate != null">,#{receiveRate,jdbcType=NUMERIC}</if>
+	         <if test="receiptTime != null">,#{receiptTime,jdbcType=TIMESTAMP}</if>
+	         <if test="receiptStime != null">,#{receiptStime,jdbcType=NUMERIC}</if>
+	         <if test="receiptRate != null">,#{receiptRate,jdbcType=NUMERIC}</if>
+	         <if test="countTime != null">,#{countTime,jdbcType=TIMESTAMP}</if>
+	         <if test="flag != null">,#{flag,jdbcType=VARCHAR}</if>
+	         <if test="currentLng != null">,#{currentLng,jdbcType=NUMERIC}</if>
+	         <if test="currentLat != null">,#{currentLat,jdbcType=NUMERIC}</if>
+	         <if test="currentSite != null">,#{currentSite,jdbcType=VARCHAR}</if>
+	         <if test="siteTime != null">,#{siteTime,jdbcType=TIMESTAMP}</if>
+	         <if test="acute != null">,#{acute,jdbcType=VARCHAR}</if>
+	         <if test="servicePrintTime != null">,#{servicePrintTime,jdbcType=TIMESTAMP}</if>
+	         <if test="waybillPrintDate != null">,#{waybillPrintDate,jdbcType=DATE}</if>
+	         <if test="dispatcher != null">,#{dispatcher,jdbcType=VARCHAR}</if>
+	         <if test="alarminfo != null">,#{alarminfo,jdbcType=VARCHAR}</if>
+	         <if test="n1 != null">,#{n1,jdbcType=VARCHAR}</if>
+	         <if test="n2 != null">,#{n2,jdbcType=VARCHAR}</if>
+	         <if test="n3 != null">,#{n3,jdbcType=VARCHAR}</if>
+	         <if test="n4 != null">,#{n4,jdbcType=VARCHAR}</if>
+	         <if test="n5 != null">,#{n5,jdbcType=VARCHAR}</if>
+	         <if test="n6 != null">,#{n6,jdbcType=VARCHAR}</if>
+	         <if test="n7 != null">,#{n7,jdbcType=VARCHAR}</if>
+	         <if test="n8 != null">,#{n8,jdbcType=VARCHAR}</if>
+	         <if test="gpsexception != null">,#{gpsexception,jdbcType=VARCHAR}</if>
+	         <if test="exceptionType != null">,#{exceptionType,jdbcType=VARCHAR}</if>
+	         <if test="exceptionDesc != null">,#{exceptionDesc,jdbcType=VARCHAR}</if>
+	         <if test="exceptionStatus != null">,#{exceptionStatus,jdbcType=VARCHAR}</if>
+	         <if test="exceptionResult != null">,#{exceptionResult,jdbcType=VARCHAR}</if>
+	         <if test="c2LogicdeleteFlag != null">,#{c2LogicdeleteFlag,jdbcType=VARCHAR}</if>
+	         <if test="cccDxEtlTime != null">,#{cccDxEtlTime,jdbcType=NUMERIC}</if>
+	 	 	 )
+</insert>
+
+<!-- ElementID:count,Generated=true -->
+<select id="count" parameterType="com.unlcn.ils.tps.E_wayBill" resultType="int">
+	select count(*) from td_waybill_alarm 
+		 <where>
+			<include refid="whereClause_sql"/>
+		</where>
+</select>
+
+<!-- ElementID:update,Generated=true -->
+<update id="update" parameterType="com.unlcn.ils.tps.E_wayBill">
+	update td_waybill_alarm
+<set>
+	<if test="systemWaybillId != null">system_waybill_id=#{systemWaybillId,jdbcType=VARCHAR},</if>
+	<if test="customerOrderId != null">customer_order_id=#{customerOrderId,jdbcType=VARCHAR},</if>
+	<if test="customerWaybillId != null">customer_waybill_id=#{customerWaybillId,jdbcType=VARCHAR},</if>
+	<if test="serviceId != null">service_id=#{serviceId,jdbcType=VARCHAR},</if>
+	<if test="transmode != null">transmode=#{transmode,jdbcType=VARCHAR},</if>
+	<if test="transit != null">transit=#{transit,jdbcType=VARCHAR},</if>
+	<if test="shipDate != null">ship_date=#{shipDate,jdbcType=DATE},</if>
+	<if test="deliveryDate != null">delivery_date=#{deliveryDate,jdbcType=DATE},</if>
+	<if test="goodsCode != null">goods_code=#{goodsCode,jdbcType=VARCHAR},</if>
+	<if test="shipStartPro != null">ship_start_pro=#{shipStartPro,jdbcType=VARCHAR},</if>
+	<if test="shipStartCity != null">ship_start_city=#{shipStartCity,jdbcType=VARCHAR},</if>
+	<if test="shipEndPro != null">ship_end_pro=#{shipEndPro,jdbcType=VARCHAR},</if>
+	<if test="shipEndCity != null">ship_end_city=#{shipEndCity,jdbcType=VARCHAR},</if>
+	<if test="startProvince != null">start_province=#{startProvince,jdbcType=VARCHAR},</if>
+	<if test="startCity != null">start_city=#{startCity,jdbcType=VARCHAR},</if>
+	<if test="endProvince != null">end_province=#{endProvince,jdbcType=VARCHAR},</if>
+	<if test="endCity != null">end_city=#{endCity,jdbcType=VARCHAR},</if>
+	<if test="miles != null">miles=#{miles,jdbcType=NUMERIC},</if>
+	<if test="count != null">count=#{count,jdbcType=NUMERIC},</if>
+	<if test="shippedCount != null">shipped_count=#{shippedCount,jdbcType=NUMERIC},</if>
+	<if test="customerId != null">customer_id=#{customerId,jdbcType=VARCHAR},</if>
+	<if test="goodsType != null">goods_type=#{goodsType,jdbcType=VARCHAR},</if>
+	<if test="memo != null">memo=#{memo,jdbcType=VARCHAR},</if>
+	<if test="shipperCar != null">shipper_car=#{shipperCar,jdbcType=VARCHAR},</if>
+	<if test="shipperId != null">shipper_id=#{shipperId,jdbcType=VARCHAR},</if>
+	<if test="shipper != null">shipper=#{shipper,jdbcType=VARCHAR},</if>
+	<if test="driver != null">driver=#{driver,jdbcType=VARCHAR},</if>
+	<if test="driverPhone != null">driver_phone=#{driverPhone,jdbcType=VARCHAR},</if>
+	<if test="commandId != null">command_id=#{commandId,jdbcType=VARCHAR},</if>
+	<if test="goodsStatus != null">goods_status=#{goodsStatus,jdbcType=VARCHAR},</if>
+	<if test="consigneeAddress != null">consignee_address=#{consigneeAddress,jdbcType=VARCHAR},</if>
+	<if test="consignee != null">consignee=#{consignee,jdbcType=VARCHAR},</if>
+	<if test="consigneePhone != null">consignee_phone=#{consigneePhone,jdbcType=VARCHAR},</if>
+	<if test="startWarehouse != null">start_warehouse=#{startWarehouse,jdbcType=VARCHAR},</if>
+	<if test="waybillId != null">waybill_id=#{waybillId,jdbcType=VARCHAR},</if>
+	<if test="status != null">status=#{status,jdbcType=VARCHAR},</if>
+	<if test="insertTime != null">insert_time=#{insertTime,jdbcType=TIMESTAMP},</if>
+	<if test="updateTime != null">update_time=#{updateTime,jdbcType=TIMESTAMP},</if>
+	<if test="createDay != null">create_day=#{createDay,jdbcType=VARCHAR},</if>
+	<if test="createTime != null">create_time=#{createTime,jdbcType=TIMESTAMP},</if>
+	<if test="createStime != null">create_stime=#{createStime,jdbcType=NUMERIC},</if>
+	<if test="createRate != null">create_rate=#{createRate,jdbcType=NUMERIC},</if>
+	<if test="dispatchTime != null">dispatch_time=#{dispatchTime,jdbcType=TIMESTAMP},</if>
+	<if test="dispatchStime != null">dispatch_stime=#{dispatchStime,jdbcType=NUMERIC},</if>
+	<if test="dispatchRate != null">dispatch_rate=#{dispatchRate,jdbcType=NUMERIC},</if>
+	<if test="pickUpTime != null">pick_up_time=#{pickUpTime,jdbcType=TIMESTAMP},</if>
+	<if test="pickUpStime != null">pick_up_stime=#{pickUpStime,jdbcType=NUMERIC},</if>
+	<if test="pickUpRate != null">pick_up_rate=#{pickUpRate,jdbcType=NUMERIC},</if>
+	<if test="loadTime != null">load_time=#{loadTime,jdbcType=TIMESTAMP},</if>
+	<if test="loadStime != null">load_stime=#{loadStime,jdbcType=NUMERIC},</if>
+	<if test="loadRate != null">load_rate=#{loadRate,jdbcType=NUMERIC},</if>
+	<if test="shipTime != null">ship_time=#{shipTime,jdbcType=TIMESTAMP},</if>
+	<if test="shipStime != null">ship_stime=#{shipStime,jdbcType=NUMERIC},</if>
+	<if test="shipRate != null">ship_rate=#{shipRate,jdbcType=NUMERIC},</if>
+	<if test="deliveryTime != null">delivery_time=#{deliveryTime,jdbcType=TIMESTAMP},</if>
+	<if test="deliveryStime != null">delivery_stime=#{deliveryStime,jdbcType=NUMERIC},</if>
+	<if test="deliveryRate != null">delivery_rate=#{deliveryRate,jdbcType=NUMERIC},</if>
+	<if test="receiveTime != null">receive_time=#{receiveTime,jdbcType=TIMESTAMP},</if>
+	<if test="receiveStime != null">receive_stime=#{receiveStime,jdbcType=NUMERIC},</if>
+	<if test="receiveRate != null">receive_rate=#{receiveRate,jdbcType=NUMERIC},</if>
+	<if test="receiptTime != null">receipt_time=#{receiptTime,jdbcType=TIMESTAMP},</if>
+	<if test="receiptStime != null">receipt_stime=#{receiptStime,jdbcType=NUMERIC},</if>
+	<if test="receiptRate != null">receipt_rate=#{receiptRate,jdbcType=NUMERIC},</if>
+	<if test="countTime != null">count_time=#{countTime,jdbcType=TIMESTAMP},</if>
+	<if test="flag != null">flag=#{flag,jdbcType=VARCHAR},</if>
+	<if test="currentLng != null">current_lng=#{currentLng,jdbcType=NUMERIC},</if>
+	<if test="currentLat != null">current_lat=#{currentLat,jdbcType=NUMERIC},</if>
+	<if test="currentSite != null">current_site=#{currentSite,jdbcType=VARCHAR},</if>
+	<if test="siteTime != null">site_time=#{siteTime,jdbcType=TIMESTAMP},</if>
+	<if test="acute != null">acute=#{acute,jdbcType=VARCHAR},</if>
+	<if test="servicePrintTime != null">service_print_time=#{servicePrintTime,jdbcType=TIMESTAMP},</if>
+	<if test="waybillPrintDate != null">waybill_print_date=#{waybillPrintDate,jdbcType=DATE},</if>
+	<if test="dispatcher != null">dispatcher=#{dispatcher,jdbcType=VARCHAR},</if>
+	<if test="alarminfo != null">alarminfo=#{alarminfo,jdbcType=VARCHAR},</if>
+	<if test="n1 != null">n1=#{n1,jdbcType=VARCHAR},</if>
+	<if test="n2 != null">n2=#{n2,jdbcType=VARCHAR},</if>
+	<if test="n3 != null">n3=#{n3,jdbcType=VARCHAR},</if>
+	<if test="n4 != null">n4=#{n4,jdbcType=VARCHAR},</if>
+	<if test="n5 != null">n5=#{n5,jdbcType=VARCHAR},</if>
+	<if test="n6 != null">n6=#{n6,jdbcType=VARCHAR},</if>
+	<if test="n7 != null">n7=#{n7,jdbcType=VARCHAR},</if>
+	<if test="n8 != null">n8=#{n8,jdbcType=VARCHAR},</if>
+	<if test="gpsexception != null">gpsexception=#{gpsexception,jdbcType=VARCHAR},</if>
+	<if test="exceptionType != null">exception_type=#{exceptionType,jdbcType=VARCHAR},</if>
+	<if test="exceptionDesc != null">exception_desc=#{exceptionDesc,jdbcType=VARCHAR},</if>
+	<if test="exceptionStatus != null">exception_status=#{exceptionStatus,jdbcType=VARCHAR},</if>
+	<if test="exceptionResult != null">exception_result=#{exceptionResult,jdbcType=VARCHAR},</if>
+	<if test="c2LogicdeleteFlag != null">c2_logicdelete_flag=#{c2LogicdeleteFlag,jdbcType=VARCHAR},</if>
+	<if test="cccDxEtlTime != null">ccc_dx_etl_time=#{cccDxEtlTime,jdbcType=NUMERIC}</if>
+</set>
+<where>
+	<choose>
+        <when test="id != null">and id = #{id}</when>
+        <otherwise>and id = </otherwise>
+    </choose>
+</where>
+</update>
+
+<!-- ElementID:updateNull,Generated=true -->
+<update id="updateNull" parameterType="map">
+	update td_waybill_alarm
+	<set>
+		<trim suffixOverrides=",">
+		    <if test="systemWaybillId==null">system_waybill_id = null,</if>
+		    <if test="customerOrderId==null">customer_order_id = null,</if>
+		    <if test="customerWaybillId==null">customer_waybill_id = null,</if>
+		    <if test="serviceId==null">service_id = null,</if>
+		    <if test="transmode==null">transmode = null,</if>
+		    <if test="transit==null">transit = null,</if>
+		    <if test="shipDate==null">ship_date = null,</if>
+		    <if test="deliveryDate==null">delivery_date = null,</if>
+		    <if test="goodsCode==null">goods_code = null,</if>
+		    <if test="shipStartPro==null">ship_start_pro = null,</if>
+		    <if test="shipStartCity==null">ship_start_city = null,</if>
+		    <if test="shipEndPro==null">ship_end_pro = null,</if>
+		    <if test="shipEndCity==null">ship_end_city = null,</if>
+		    <if test="startProvince==null">start_province = null,</if>
+		    <if test="startCity==null">start_city = null,</if>
+		    <if test="endProvince==null">end_province = null,</if>
+		    <if test="endCity==null">end_city = null,</if>
+		    <if test="miles==null">miles = null,</if>
+		    <if test="count==null">count = null,</if>
+		    <if test="shippedCount==null">shipped_count = null,</if>
+		    <if test="customerId==null">customer_id = null,</if>
+		    <if test="goodsType==null">goods_type = null,</if>
+		    <if test="memo==null">memo = null,</if>
+		    <if test="shipperCar==null">shipper_car = null,</if>
+		    <if test="shipperId==null">shipper_id = null,</if>
+		    <if test="shipper==null">shipper = null,</if>
+		    <if test="driver==null">driver = null,</if>
+		    <if test="driverPhone==null">driver_phone = null,</if>
+		    <if test="commandId==null">command_id = null,</if>
+		    <if test="goodsStatus==null">goods_status = null,</if>
+		    <if test="consigneeAddress==null">consignee_address = null,</if>
+		    <if test="consignee==null">consignee = null,</if>
+		    <if test="consigneePhone==null">consignee_phone = null,</if>
+		    <if test="startWarehouse==null">start_warehouse = null,</if>
+		    <if test="waybillId==null">waybill_id = null,</if>
+		    <if test="status==null">status = null,</if>
+		    <if test="insertTime==null">insert_time = null,</if>
+		    <if test="updateTime==null">update_time = null,</if>
+		    <if test="createDay==null">create_day = null,</if>
+		    <if test="createTime==null">create_time = null,</if>
+		    <if test="createStime==null">create_stime = null,</if>
+		    <if test="createRate==null">create_rate = null,</if>
+		    <if test="dispatchTime==null">dispatch_time = null,</if>
+		    <if test="dispatchStime==null">dispatch_stime = null,</if>
+		    <if test="dispatchRate==null">dispatch_rate = null,</if>
+		    <if test="pickUpTime==null">pick_up_time = null,</if>
+		    <if test="pickUpStime==null">pick_up_stime = null,</if>
+		    <if test="pickUpRate==null">pick_up_rate = null,</if>
+		    <if test="loadTime==null">load_time = null,</if>
+		    <if test="loadStime==null">load_stime = null,</if>
+		    <if test="loadRate==null">load_rate = null,</if>
+		    <if test="shipTime==null">ship_time = null,</if>
+		    <if test="shipStime==null">ship_stime = null,</if>
+		    <if test="shipRate==null">ship_rate = null,</if>
+		    <if test="deliveryTime==null">delivery_time = null,</if>
+		    <if test="deliveryStime==null">delivery_stime = null,</if>
+		    <if test="deliveryRate==null">delivery_rate = null,</if>
+		    <if test="receiveTime==null">receive_time = null,</if>
+		    <if test="receiveStime==null">receive_stime = null,</if>
+		    <if test="receiveRate==null">receive_rate = null,</if>
+		    <if test="receiptTime==null">receipt_time = null,</if>
+		    <if test="receiptStime==null">receipt_stime = null,</if>
+		    <if test="receiptRate==null">receipt_rate = null,</if>
+		    <if test="countTime==null">count_time = null,</if>
+		    <if test="flag==null">flag = null,</if>
+		    <if test="currentLng==null">current_lng = null,</if>
+		    <if test="currentLat==null">current_lat = null,</if>
+		    <if test="currentSite==null">current_site = null,</if>
+		    <if test="siteTime==null">site_time = null,</if>
+		    <if test="acute==null">acute = null,</if>
+		    <if test="servicePrintTime==null">service_print_time = null,</if>
+		    <if test="waybillPrintDate==null">waybill_print_date = null,</if>
+		    <if test="dispatcher==null">dispatcher = null,</if>
+		    <if test="alarminfo==null">alarminfo = null,</if>
+		    <if test="n1==null">n1 = null,</if>
+		    <if test="n2==null">n2 = null,</if>
+		    <if test="n3==null">n3 = null,</if>
+		    <if test="n4==null">n4 = null,</if>
+		    <if test="n5==null">n5 = null,</if>
+		    <if test="n6==null">n6 = null,</if>
+		    <if test="n7==null">n7 = null,</if>
+		    <if test="n8==null">n8 = null,</if>
+		    <if test="gpsexception==null">gpsexception = null,</if>
+		    <if test="exceptionType==null">exception_type = null,</if>
+		    <if test="exceptionDesc==null">exception_desc = null,</if>
+		    <if test="exceptionStatus==null">exception_status = null,</if>
+		    <if test="exceptionResult==null">exception_result = null,</if>
+		    <if test="c2LogicdeleteFlag==null">c2_logicdelete_flag = null,</if>
+		    <if test="cccDxEtlTime==null">ccc_dx_etl_time = null,</if>
+		</trim>
+	</set>
+	<where>
+		<choose>
+			<when test="id != null">and id = #{id}</when>
+			<otherwise>and id = </otherwise>
+		</choose>
+	</where>
+</update>
+
+<!-- ElementID:delete,Generated=true -->
+<delete id="delete" parameterType="com.unlcn.ils.tps.E_wayBill">
+    delete from td_waybill_alarm where 1=1 and id = #{id}
+</delete>
+
+<!-- ElementID:select,Generated=true -->
+<select id="select" parameterType="com.unlcn.ils.tps.E_wayBill" resultMap="E_wayBillResult">
+	select 
+		<include refid="column_sql"/>
+	    from td_waybill_alarm 
+		 <where>
+			<include refid="whereClause_sql"/>
+		</where>
+</select>
+
+
+<!-- ElementID:insertBatch,Generated=true -->
+<insert id="insertBatch" parameterType="list">
+	insert into td_waybill_alarm (id,system_waybill_id,customer_order_id,customer_waybill_id,service_id,transmode,transit,ship_date,delivery_date,goods_code,ship_start_pro,ship_start_city,ship_end_pro,ship_end_city,start_province,start_city,end_province,end_city,miles,count,shipped_count,customer_id,goods_type,memo,shipper_car,shipper_id,shipper,driver,driver_phone,command_id,goods_status,consignee_address,consignee,consignee_phone,start_warehouse,waybill_id,status,insert_time,update_time,create_day,create_time,create_stime,create_rate,dispatch_time,dispatch_stime,dispatch_rate,pick_up_time,pick_up_stime,pick_up_rate,load_time,load_stime,load_rate,ship_time,ship_stime,ship_rate,delivery_time,delivery_stime,delivery_rate,receive_time,receive_stime,receive_rate,receipt_time,receipt_stime,receipt_rate,count_time,flag,current_lng,current_lat,current_site,site_time,acute,service_print_time,waybill_print_date,dispatcher,alarminfo,n1,n2,n3,n4,n5,n6,n7,n8,gpsexception,exception_type,exception_desc,exception_status,exception_result,c2_logicdelete_flag,ccc_dx_etl_time) 
+<foreach collection="list" item="entity" index="index" separator="union all">
+		select 
+		#{entity.id,jdbcType = VARCHAR},
+				#{entity.systemWaybillId,jdbcType = VARCHAR},
+				#{entity.customerOrderId,jdbcType = VARCHAR},
+				#{entity.customerWaybillId,jdbcType = VARCHAR},
+				#{entity.serviceId,jdbcType = VARCHAR},
+				#{entity.transmode,jdbcType = VARCHAR},
+				#{entity.transit,jdbcType = VARCHAR},
+				#{entity.shipDate,jdbcType = DATE},
+				#{entity.deliveryDate,jdbcType = DATE},
+				#{entity.goodsCode,jdbcType = VARCHAR},
+				#{entity.shipStartPro,jdbcType = VARCHAR},
+				#{entity.shipStartCity,jdbcType = VARCHAR},
+				#{entity.shipEndPro,jdbcType = VARCHAR},
+				#{entity.shipEndCity,jdbcType = VARCHAR},
+				#{entity.startProvince,jdbcType = VARCHAR},
+				#{entity.startCity,jdbcType = VARCHAR},
+				#{entity.endProvince,jdbcType = VARCHAR},
+				#{entity.endCity,jdbcType = VARCHAR},
+				#{entity.miles,jdbcType = NUMERIC},
+				#{entity.count,jdbcType = NUMERIC},
+				#{entity.shippedCount,jdbcType = NUMERIC},
+				#{entity.customerId,jdbcType = VARCHAR},
+				#{entity.goodsType,jdbcType = VARCHAR},
+				#{entity.memo,jdbcType = VARCHAR},
+				#{entity.shipperCar,jdbcType = VARCHAR},
+				#{entity.shipperId,jdbcType = VARCHAR},
+				#{entity.shipper,jdbcType = VARCHAR},
+				#{entity.driver,jdbcType = VARCHAR},
+				#{entity.driverPhone,jdbcType = VARCHAR},
+				#{entity.commandId,jdbcType = VARCHAR},
+				#{entity.goodsStatus,jdbcType = VARCHAR},
+				#{entity.consigneeAddress,jdbcType = VARCHAR},
+				#{entity.consignee,jdbcType = VARCHAR},
+				#{entity.consigneePhone,jdbcType = VARCHAR},
+				#{entity.startWarehouse,jdbcType = VARCHAR},
+				#{entity.waybillId,jdbcType = VARCHAR},
+				#{entity.status,jdbcType = VARCHAR},
+				#{entity.insertTime,jdbcType = TIMESTAMP},
+				#{entity.updateTime,jdbcType = TIMESTAMP},
+				#{entity.createDay,jdbcType = VARCHAR},
+				#{entity.createTime,jdbcType = TIMESTAMP},
+				#{entity.createStime,jdbcType = NUMERIC},
+				#{entity.createRate,jdbcType = NUMERIC},
+				#{entity.dispatchTime,jdbcType = TIMESTAMP},
+				#{entity.dispatchStime,jdbcType = NUMERIC},
+				#{entity.dispatchRate,jdbcType = NUMERIC},
+				#{entity.pickUpTime,jdbcType = TIMESTAMP},
+				#{entity.pickUpStime,jdbcType = NUMERIC},
+				#{entity.pickUpRate,jdbcType = NUMERIC},
+				#{entity.loadTime,jdbcType = TIMESTAMP},
+				#{entity.loadStime,jdbcType = NUMERIC},
+				#{entity.loadRate,jdbcType = NUMERIC},
+				#{entity.shipTime,jdbcType = TIMESTAMP},
+				#{entity.shipStime,jdbcType = NUMERIC},
+				#{entity.shipRate,jdbcType = NUMERIC},
+				#{entity.deliveryTime,jdbcType = TIMESTAMP},
+				#{entity.deliveryStime,jdbcType = NUMERIC},
+				#{entity.deliveryRate,jdbcType = NUMERIC},
+				#{entity.receiveTime,jdbcType = TIMESTAMP},
+				#{entity.receiveStime,jdbcType = NUMERIC},
+				#{entity.receiveRate,jdbcType = NUMERIC},
+				#{entity.receiptTime,jdbcType = TIMESTAMP},
+				#{entity.receiptStime,jdbcType = NUMERIC},
+				#{entity.receiptRate,jdbcType = NUMERIC},
+				#{entity.countTime,jdbcType = TIMESTAMP},
+				#{entity.flag,jdbcType = VARCHAR},
+				#{entity.currentLng,jdbcType = NUMERIC},
+				#{entity.currentLat,jdbcType = NUMERIC},
+				#{entity.currentSite,jdbcType = VARCHAR},
+				#{entity.siteTime,jdbcType = TIMESTAMP},
+				#{entity.acute,jdbcType = VARCHAR},
+				#{entity.servicePrintTime,jdbcType = TIMESTAMP},
+				#{entity.waybillPrintDate,jdbcType = DATE},
+				#{entity.dispatcher,jdbcType = VARCHAR},
+				#{entity.alarminfo,jdbcType = VARCHAR},
+				#{entity.n1,jdbcType = VARCHAR},
+				#{entity.n2,jdbcType = VARCHAR},
+				#{entity.n3,jdbcType = VARCHAR},
+				#{entity.n4,jdbcType = VARCHAR},
+				#{entity.n5,jdbcType = VARCHAR},
+				#{entity.n6,jdbcType = VARCHAR},
+				#{entity.n7,jdbcType = VARCHAR},
+				#{entity.n8,jdbcType = VARCHAR},
+				#{entity.gpsexception,jdbcType = VARCHAR},
+				#{entity.exceptionType,jdbcType = VARCHAR},
+				#{entity.exceptionDesc,jdbcType = VARCHAR},
+				#{entity.exceptionStatus,jdbcType = VARCHAR},
+				#{entity.exceptionResult,jdbcType = VARCHAR},
+				#{entity.c2LogicdeleteFlag,jdbcType = VARCHAR},
+				#{entity.cccDxEtlTime,jdbcType = NUMERIC}
+		from dual
+</foreach>
+</insert>
+
+<!-- ElementID:deleteBatch,Generated=true -->
+<delete id="deleteBatch" parameterType="List">
+	delete from td_waybill_alarm where id in
+<trim prefix="(" suffix=")" suffixOverrides=",">
+<foreach collection="list" item="entity" separator=",">
+	#{entity.id}
+</foreach>
+</trim>
+</delete>
+
+<!-- ElementID:selectAll,Generated=true -->
+<select id="selectAll" resultMap="E_wayBillResult">
+	select 
+		<include refid="column_sql"/>
+	    from td_waybill_alarm 
+</select>
+
+<!-- ElementID:selectByID,Generated=true -->
+<select id="selectByID" parameterType="java.lang.String" resultMap="E_wayBillResult">
+	select 
+		<include refid="column_sql"/>
+	    from td_waybill_alarm 
+		 where td_waybill_alarm.id = #{id,jdbcType=VARCHAR}
+</select>
+
+<!-- ElementID:selectByPage,Generated=true -->
+<select id="selectByPage" parameterType="com.unlcn.ils.tps.E_wayBill" resultMap="E_wayBillResult">
+	select 
+		<include refid="column_sql"/>
+	    from td_waybill_alarm 
+		 <where>
+			<include refid="whereClause_sql"/>
+		</where>
+</select>
+<select id="selectByCondition" parameterType="com.unlcn.ils.tps.E_wayBill" resultMap="E_wayBillResult">
+	select 
+		<include refid="column_sql"/>
+	    from td_waybill_alarm 
+		 <where>
+			td_waybill_alarm.shipper_id = #{shipperId}
+			and td_waybill_alarm.create_time <![CDATA[  >=  ]]> #{insertTime}
+			and td_waybill_alarm.create_time <![CDATA[  <=  ]]> #{updateTime}
+			
+		</where>
+</select>
+
+<!-- ElementID:selectMany,Generated=true -->
+<select id="selectMany" parameterType="list" resultMap="E_wayBillResult">
+select 
+	<include refid="column_sql"/> 
+	from td_waybill_alarm 
+	where td_waybill_alarm.id in (
+		select distinct id from td_waybill_alarm inner join
+<foreach collection="list" item="entity" separator="inner join">
+		(select 
+			distinct id
+			from td_waybill_alarm 
+			<where>
+	        <if test="entity.id != null">and td_waybill_alarm.id = #{entity.id}</if>
+	        <if test="entity.systemWaybillId != null">and td_waybill_alarm.system_waybill_id = #{entity.systemWaybillId}</if>
+	        <if test="entity.customerOrderId != null">and td_waybill_alarm.customer_order_id = #{entity.customerOrderId}</if>
+	        <if test="entity.customerWaybillId != null">and td_waybill_alarm.customer_waybill_id = #{entity.customerWaybillId}</if>
+	        <if test="entity.serviceId != null">and td_waybill_alarm.service_id = #{entity.serviceId}</if>
+	        <if test="entity.transmode != null">and td_waybill_alarm.transmode = #{entity.transmode}</if>
+	        <if test="entity.transit != null">and td_waybill_alarm.transit = #{entity.transit}</if>
+	        <if test="entity.shipDate != null">and td_waybill_alarm.ship_date = #{entity.shipDate}</if>
+	        <if test="entity.deliveryDate != null">and td_waybill_alarm.delivery_date = #{entity.deliveryDate}</if>
+	        <if test="entity.goodsCode != null">and td_waybill_alarm.goods_code = #{entity.goodsCode}</if>
+	        <if test="entity.shipStartPro != null">and td_waybill_alarm.ship_start_pro = #{entity.shipStartPro}</if>
+	        <if test="entity.shipStartCity != null">and td_waybill_alarm.ship_start_city = #{entity.shipStartCity}</if>
+	        <if test="entity.shipEndPro != null">and td_waybill_alarm.ship_end_pro = #{entity.shipEndPro}</if>
+	        <if test="entity.shipEndCity != null">and td_waybill_alarm.ship_end_city = #{entity.shipEndCity}</if>
+	        <if test="entity.startProvince != null">and td_waybill_alarm.start_province = #{entity.startProvince}</if>
+	        <if test="entity.startCity != null">and td_waybill_alarm.start_city = #{entity.startCity}</if>
+	        <if test="entity.endProvince != null">and td_waybill_alarm.end_province = #{entity.endProvince}</if>
+	        <if test="entity.endCity != null">and td_waybill_alarm.end_city = #{entity.endCity}</if>
+	        <if test="entity.miles != null">and td_waybill_alarm.miles = #{entity.miles}</if>
+	        <if test="entity.count != null">and td_waybill_alarm.count = #{entity.count}</if>
+	        <if test="entity.shippedCount != null">and td_waybill_alarm.shipped_count = #{entity.shippedCount}</if>
+	        <if test="entity.customerId != null">and td_waybill_alarm.customer_id = #{entity.customerId}</if>
+	        <if test="entity.goodsType != null">and td_waybill_alarm.goods_type = #{entity.goodsType}</if>
+	        <if test="entity.memo != null">and td_waybill_alarm.memo = #{entity.memo}</if>
+	        <if test="entity.shipperCar != null">and td_waybill_alarm.shipper_car = #{entity.shipperCar}</if>
+	        <if test="entity.shipperId != null">and td_waybill_alarm.shipper_id = #{entity.shipperId}</if>
+	        <if test="entity.shipper != null">and td_waybill_alarm.shipper = #{entity.shipper}</if>
+	        <if test="entity.driver != null">and td_waybill_alarm.driver = #{entity.driver}</if>
+	        <if test="entity.driverPhone != null">and td_waybill_alarm.driver_phone = #{entity.driverPhone}</if>
+	        <if test="entity.commandId != null">and td_waybill_alarm.command_id = #{entity.commandId}</if>
+	        <if test="entity.goodsStatus != null">and td_waybill_alarm.goods_status = #{entity.goodsStatus}</if>
+	        <if test="entity.consigneeAddress != null">and td_waybill_alarm.consignee_address = #{entity.consigneeAddress}</if>
+	        <if test="entity.consignee != null">and td_waybill_alarm.consignee = #{entity.consignee}</if>
+	        <if test="entity.consigneePhone != null">and td_waybill_alarm.consignee_phone = #{entity.consigneePhone}</if>
+	        <if test="entity.startWarehouse != null">and td_waybill_alarm.start_warehouse = #{entity.startWarehouse}</if>
+	        <if test="entity.waybillId != null">and td_waybill_alarm.waybill_id = #{entity.waybillId}</if>
+	        <if test="entity.status != null">and td_waybill_alarm.status = #{entity.status}</if>
+	        <if test="entity.insertTime != null">and td_waybill_alarm.insert_time = #{entity.insertTime}</if>
+	        <if test="entity.updateTime != null">and td_waybill_alarm.update_time = #{entity.updateTime}</if>
+	        <if test="entity.createDay != null">and td_waybill_alarm.create_day = #{entity.createDay}</if>
+	        <if test="entity.createTime != null">and td_waybill_alarm.create_time = #{entity.createTime}</if>
+	        <if test="entity.createStime != null">and td_waybill_alarm.create_stime = #{entity.createStime}</if>
+	        <if test="entity.createRate != null">and td_waybill_alarm.create_rate = #{entity.createRate}</if>
+	        <if test="entity.dispatchTime != null">and td_waybill_alarm.dispatch_time = #{entity.dispatchTime}</if>
+	        <if test="entity.dispatchStime != null">and td_waybill_alarm.dispatch_stime = #{entity.dispatchStime}</if>
+	        <if test="entity.dispatchRate != null">and td_waybill_alarm.dispatch_rate = #{entity.dispatchRate}</if>
+	        <if test="entity.pickUpTime != null">and td_waybill_alarm.pick_up_time = #{entity.pickUpTime}</if>
+	        <if test="entity.pickUpStime != null">and td_waybill_alarm.pick_up_stime = #{entity.pickUpStime}</if>
+	        <if test="entity.pickUpRate != null">and td_waybill_alarm.pick_up_rate = #{entity.pickUpRate}</if>
+	        <if test="entity.loadTime != null">and td_waybill_alarm.load_time = #{entity.loadTime}</if>
+	        <if test="entity.loadStime != null">and td_waybill_alarm.load_stime = #{entity.loadStime}</if>
+	        <if test="entity.loadRate != null">and td_waybill_alarm.load_rate = #{entity.loadRate}</if>
+	        <if test="entity.shipTime != null">and td_waybill_alarm.ship_time = #{entity.shipTime}</if>
+	        <if test="entity.shipStime != null">and td_waybill_alarm.ship_stime = #{entity.shipStime}</if>
+	        <if test="entity.shipRate != null">and td_waybill_alarm.ship_rate = #{entity.shipRate}</if>
+	        <if test="entity.deliveryTime != null">and td_waybill_alarm.delivery_time = #{entity.deliveryTime}</if>
+	        <if test="entity.deliveryStime != null">and td_waybill_alarm.delivery_stime = #{entity.deliveryStime}</if>
+	        <if test="entity.deliveryRate != null">and td_waybill_alarm.delivery_rate = #{entity.deliveryRate}</if>
+	        <if test="entity.receiveTime != null">and td_waybill_alarm.receive_time = #{entity.receiveTime}</if>
+	        <if test="entity.receiveStime != null">and td_waybill_alarm.receive_stime = #{entity.receiveStime}</if>
+	        <if test="entity.receiveRate != null">and td_waybill_alarm.receive_rate = #{entity.receiveRate}</if>
+	        <if test="entity.receiptTime != null">and td_waybill_alarm.receipt_time = #{entity.receiptTime}</if>
+	        <if test="entity.receiptStime != null">and td_waybill_alarm.receipt_stime = #{entity.receiptStime}</if>
+	        <if test="entity.receiptRate != null">and td_waybill_alarm.receipt_rate = #{entity.receiptRate}</if>
+	        <if test="entity.countTime != null">and td_waybill_alarm.count_time = #{entity.countTime}</if>
+	        <if test="entity.flag != null">and td_waybill_alarm.flag = #{entity.flag}</if>
+	        <if test="entity.currentLng != null">and td_waybill_alarm.current_lng = #{entity.currentLng}</if>
+	        <if test="entity.currentLat != null">and td_waybill_alarm.current_lat = #{entity.currentLat}</if>
+	        <if test="entity.currentSite != null">and td_waybill_alarm.current_site = #{entity.currentSite}</if>
+	        <if test="entity.siteTime != null">and td_waybill_alarm.site_time = #{entity.siteTime}</if>
+	        <if test="entity.acute != null">and td_waybill_alarm.acute = #{entity.acute}</if>
+	        <if test="entity.servicePrintTime != null">and td_waybill_alarm.service_print_time = #{entity.servicePrintTime}</if>
+	        <if test="entity.waybillPrintDate != null">and td_waybill_alarm.waybill_print_date = #{entity.waybillPrintDate}</if>
+	        <if test="entity.dispatcher != null">and td_waybill_alarm.dispatcher = #{entity.dispatcher}</if>
+	        <if test="entity.alarminfo != null">and td_waybill_alarm.alarminfo = #{entity.alarminfo}</if>
+	        <if test="entity.n1 != null">and td_waybill_alarm.n1 = #{entity.n1}</if>
+	        <if test="entity.n2 != null">and td_waybill_alarm.n2 = #{entity.n2}</if>
+	        <if test="entity.n3 != null">and td_waybill_alarm.n3 = #{entity.n3}</if>
+	        <if test="entity.n4 != null">and td_waybill_alarm.n4 = #{entity.n4}</if>
+	        <if test="entity.n5 != null">and td_waybill_alarm.n5 = #{entity.n5}</if>
+	        <if test="entity.n6 != null">and td_waybill_alarm.n6 = #{entity.n6}</if>
+	        <if test="entity.n7 != null">and td_waybill_alarm.n7 = #{entity.n7}</if>
+	        <if test="entity.n8 != null">and td_waybill_alarm.n8 = #{entity.n8}</if>
+	        <if test="entity.gpsexception != null">and td_waybill_alarm.gpsexception = #{entity.gpsexception}</if>
+	        <if test="entity.exceptionType != null">and td_waybill_alarm.exception_type = #{entity.exceptionType}</if>
+	        <if test="entity.exceptionDesc != null">and td_waybill_alarm.exception_desc = #{entity.exceptionDesc}</if>
+	        <if test="entity.exceptionStatus != null">and td_waybill_alarm.exception_status = #{entity.exceptionStatus}</if>
+	        <if test="entity.exceptionResult != null">and td_waybill_alarm.exception_result = #{entity.exceptionResult}</if>
+	        <if test="entity.c2LogicdeleteFlag != null">and td_waybill_alarm.c2_logicdelete_flag = #{entity.c2LogicdeleteFlag}</if>
+	        <if test="entity.cccDxEtlTime != null">and td_waybill_alarm.ccc_dx_etl_time = #{entity.cccDxEtlTime}</if>
+			</where>
+		) ${entity.tableAlias} using (id)
+</foreach>
+)
+</select>
+</mapper>

@@ -133,11 +133,11 @@
                   </dync:render>
                   <dync:children/>
                 </dync:attribute>
-                <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写整数!">
+                <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写浮点数!">
                   <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
-                <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^(0|[1-9]\d*)$/">
+                <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/">
                   <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
@@ -387,6 +387,10 @@ button_click:function($event){
 
 button11_click:function($event){
 	$view.mainForm.clean();
+},
+
+subvalue_checkAfter:function(checkResult){
+	
 }</form:scripts>
   <form:htmls>
 &lt;script type=&quot;text/ng-template&quot; id=&quot;div6_html&quot;>

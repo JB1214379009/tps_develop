@@ -54,7 +54,9 @@ public class ConfigureDetailService implements ArrayContentProvider{
 			E_item e_item=itemDao.selectByID(tempConfigure_detail.getItemName());
 			map.put("itemName", e_item.getItemName());
 			map.put("opearateName", tempConfigure_detail.getOpearateName());
+			if(null!=tempConfigure_detail.getDescription())
 			map.put("description", tempConfigure_detail.getDescription());
+			if(null!=tempConfigure_detail.getWeight())
 			map.put("weight", tempConfigure_detail.getWeight().toString());
 			map.put("requirements", tempConfigure_detail.getRequirements());
 			map.put("totalvalue", tempConfigure_detail.getTotalvalue().toString());

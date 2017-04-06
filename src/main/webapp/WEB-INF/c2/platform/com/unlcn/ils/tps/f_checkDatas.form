@@ -264,7 +264,7 @@
                   </dync:render>
                   <dync:children/>
                 </dync:attribute>
-                <dync:attribute default="" group="事件设置" id="click" name="点击事件" value="button6_click($event)">
+                <dync:attribute default="" group="事件设置" id="click" name="点击事件" value="button8_click($event)">
                   <dync:render colSpan="1" height="0" multi="false" name="event">
                     <dync:item name="params" value="$event"/>
                   </dync:render>
@@ -340,6 +340,14 @@
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
+              <dync:attribute default="false" group="控件外观" id="required" name="必填项" value="true">
+                <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="75" group="控件外观" id="lableWidth" name="lable宽度" value="100">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                <dync:children/>
+              </dync:attribute>
             </form:attributes>
           </form:control>
         </form:child>
@@ -356,6 +364,10 @@
               </dync:attribute>
               <dync:attribute default="false" group="基本设置" id="selectRequired" name="必填项" value="true">
                 <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
+                <dync:children/>
+              </dync:attribute>
+              <dync:attribute default="75" group="基本设置" id="lableWidth" name="lable宽度" value="100">
+                <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
             </form:attributes>
@@ -437,6 +449,10 @@
                   <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="75" group="基本设置" id="lableWidth" name="文字宽度" value="100">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
             <form:validation/>
@@ -492,6 +508,10 @@
                   <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
                   <dync:children/>
                 </dync:attribute>
+                <dync:attribute default="75" group="基本设置" id="lableWidth" name="文字宽度" value="100">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
               </form:attributes>
             </form:control>
             <form:validation/>
@@ -527,6 +547,10 @@
                 </dync:attribute>
                 <dync:attribute default="false" group="基本设置" id="selectRequired" name="必填项" value="true">
                   <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="75" group="基本设置" id="lableWidth" name="lable宽度" value="100">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
               </form:attributes>
@@ -582,6 +606,60 @@
                 </dync:attribute>
                 <dync:attribute default="false" group="时间设置" id="ngRequired" name="必填" value="true">
                   <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="75" group="基本设置" id="lableWidth" name="文字宽度" value="100">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
+            </form:control>
+            <form:validation/>
+          </form:child>
+        </form:child>
+        <form:child xsi:type="form:Group" id="div12" name="简单容器(DIV)">
+          <form:control type="container/div">
+            <form:attributes source="container/div"/>
+          </form:control>
+          <form:child xsi:type="form:Field" binding="$params.report" id="report" name="报班准确率(%)" customize="true">
+            <form:control type="widget/text">
+              <form:attributes source="widget/text">
+                <dync:attribute default="6" group="基本设置" id="span" name="占位数" value="3">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="75" group="基本设置" id="lableWidth" name="左外边距" value="100">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
+            </form:control>
+            <form:validation/>
+          </form:child>
+          <form:child xsi:type="form:Field" binding="$params.perfect" id="perfect" name="GPS完好率(%)" customize="true">
+            <form:control type="widget/text">
+              <form:attributes source="widget/text">
+                <dync:attribute default="6" group="基本设置" id="span" name="占位数" value="3">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="75" group="基本设置" id="lableWidth" name="左外边距" value="100">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+              </form:attributes>
+            </form:control>
+            <form:validation/>
+          </form:child>
+          <form:child xsi:type="form:Field" binding="$params.path" id="path" name="轨迹准确率(%)" customize="true">
+            <form:control type="widget/text">
+              <form:attributes source="widget/text">
+                <dync:attribute default="6" group="基本设置" id="span" name="占位数" value="3">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
+                  <dync:children/>
+                </dync:attribute>
+                <dync:attribute default="75" group="基本设置" id="lableWidth" name="左外边距" value="100">
+                  <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
               </form:attributes>
@@ -805,73 +883,152 @@
       </form:child>
       <form:child xsi:type="form:Field" binding="shipperName" id="shipperName" name="分供方名称">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="subvalue" id="subvalue" name="累计扣分">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
+        </form:control>
+      </form:child>
+      <form:child xsi:type="form:Field" binding="submoney" id="submoney" name="累计扣款">
+        <form:control type="widget/col_jqgrid">
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="checkYear" id="checkYear" name="考核年份">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="checkMonth" id="checkMonth" name="考核月份">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="checkCycle" id="checkCycle" name="考核周期">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="plannedCompletionRate" id="plannedCompletionRate" name="计划完成率">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="timelyDeliveryRate" id="timelyDeliveryRate" name="交付及时率">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="reportRate" id="reportRate" name="报班准确率">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="departureTimeRate" id="departureTimeRate" name="起运及时率">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="replyRate" id="replyRate" name="回单及时率">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="gps" id="gps" name="GPS考核">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="operateSubvaule" id="operateSubvaule" name="规范考核扣分">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="operateSubmoney" id="operateSubmoney" name="规范考核扣款">
         <form:control type="widget/col_jqgrid">
-          <form:attributes source="widget/col_jqgrid"/>
+          <form:attributes source="widget/col_jqgrid">
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+          </form:attributes>
         </form:control>
       </form:child>
       <form:child xsi:type="form:Field" binding="createTime" id="createTime" name="创建时间">
         <form:control type="widget/col_jqgrid">
           <form:attributes source="widget/col_jqgrid">
             <dync:attribute default="false" group="表格设置" id="hidden" name="隐藏列" value="true">
+              <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
+              <dync:children/>
+            </dync:attribute>
+            <dync:attribute default="false" group="基本设置" id="title" name="鼠标悬浮显示" value="true">
               <dync:render colSpan="1" height="0" multi="false" name="checkbox"/>
               <dync:children/>
             </dync:attribute>
@@ -899,17 +1056,22 @@
   <form:scripts>
 button6_click:function($event){
 	var shipper=$params.shipperLineid;
+	var shipperName=$($view.shipperLineid_crmdoc1.getDom()).val();
 	var check_configure=$params.check_configure;
 	var checkCycle=$params.checkCycle;
-	var checkDate=$params.checkDate;
-	var checkDate1=$params.checkDate1;
+	var checkDate=$($view.checkDate.getDom()).val();
+	var checkDate1=$($view.checkDate1.getDom()).val();
 	var checkDate2=$params.checkDate2;
-	var checkDate3=$params.checkDate3;
+	var checkDate3=$($view.checkDate3.getDom()).val();
+	if($params.shipperLineid==undefined||$params.shipperLineid.length==0){
+		Messenger.post({message:&quot;分供方未选择!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
+		return;
+	}
 	if($params.check_configure==undefined||$params.check_configure.length==0){
 		Messenger.post({message:&quot;考核配置表未填写!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;
 	}
-	if($params.checkCycle==undefined||$params.checkCycle==0){
+	if($params.checkCycle==undefined||$params.checkCycle.length==0){
 		Messenger.post({message:&quot;考核周期未填写!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;
 	}
@@ -925,10 +1087,21 @@ button6_click:function($event){
 		Messenger.post({message:&quot;考核年份未填写!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;
 	}
-
-	$http.post(&quot;ws/s_createCheckDatas&quot;,{&quot;shipper&quot;:shipper,&quot;check_configure&quot;:check_configure,&quot;checkCycle&quot;:checkCycle,&quot;checkDate&quot;:checkDate,&quot;checkDate1&quot;:checkDate1,
-	&quot;checkDate2&quot;:checkDate2,&quot;checkDate3&quot;:checkDate3})
-	.success(function(){})
+	Messenger.post({type:'info',message:'正在导入',hideAfter:5,showCloseButton:true});
+	$http.post(&quot;ws/s_createCheckDatas&quot;,{&quot;shipper&quot;:shipper,&quot;shipperName&quot;:shipperName,&quot;check_configure&quot;:check_configure,&quot;checkCycle&quot;:checkCycle,&quot;checkDate&quot;:checkDate,&quot;checkDate1&quot;:checkDate1,
+	&quot;checkDate2&quot;:checkDate2,&quot;checkDate3&quot;:checkDate3,&quot;report&quot;:$params.report,&quot;path&quot;:$params.path,&quot;perfect&quot;:$params.perfect})
+	.success(function(data){
+		if(data.result==&quot;isNull&quot;)
+		{
+			Messenger.post({type:'info',message:'无符合数据，请重新选择！',hideAfter:2,showCloseButton:true});
+			return false;
+		}
+		$view.list.refresh();
+		Messenger.post({type:'info',message:'导入成功',hideAfter:2,showCloseButton:true});
+	})
+	
+	
+	
 },
 radioGroup_clickEvent:function(value){
 	if(value==1)
@@ -982,5 +1155,26 @@ page_beforeDataSourceLoad:function($params){
         $(this).parent().parent().attr('style','padding-top:0px !important;');
       }
   });	
+},
+
+button8_click:function($event){
+	var rules=new Array();
+	var pos=0;
+	if($params.shipperLineid!=undefined&amp;&amp;$params.shipperLineid.length!=0){
+		rules[pos]={field:&quot;shipperId&quot;,op:&quot;eq&quot;,data:$params.shipperLineid};
+		pos++;
+	}
+	if($params.checkDate4!=undefined&amp;&amp;$params.checkDate4!=0){
+		rules[pos]={field:&quot;checkYear&quot;,op:&quot;eq&quot;,data:$($view.checkDate4.getDom()).val()};
+		pos++;
+	}
+	var filters={ groupOp:&quot;AND&quot;,rules:rules};
+	
+	if(pos==0){
+		filters=null;     
+	}
+		$view.list.refresh({filters:filters});
+		Messenger.post({type:'success',message:'查询成功'});
+		
 }</form:scripts>
 </form:Form>

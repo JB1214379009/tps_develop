@@ -13,7 +13,7 @@ import com.chinacreator.c2.annotation.Entity;
  */
 @Entity(id = "entity:com.unlcn.ils.tps.e_checkDatas", table = "tps_check_datas", ds = "ilsdb")
 public class E_checkDatas implements Serializable {
-	private static final long serialVersionUID = 1952285207330816L;
+	private static final long serialVersionUID = 2125172070989824L;
 	/**
 	 *序号
 	 */
@@ -33,10 +33,16 @@ public class E_checkDatas implements Serializable {
 	private java.lang.String shipperName;
 
 	/**
+	 *累计扣款
+	 */
+	@Column(id = "submoney", datatype = "bigdecimal")
+	private java.math.BigDecimal submoney;
+
+	/**
 	 *累计扣分
 	 */
-	@Column(id = "subvalue", datatype = "int")
-	private java.lang.Integer subvalue;
+	@Column(id = "subvalue", datatype = "smalldouble")
+	private java.lang.Double subvalue;
 
 	/**
 	 *考核月份
@@ -53,8 +59,8 @@ public class E_checkDatas implements Serializable {
 	/**
 	 *考核周期
 	 */
-	@Column(id = "check_cycle", datatype = "int")
-	private java.lang.Integer checkCycle;
+	@Column(id = "check_cycle", datatype = "string20")
+	private java.lang.String checkCycle;
 
 	/**
 	 *计划完成率
@@ -89,14 +95,14 @@ public class E_checkDatas implements Serializable {
 	/**
 	 *GPS考核
 	 */
-	@Column(id = "gps", datatype = "smalldouble")
-	private java.lang.Double gps;
+	@Column(id = "gps", datatype = "string32")
+	private java.lang.String gps;
 
 	/**
 	 *规范考核扣分
 	 */
-	@Column(id = "operate_subvaule", datatype = "int")
-	private java.lang.Integer operateSubvaule;
+	@Column(id = "operate_subvaule", datatype = "smalldouble")
+	private java.lang.Double operateSubvaule;
 
 	/**
 	 *规范考核扣款
@@ -159,16 +165,30 @@ public class E_checkDatas implements Serializable {
 	}
 
 	/**
+	 * 设置累计扣款
+	 */
+	public void setSubmoney(java.math.BigDecimal submoney) {
+		this.submoney = submoney;
+	}
+
+	/**
+	 * 获取累计扣款
+	 */
+	public java.math.BigDecimal getSubmoney() {
+		return submoney;
+	}
+
+	/**
 	 * 设置累计扣分
 	 */
-	public void setSubvalue(java.lang.Integer subvalue) {
+	public void setSubvalue(java.lang.Double subvalue) {
 		this.subvalue = subvalue;
 	}
 
 	/**
 	 * 获取累计扣分
 	 */
-	public java.lang.Integer getSubvalue() {
+	public java.lang.Double getSubvalue() {
 		return subvalue;
 	}
 
@@ -203,14 +223,14 @@ public class E_checkDatas implements Serializable {
 	/**
 	 * 设置考核周期
 	 */
-	public void setCheckCycle(java.lang.Integer checkCycle) {
+	public void setCheckCycle(java.lang.String checkCycle) {
 		this.checkCycle = checkCycle;
 	}
 
 	/**
 	 * 获取考核周期
 	 */
-	public java.lang.Integer getCheckCycle() {
+	public java.lang.String getCheckCycle() {
 		return checkCycle;
 	}
 
@@ -287,28 +307,28 @@ public class E_checkDatas implements Serializable {
 	/**
 	 * 设置GPS考核
 	 */
-	public void setGps(java.lang.Double gps) {
+	public void setGps(java.lang.String gps) {
 		this.gps = gps;
 	}
 
 	/**
 	 * 获取GPS考核
 	 */
-	public java.lang.Double getGps() {
+	public java.lang.String getGps() {
 		return gps;
 	}
 
 	/**
 	 * 设置规范考核扣分
 	 */
-	public void setOperateSubvaule(java.lang.Integer operateSubvaule) {
+	public void setOperateSubvaule(java.lang.Double operateSubvaule) {
 		this.operateSubvaule = operateSubvaule;
 	}
 
 	/**
 	 * 获取规范考核扣分
 	 */
-	public java.lang.Integer getOperateSubvaule() {
+	public java.lang.Double getOperateSubvaule() {
 		return operateSubvaule;
 	}
 

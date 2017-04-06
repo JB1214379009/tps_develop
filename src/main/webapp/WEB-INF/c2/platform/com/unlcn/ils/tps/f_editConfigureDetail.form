@@ -124,11 +124,11 @@
         <form:child xsi:type="form:Field" binding="$model.e_configuredetail.totalvalue" id="totalvalue" name="总分">
           <form:control type="widget/text">
             <form:attributes source="widget/text">
-              <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^(0|[1-9]\d*)$/">
+              <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写整数!">
+              <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写浮点数!">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
@@ -166,11 +166,11 @@
         <form:child xsi:type="form:Field" binding="$model.e_configuredetail.subvalue" id="subvalue" name="百分点扣分">
           <form:control type="widget/text">
             <form:attributes source="widget/text">
-              <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^(0|[1-9]\d*)$/">
+              <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写整数!">
+              <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写浮点数!">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
@@ -198,11 +198,11 @@
         <form:child xsi:type="form:Field" binding="$model.e_configuredetail.lowvalue" id="lowvalue" name="最低得分">
           <form:control type="widget/text">
             <form:attributes source="widget/text">
-              <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^(0|[1-9]\d*)$/">
+              <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写整数!">
+              <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写浮点数!">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
               </dync:attribute>
@@ -290,10 +290,6 @@
                 </dync:render>
                 <dync:children/>
               </dync:attribute>
-              <dync:attribute default="false" group="数据校验" id="required" name="必填项" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
-                <dync:children/>
-              </dync:attribute>
               <dync:attribute default="6" group="基本设置" id="span" name="占位数" value="5">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
@@ -336,10 +332,6 @@
         <form:child xsi:type="form:Field" binding="$model.e_configuredetail.description" id="description" name="考核依据">
           <form:control type="widget/textarea">
             <form:attributes source="widget/textarea">
-              <dync:attribute default="false" group="数据校验" id="required" name="必填项" value="true">
-                <dync:render colSpan="1" height="0" multi="false" name="checkboxAndExpr"/>
-                <dync:children/>
-              </dync:attribute>
               <dync:attribute default="12" group="HTML设置" id="span" name="占位数" value="11">
                 <dync:render colSpan="1" height="0" multi="false" name="text"/>
                 <dync:children/>
@@ -511,39 +503,39 @@
 totalvalue_checkAfter:function(checkResult){
 	var $subvalue=$($view.totalvalue.getDom());
 	var subvalue=$subvalue.val();
-	var re=/^(0|[1-9]\d*)$/;
+	var re=/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/;
 	var result=  re.test($model.e_configuredetail.totalvalue);
 	if(subvalue.length==0)
 	return;
 	if($.trim(subvalue)==''){
-	Messenger.post({message:&quot;总分仅可填写整数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});		
+	Messenger.post({message:&quot;总分仅可填写浮点数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});		
 	return;
 	}
 	if(!result){
-		Messenger.post({message:&quot;总分仅可填写整数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});			
+		Messenger.post({message:&quot;总分仅可填写浮点数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});			
 	}
 },
 
 subvalue_checkAfter:function(checkResult){
 	var $subvalue=$($view.subvalue.getDom());
 	var subvalue=$subvalue.val();
-	var re=/^(0|[1-9]\d*)$/;
+	var re=/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/;
 	var result=  re.test($model.e_configuredetail.subvalue);
 	if(subvalue.length==0)
 	return;
 	if($.trim(subvalue)==''){
-	Messenger.post({message:&quot;每降一个百分点扣分值仅可填写整数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});		
+	Messenger.post({message:&quot;每降一个百分点扣分值仅可填写浮点数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});		
 	return;
 	}
 	if(!result){
-		Messenger.post({message:&quot;每降一个百分点扣分值仅可填写整数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});			
+		Messenger.post({message:&quot;每降一个百分点扣分值仅可填写浮点数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});			
 	}	
 },
 
 lowvalue_checkAfter:function(checkResult){
 	var $subvalue=$($view.lowvalue.getDom());
 	var subvalue=$subvalue.val();
-	var re=/^(0|[1-9]\d*)$/;
+	var re=/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/;
 	var result=  re.test($model.e_configuredetail.lowvalue);
 	if(subvalue.length==0)
 	return;
@@ -617,10 +609,10 @@ button_click:function($event){
 		Messenger.post({message:&quot;考核金额未填写或格式不正确!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;
 	}		
-	if($model.e_configuredetail.weight==undefined){
+	/*if($model.e_configuredetail.weight==undefined){
 		Messenger.post({message:&quot;权重未填写或格式不正确!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;
-	}
+	}*/
 	if($model.e_configuredetail.weight>100-$params.totalweight){
 		Messenger.post({message:&quot;当前权重已大于剩余权重!&quot;+&quot;剩余权重为:&quot;+(100-$params.totalweight),type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;		
@@ -629,10 +621,10 @@ button_click:function($event){
 		Messenger.post({message:&quot;计算方法未填写!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;
 	}	
-	if($model.e_configuredetail.description==undefined||$model.e_configuredetail.description.length==0){
+	/*if($model.e_configuredetail.description==undefined||$model.e_configuredetail.description.length==0){
 		Messenger.post({message:&quot;考核依据未填写!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});	
 		return;
-	}	
+	}*/	
 	Messenger.post({message:&quot;正在提交，请稍后&quot;,type:&quot;info&quot;,hideAfter:1,showCloseButton:true});		
     $model.e_configuredetail.$save(function(){
 			Modal.instance.close();

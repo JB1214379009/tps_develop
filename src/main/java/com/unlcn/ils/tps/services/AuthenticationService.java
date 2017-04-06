@@ -142,6 +142,7 @@ public class AuthenticationService  implements ArrayContentProvider{
 		if (authresult.equals("no"))
 		{//认证不通过
 			String authenticationMemo  = data.get("cancelmemo");
+			@SuppressWarnings("unused")
 			String reasonid  = data.get("reason");
 			//保存认证表
 			auth = new E_authentication();

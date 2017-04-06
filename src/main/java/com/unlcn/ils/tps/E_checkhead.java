@@ -9,19 +9,19 @@ import com.chinacreator.c2.annotation.Entity;
 /**
  * 考核单表头
  * @author 
- * @generated  
+ * @generated
  */
 @Entity(id = "entity:com.unlcn.ils.tps.e_checkhead", table = "tps_check_head", ds = "ilsdb")
-public class E_checkhead implements Serializable { 
+public class E_checkhead implements Serializable {
 	private static final long serialVersionUID = 1671822738653184L;
 	/**
-	 *
+	 *序号
 	 */
 	@Column(id = "lineid", type = ColumnType.uuid, datatype = "string32")
 	private java.lang.String lineid;
 
 	/**
-	 *
+	 *分供方id
 	 */
 	@Column(id = "shipper_lineid", datatype = "string32")
 	private java.lang.String shipperLineid;
@@ -53,14 +53,14 @@ public class E_checkhead implements Serializable {
 	/**
 	 *标准扣分
 	 */
-	@Column(id = "standard_value", datatype = "int")
-	private java.lang.Integer standardValue;
+	@Column(id = "standard_value", datatype = "smalldouble")
+	private java.lang.Double standardValue;
 
 	/**
 	 *本月扣分
 	 */
-	@Column(id = "standard_subvalue", datatype = "int")
-	private java.lang.Integer standardSubvalue;
+	@Column(id = "standard_subvalue", datatype = "smalldouble")
+	private java.lang.Double standardSubvalue;
 
 	/**
 	 *申诉截止时间
@@ -147,28 +147,28 @@ public class E_checkhead implements Serializable {
 	private java.lang.String activeMemo;
 
 	/**
-	 * 设置
+	 * 设置序号
 	 */
 	public void setLineid(java.lang.String lineid) {
 		this.lineid = lineid;
 	}
 
 	/**
-	 * 获取
+	 * 获取序号
 	 */
 	public java.lang.String getLineid() {
 		return lineid;
 	}
 
 	/**
-	 * 设置
+	 * 设置分供方id
 	 */
 	public void setShipperLineid(java.lang.String shipperLineid) {
 		this.shipperLineid = shipperLineid;
 	}
 
 	/**
-	 * 获取
+	 * 获取分供方id
 	 */
 	public java.lang.String getShipperLineid() {
 		return shipperLineid;
@@ -233,28 +233,28 @@ public class E_checkhead implements Serializable {
 	/**
 	 * 设置标准扣分
 	 */
-	public void setStandardValue(java.lang.Integer standardValue) {
+	public void setStandardValue(java.lang.Double standardValue) {
 		this.standardValue = standardValue;
 	}
 
 	/**
 	 * 获取标准扣分
 	 */
-	public java.lang.Integer getStandardValue() {
+	public java.lang.Double getStandardValue() {
 		return standardValue;
 	}
 
 	/**
 	 * 设置本月扣分
 	 */
-	public void setStandardSubvalue(java.lang.Integer standardSubvalue) {
+	public void setStandardSubvalue(java.lang.Double standardSubvalue) {
 		this.standardSubvalue = standardSubvalue;
 	}
 
 	/**
 	 * 获取本月扣分
 	 */
-	public java.lang.Integer getStandardSubvalue() {
+	public java.lang.Double getStandardSubvalue() {
 		return standardSubvalue;
 	}
 

@@ -940,7 +940,7 @@
       <form:input desc="" id="mydetails" name=""/>
     </form:datasource>
     <form:datasource xsi:type="form:PagingDataSource" id="custom_argue" name="申诉单" logic="com.unlcn.ils.tps.services.ArgueService" pageSize="10" type="custom"/>
-    <form:datasource xsi:type="form:LogicDataSource" id="items" name="项目" logic="rule:com.unlcn.ils.tps.s_items" sn="s_items"/>
+    <form:datasource xsi:type="form:LogicDataSource" id="items" name="项目" logic="rule:com.unlcn.ils.tps.s_getOperateItems" sn="s_getOperateItems"/>
     <form:datasource xsi:type="form:LogicDataSource" id="types" name="类型" logic="rule:com.unlcn.ils.tps.s_types" sn="s_types"/>
     <form:datasource xsi:type="form:LogicDataSource" id="itemsid" name="项目编号" logic="rule:com.unlcn.ils.tps.s_itemsid" sn="s_itemsid"/>
   </form:datasources>

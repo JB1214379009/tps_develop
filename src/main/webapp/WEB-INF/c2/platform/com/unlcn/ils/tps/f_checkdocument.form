@@ -194,11 +194,11 @@
           <form:child xsi:type="form:Field" binding="$model.checkdocument.checkScore" id="checkScore" name="每起扣分">
             <form:control type="widget/text">
               <form:attributes source="widget/text">
-                <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^(0|[1-9]\d*)$/">
+                <dync:attribute default="" group="数据校验" id="pattern" name="正则表达式" value="/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/">
                   <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
-                <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写整数!">
+                <dync:attribute default="" group="数据校验" id="patternError" name="正则验证失败提示" value="仅可填写浮点数!">
                   <dync:render colSpan="1" height="0" multi="false" name="text"/>
                   <dync:children/>
                 </dync:attribute>
@@ -584,16 +584,16 @@ operateLineid_change:function(){
 checkScore_checkAfter:function(checkResult){
 	var $subvalue=$($view.checkScore.getDom());
 	var subvalue=$subvalue.val();
-	var re=/^(0|[1-9]\d*)$/;
+	var re=/^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$/;
 	var result=  re.test($model.checkdocument.checkScore);
 	if(subvalue.length==0)
 	return;
 	if($.trim(subvalue)==''){
-	Messenger.post({message:&quot;每起扣分仅可填写整数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});		
+	Messenger.post({message:&quot;每起扣分仅可填写浮点数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});		
 	return;
 	}
 	if(!result){
-		Messenger.post({message:&quot;每起扣分仅可填写整数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});			
+		Messenger.post({message:&quot;每起扣分仅可填写浮点数!&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:true});			
 	}
 },
 

@@ -6,6 +6,7 @@
 		  tps_check_datas.lineid ,
 		  tps_check_datas.shipper_id ,
 		  tps_check_datas.shipper_name ,
+		  tps_check_datas.submoney ,
 		  tps_check_datas.subvalue ,
 		  tps_check_datas.check_month ,
 		  tps_check_datas.check_year ,
@@ -27,6 +28,7 @@
 	    <if test="lineid != null">and tps_check_datas.lineid = #{lineid}</if>
 	    <if test="shipperId != null">and tps_check_datas.shipper_id = #{shipperId}</if>
 	    <if test="shipperName != null">and tps_check_datas.shipper_name = #{shipperName}</if>
+	    <if test="submoney != null">and tps_check_datas.submoney = #{submoney}</if>
 	    <if test="subvalue != null">and tps_check_datas.subvalue = #{subvalue}</if>
 	    <if test="checkMonth != null">and tps_check_datas.check_month = #{checkMonth}</if>
 	    <if test="checkYear != null">and tps_check_datas.check_year = #{checkYear}</if>
@@ -49,6 +51,7 @@
 	<id property="lineid" column="lineid"/>
 	<result property="shipperId" column="shipper_id"/>
 	<result property="shipperName" column="shipper_name"/>
+	<result property="submoney" column="submoney"/>
 	<result property="subvalue" column="subvalue"/>
 	<result property="checkMonth" column="check_month"/>
 	<result property="checkYear" column="check_year"/>
@@ -75,6 +78,7 @@
 	         <if test="lineid != null">lineid</if>
 	         <if test="shipperId != null">,shipper_id</if>
 	         <if test="shipperName != null">,shipper_name</if>
+	         <if test="submoney != null">,submoney</if>
 	         <if test="subvalue != null">,subvalue</if>
 	         <if test="checkMonth != null">,check_month</if>
 	         <if test="checkYear != null">,check_year</if>
@@ -94,16 +98,17 @@
 	         <if test="lineid != null">#{lineid,jdbcType=VARCHAR}</if>
 	         <if test="shipperId != null">,#{shipperId,jdbcType=VARCHAR}</if>
 	         <if test="shipperName != null">,#{shipperName,jdbcType=VARCHAR}</if>
+	         <if test="submoney != null">,#{submoney,jdbcType=NUMERIC}</if>
 	         <if test="subvalue != null">,#{subvalue,jdbcType=NUMERIC}</if>
 	         <if test="checkMonth != null">,#{checkMonth,jdbcType=VARCHAR}</if>
 	         <if test="checkYear != null">,#{checkYear,jdbcType=VARCHAR}</if>
-	         <if test="checkCycle != null">,#{checkCycle,jdbcType=NUMERIC}</if>
+	         <if test="checkCycle != null">,#{checkCycle,jdbcType=VARCHAR}</if>
 	         <if test="plannedCompletionRate != null">,#{plannedCompletionRate,jdbcType=NUMERIC}</if>
 	         <if test="timelyDeliveryRate != null">,#{timelyDeliveryRate,jdbcType=NUMERIC}</if>
 	         <if test="reportRate != null">,#{reportRate,jdbcType=NUMERIC}</if>
 	         <if test="departureTimeRate != null">,#{departureTimeRate,jdbcType=NUMERIC}</if>
 	         <if test="replyRate != null">,#{replyRate,jdbcType=NUMERIC}</if>
-	         <if test="gps != null">,#{gps,jdbcType=NUMERIC}</if>
+	         <if test="gps != null">,#{gps,jdbcType=VARCHAR}</if>
 	         <if test="operateSubvaule != null">,#{operateSubvaule,jdbcType=NUMERIC}</if>
 	         <if test="operateSubmoney != null">,#{operateSubmoney,jdbcType=NUMERIC}</if>
 	         <if test="createTime != null">,#{createTime,jdbcType=TIMESTAMP}</if>
@@ -125,16 +130,17 @@
 <set>
 	<if test="shipperId != null">shipper_id=#{shipperId,jdbcType=VARCHAR},</if>
 	<if test="shipperName != null">shipper_name=#{shipperName,jdbcType=VARCHAR},</if>
+	<if test="submoney != null">submoney=#{submoney,jdbcType=NUMERIC},</if>
 	<if test="subvalue != null">subvalue=#{subvalue,jdbcType=NUMERIC},</if>
 	<if test="checkMonth != null">check_month=#{checkMonth,jdbcType=VARCHAR},</if>
 	<if test="checkYear != null">check_year=#{checkYear,jdbcType=VARCHAR},</if>
-	<if test="checkCycle != null">check_cycle=#{checkCycle,jdbcType=NUMERIC},</if>
+	<if test="checkCycle != null">check_cycle=#{checkCycle,jdbcType=VARCHAR},</if>
 	<if test="plannedCompletionRate != null">planned_completion_rate=#{plannedCompletionRate,jdbcType=NUMERIC},</if>
 	<if test="timelyDeliveryRate != null">timely_delivery_rate=#{timelyDeliveryRate,jdbcType=NUMERIC},</if>
 	<if test="reportRate != null">report_rate=#{reportRate,jdbcType=NUMERIC},</if>
 	<if test="departureTimeRate != null">departure_time_rate=#{departureTimeRate,jdbcType=NUMERIC},</if>
 	<if test="replyRate != null">reply_rate=#{replyRate,jdbcType=NUMERIC},</if>
-	<if test="gps != null">gps=#{gps,jdbcType=NUMERIC},</if>
+	<if test="gps != null">gps=#{gps,jdbcType=VARCHAR},</if>
 	<if test="operateSubvaule != null">operate_subvaule=#{operateSubvaule,jdbcType=NUMERIC},</if>
 	<if test="operateSubmoney != null">operate_submoney=#{operateSubmoney,jdbcType=NUMERIC},</if>
 	<if test="createTime != null">create_time=#{createTime,jdbcType=TIMESTAMP},</if>
@@ -155,6 +161,7 @@
 		<trim suffixOverrides=",">
 		    <if test="shipperId==null">shipper_id = null,</if>
 		    <if test="shipperName==null">shipper_name = null,</if>
+		    <if test="submoney==null">submoney = null,</if>
 		    <if test="subvalue==null">subvalue = null,</if>
 		    <if test="checkMonth==null">check_month = null,</if>
 		    <if test="checkYear==null">check_year = null,</if>
@@ -197,22 +204,23 @@
 
 <!-- ElementID:insertBatch,Generated=true -->
 <insert id="insertBatch" parameterType="list">
-	insert into tps_check_datas (lineid,shipper_id,shipper_name,subvalue,check_month,check_year,check_cycle,planned_completion_rate,timely_delivery_rate,report_rate,departure_time_rate,reply_rate,gps,operate_subvaule,operate_submoney,create_time,create_user) 
+	insert into tps_check_datas (lineid,shipper_id,shipper_name,submoney,subvalue,check_month,check_year,check_cycle,planned_completion_rate,timely_delivery_rate,report_rate,departure_time_rate,reply_rate,gps,operate_subvaule,operate_submoney,create_time,create_user) 
 <foreach collection="list" item="entity" index="index" separator="union all">
 		select 
 		#{entity.lineid,jdbcType = VARCHAR},
 				#{entity.shipperId,jdbcType = VARCHAR},
 				#{entity.shipperName,jdbcType = VARCHAR},
+				#{entity.submoney,jdbcType = NUMERIC},
 				#{entity.subvalue,jdbcType = NUMERIC},
 				#{entity.checkMonth,jdbcType = VARCHAR},
 				#{entity.checkYear,jdbcType = VARCHAR},
-				#{entity.checkCycle,jdbcType = NUMERIC},
+				#{entity.checkCycle,jdbcType = VARCHAR},
 				#{entity.plannedCompletionRate,jdbcType = NUMERIC},
 				#{entity.timelyDeliveryRate,jdbcType = NUMERIC},
 				#{entity.reportRate,jdbcType = NUMERIC},
 				#{entity.departureTimeRate,jdbcType = NUMERIC},
 				#{entity.replyRate,jdbcType = NUMERIC},
-				#{entity.gps,jdbcType = NUMERIC},
+				#{entity.gps,jdbcType = VARCHAR},
 				#{entity.operateSubvaule,jdbcType = NUMERIC},
 				#{entity.operateSubmoney,jdbcType = NUMERIC},
 				#{entity.createTime,jdbcType = TIMESTAMP},
@@ -272,6 +280,7 @@ select
 	        <if test="entity.lineid != null">and tps_check_datas.lineid = #{entity.lineid}</if>
 	        <if test="entity.shipperId != null">and tps_check_datas.shipper_id = #{entity.shipperId}</if>
 	        <if test="entity.shipperName != null">and tps_check_datas.shipper_name = #{entity.shipperName}</if>
+	        <if test="entity.submoney != null">and tps_check_datas.submoney = #{entity.submoney}</if>
 	        <if test="entity.subvalue != null">and tps_check_datas.subvalue = #{entity.subvalue}</if>
 	        <if test="entity.checkMonth != null">and tps_check_datas.check_month = #{entity.checkMonth}</if>
 	        <if test="entity.checkYear != null">and tps_check_datas.check_year = #{entity.checkYear}</if>

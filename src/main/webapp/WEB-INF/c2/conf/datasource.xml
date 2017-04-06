@@ -50,7 +50,7 @@
     <password>Unlcn2016!</password>
     <dataSourceFactory>com.chinacreator.c2.dao.datasource.impl.DBCPDataSourceFactory</dataSourceFactory>
   </datasource>
-  <datasource xsi:type="DBCPDataSource" id="ilscrm" name="ils_crm" type="MySQL">
+  <datasource xsi:type="DBCPDataSource" default="true" id="ilscrm" name="ils_crm" type="MySQL">
     <poolAttribute key="defaultAutoCommit" value="true" desc="自动提交"/>
     <poolAttribute key="maxActive" value="25" desc="最大连接数"/>
     <poolAttribute key="initialSize" value="5" desc="初始连接数"/>

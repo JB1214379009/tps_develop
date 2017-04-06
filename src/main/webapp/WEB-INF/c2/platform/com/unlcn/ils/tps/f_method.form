@@ -243,6 +243,12 @@
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
+            <dync:attribute default="" group="编辑验证" id="editverifyCustom" name="自定义验证" value="leftNode_editverifyCustom(verify,rowData)">
+              <dync:render colSpan="1" height="0" multi="false" name="event">
+                <dync:item name="params" value="verify,rowData"/>
+              </dync:render>
+              <dync:children/>
+            </dync:attribute>
           </form:attributes>
         </form:control>
       </form:child>
@@ -335,7 +341,7 @@
               </dync:render>
               <dync:children/>
             </dync:attribute>
-            <dync:attribute default="" group="编辑" id="editoptions" name="编辑属性" value="{value:&quot;1:计划完成率;2:交付及时率;3:报班准确率;4:起运及时率;5:回单及时率;6:GPS要求&quot;}">
+            <dync:attribute default="" group="编辑" id="editoptions" name="编辑属性" value="{value:&quot;1:计划完成率;2:交付及时率;3:报班准确率;4:起运及时率;5:回单及时率;6:GPS对接率;7:GPS完好率;8:轨迹准确率&quot;}">
               <dync:render colSpan="1" height="0" multi="false" name="text"/>
               <dync:children/>
             </dync:attribute>
@@ -379,9 +385,10 @@ buttonAdd_click:function(rowId,rowData,tableData){
 buttonView_click:function(rowId,rowData,tableData){
 	var length=tableData.length;
 	var pos=0;
+	debugger;
 	for(var i=0;i&lt;length;i++)
-	{	if(tableData[i].leftNode>=tableData[i].rightNode)
-		pos=1;
+	{	if(eval(tableData[i].leftNode)>eval(tableData[i].rightNode))
+		pos=i+1;
 		if(tableData[i].leftNode==undefined||tableData[i].leftNode.length==0)
 		tableData[i].leftNode=&quot;&quot;;
 		if(tableData[i].rightNode==undefined||tableData[i].rightNode.length==0)
@@ -395,9 +402,9 @@ buttonView_click:function(rowId,rowData,tableData){
 		value=functions.nameToValue(value);
 		tableData[i].target=value;
 	}
-	if(pos==1)
+	if(pos!=0)
 	{
-		Messenger.post({type:'error',message:'左区间须小于右区间'});
+		Messenger.post({type:'error',message:'第'+pos+'行左区间须小于右区间'});
 		return;
 	}
 	debugger;
@@ -420,12 +427,22 @@ nameToValue:function(value){
 		return value;
 			break;
 		case &quot;报班准确率&quot;:value=3;
+		return value;
 			break;
 		case &quot;起运及时率&quot;:value=4;
+		return value;
 			break;
 		case &quot;回单及时率&quot;:value=5;
+		return value;
 			break;
-		case &quot;GPS要求&quot;:value=6;
+		case &quot;GPS对接率&quot; :value=6;
+		return value;
+		break;
+		case &quot;GPS完好率&quot; :value=7;
+		return value;
+		break;
+		case &quot;轨迹准确率&quot; :value=8;
+		return value;
 			break;
 			
 	}
@@ -447,7 +464,11 @@ list_beforeProcessing:function(data,status,xhr){
 					 break;
 					 case 5:obj=&quot;回单及时率&quot;;
 					 break;
-					 case 6:obj=&quot;GPS要求&quot;;
+					 case 6:obj=&quot;GPS对接率&quot;;
+					 break;
+					 case 7:obj=&quot;GPS完好率&quot;;
+					 break;
+					 case 8:obj=&quot;轨迹准确率&quot;;
 					 break;
 					 }
 					
@@ -498,10 +519,5 @@ page_beforeDataSourceLoad:function($params){
         $(this).parent().parent().attr('style','padding-top:0px !important;');
       }
   });	
-},
-
-rightNode_editverifyCustom:function(verify,rowData){
-	if(rowData.rightNode&lt;=rowData.leftNode)
-	Messenger.post({message:&quot;左区间须小于右区间&quot;,type:&quot;error&quot;,hideAfter:2,showCloseButton:false});
 }</form:scripts>
 </form:Form>

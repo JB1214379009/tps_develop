@@ -6,10 +6,10 @@
     <docket:pkAttribute attribute="lineid" type="UUID"/>
   </docket:primaryKey>
   <docket:attributes>
-    <docket:attribute code="lineid" length="25" name="" nullable="false" type="string32" default="">
+    <docket:attribute code="lineid" length="25" name="序号" nullable="false" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="shipper_lineid" length="25" name="" nullable="true" type="string32" default="">
+    <docket:attribute code="shipper_lineid" length="25" name="分供方id" nullable="true" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="shipper_name" length="100" name="分供方名称" nullable="true" type="string128" default="">
@@ -24,10 +24,10 @@
     <docket:attribute code="argue_status" length="0" name="申诉状态" nullable="true" type="int" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="standard_value" length="0" name="标准扣分" nullable="true" type="int" default="">
+    <docket:attribute code="standard_value" length="12" name="标准扣分" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="standard_subvalue" length="0" name="本月扣分" nullable="true" type="int" default="">
+    <docket:attribute code="standard_subvalue" length="12" name="本月扣分" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="argue_time" length="0" name="申诉截止时间" nullable="true" type="timestamp" default="">

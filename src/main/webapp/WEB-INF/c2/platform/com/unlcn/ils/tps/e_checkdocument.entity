@@ -6,10 +6,10 @@
     <docket:pkAttribute attribute="lineid" type="UUID"/>
   </docket:primaryKey>
   <docket:attributes>
-    <docket:attribute code="lineid" length="25" name="" nullable="false" type="string32" default="">
+    <docket:attribute code="lineid" length="25" name="序号" nullable="false" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="shipper_lineid" length="25" name="" nullable="true" type="string32" default="">
+    <docket:attribute code="shipper_lineid" length="25" name="分供方id" nullable="true" type="string32" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="shipper_name" length="100" name="分供方名称" nullable="true" type="string128" default="">
@@ -42,10 +42,10 @@
     <docket:attribute code="check_money_standard" length="10" name="标准考核金额" nullable="true" type="bigdecimal" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="check_score" length="0" name="扣分" nullable="true" type="int" default="">
+    <docket:attribute code="check_score" length="12" name="扣分" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="check_score_standard" length="0" name="标准扣分" nullable="true" type="int" default="">
+    <docket:attribute code="check_score_standard" length="12" name="标准扣分" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="operate_lineid" length="0" name="考核操作规范类型序号" nullable="true" type="int" default="">
