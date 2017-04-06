@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity:Entity xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdata="http://www.chinacreator.com/platform/mvc/cdata" xmlns:docket="http://www.chinacreator.com/platform/mvc/docket" xmlns:entity="http://www.chinacreator.com/platform/mvc/entity" sn="e_wayBill">
+  <docket:name>订单信息表</docket:name>
+  <docket:createType>来自数据库</docket:createType>
+  <docket:primaryKey>
+    <docket:pkAttribute attribute="id" type="UUID"/>
+  </docket:primaryKey>
+  <docket:attributes>
+    <docket:attribute code="id" length="50" name="" nullable="false" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="system_waybill_id" length="50" name="系统运单号" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="customer_order_id" length="50" name="客户订单号" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="customer_waybill_id" length="50" name="客户运单号" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="service_id" length="50" name="服务单号" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="transmode" length="50" name="运输模式" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="transit" length="2" name="是否中转" nullable="true" type="string5" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ship_date" length="0" name="要求发运日期" nullable="true" type="date" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="delivery_date" length="0" name="要求运抵日期" nullable="true" type="date" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="goods_code" length="50" name="货物编码，包括车辆底盘号等" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ship_start_pro" length="50" name="起运省" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ship_start_city" length="50" name="起运城市" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ship_end_pro" length="50" name="目的省" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ship_end_city" length="50" name="目的城市" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="start_province" length="50" name="订单起运省" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="start_city" length="50" name="订单起运城市" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="end_province" length="50" name="订单目的省" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="end_city" length="50" name="订单目的城市" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="miles" length="22" name="应付公里数" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="count" length="0" name="数量" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="shipped_count" length="0" name="已发运数量" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="customer_id" length="50" name="所属客户" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="goods_type" length="50" name="货物型号" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="memo" length="200" name="备注" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="shipper_car" length="50" name="承运车牌" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="shipper_id" length="50" name="分供方编码" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="shipper" length="50" name="承运分供方" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="driver" length="50" name="承运司机" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="driver_phone" length="50" name="司机电话" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="command_id" length="50" name="指令号" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="goods_status" length="50" name="货物状态" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="consignee_address" length="200" name="收货地址" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="consignee" length="50" name="收货人" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="consignee_phone" length="50" name="收货人电话" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="start_warehouse" length="50" name="起运库" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="waybill_id" length="50" name="订单信息表ID" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="status" length="50" name="订单状态" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="insert_time" length="0" name="入库时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="update_time" length="0" name="更新时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="create_day" length="10" name="下单日期，文本yyyymmdd" nullable="true" type="string10" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="create_time" length="0" name="下单时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="create_stime" length="0" name="下单标准" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="create_rate" length="22" name="下单耗时比率" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="dispatch_time" length="0" name="调度时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="dispatch_stime" length="0" name="调度标准" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="dispatch_rate" length="22" name="调度耗时比率" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="pick_up_time" length="0" name="提车时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="pick_up_stime" length="0" name="提车标准" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="pick_up_rate" length="22" name="提车耗时比率" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="load_time" length="0" name="装车时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="load_stime" length="0" name="装车标准" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="load_rate" length="22" name="装车耗时比率" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ship_time" length="0" name="发运时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ship_stime" length="0" name="发运标准" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ship_rate" length="22" name="发运耗时比率" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="delivery_time" length="0" name="运抵时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="delivery_stime" length="0" name="运抵标准" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="delivery_rate" length="22" name="运抵耗时比率" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="receive_time" length="0" name="交付时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="receive_stime" length="0" name="交付标准" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="receive_rate" length="22" name="交付耗时比率" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="receipt_time" length="0" name="回单时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="receipt_stime" length="0" name="回单标准" nullable="true" type="int" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="receipt_rate" length="22" name="回单耗时比率" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="count_time" length="0" name="计算时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="flag" length="1" name="处理标识：1处理中，0待处理" nullable="true" type="string5" default="0">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="current_lng" length="22" name="当前位置经度" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="current_lat" length="22" name="当前位置纬度" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="current_site" length="200" name="当前位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="site_time" length="0" name="当前位置更新时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="acute" length="50" name="急发状态" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="service_print_time" length="0" name="服务运单打印时间" nullable="true" type="timestamp" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="waybill_print_date" length="0" name="运单打印日期" nullable="true" type="date" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="dispatcher" length="50" name="调度人" nullable="true" type="string64" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="alarminfo" length="500" name="预警情况" nullable="true" type="string512" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="n1" length="200" name="车辆第一天位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="n2" length="200" name="车辆第二天位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="n3" length="200" name="车辆第三天位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="n4" length="200" name="车辆第四天位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="n5" length="200" name="车辆第五天位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="n6" length="200" name="车辆第六天位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="n7" length="200" name="车辆第七天位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="n8" length="200" name="车辆第八天位置" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="gpsexception" length="1" name="GPS异常：0正常，1异常（在途期间断连超过4-6小时则为异常）" nullable="true" type="string5" default="0">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="exception_type" length="30" name="异常类型" nullable="true" type="string32" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="exception_desc" length="300" name="异常描述" nullable="true" type="string512" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="exception_status" length="8" name="异常状态" nullable="true" type="string10" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="exception_result" length="200" name="处理结果" nullable="true" type="string256" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="c2_logicdelete_flag" length="1" name="逻辑删除 (0：正常，1：删除)" nullable="true" type="string5" default="0">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+    <docket:attribute code="ccc_dx_etl_time" length="22" name="" nullable="true" type="long" default="">
+      <docket:valueRange xsi:type="cdata:AllValueRange"/>
+    </docket:attribute>
+  </docket:attributes>
+  <docket:subDokcets/>
+  <docket:events/>
+  <docket:table ds="ilscrm" table="td_waybill_alarm"/>
+  <entity:datas/>
+  <entity:views/>
+</entity:Entity>
