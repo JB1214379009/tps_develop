@@ -95,7 +95,7 @@ public class E_checkDatas implements Serializable {
 	/**
 	 *GPS考核
 	 */
-	@Column(id = "gps", datatype = "string32")
+	@Column(id = "gps", datatype = "string64")
 	private java.lang.String gps;
 
 	/**

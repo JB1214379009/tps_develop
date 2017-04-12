@@ -2430,7 +2430,7 @@ button_click:function($event){
 			break;
 		}
 		console.info('price='+price);
-		
+		debugger;
 		var m_overflowlv=parseFloat(parseFloat(price-data.price)/parseFloat(data.price)).toFixed(3)*100;
 		$(&quot;#&quot;+quotationPriceid).val(parseFloat(price).toFixed(3));
 		var overflowid = selectid + &quot;_overflow&quot;;
@@ -2454,6 +2454,7 @@ button1_click:function($event){
 		var qty = data.qty;
 		totalqty += parseFloat(qty);
 	}
+	debugger;
 	var value = $params.qutotiontotal;
 	if (angular.isUndefined(value))
 	{
@@ -2469,8 +2470,10 @@ button1_click:function($event){
 		var price = parseFloat(qty) * parseFloat(oneprice);
 		
 		var quotationPriceid = selectid + &quot;_quotationPrice&quot;;
-		$(&quot;#&quot;+quotationPriceid).val(parseFloat(price).toFixed(3));
-		
+		$(&quot;#&quot;+quotationPriceid).val(parseFloat(oneprice).toFixed(3));
+		var m_overflowlv=parseFloat(parseFloat(oneprice-data.price)/parseFloat(data.price)).toFixed(3)*100;
+		var overflowid = selectid + &quot;_overflow&quot;;
+		$(&quot;#&quot;+overflowid).text(m_overflowlv+&quot;%&quot;);
 	}
 },
 

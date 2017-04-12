@@ -175,6 +175,8 @@ public class ComplaintTypesService implements ArrayContentProvider{
 			Timestamp timestampnow=new Timestamp(System.currentTimeMillis());
 			e_item.setCreateTime(timestampnow);
 			e_item.setActive(0);
+			//新增为规范类考核项目
+			e_item.setFlag(2);
 			itemDao.insert(e_item);
 			List<E_item> e_items1=itemDao.getSession().selectList(getMaxIdFullPath);
 

@@ -13,9 +13,9 @@
     <input collection="false" desc="" id="checkDate2" required="false" type="String"/>
     <input collection="false" desc="" id="checkDate3" required="false" type="String"/>
     <input collection="false" desc="" id="shipperName" required="false" type="String"/>
-    <input collection="false" desc="" id="report" required="true" type="String"/>
-    <input collection="false" desc="" id="path" required="true" type="String"/>
-    <input collection="false" desc="" id="perfect" required="true" type="String"/>
+    <input collection="false" desc="" id="report" required="false" type="String"/>
+    <input collection="false" desc="" id="path" required="false" type="String"/>
+    <input collection="false" desc="" id="perfect" required="false" type="String"/>
   </inputs>
   <outputs>
     <output autoValue="Result" desc="" id="result" name="方法返回值" type="String"/>

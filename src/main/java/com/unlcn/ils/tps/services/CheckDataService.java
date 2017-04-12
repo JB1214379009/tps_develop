@@ -35,65 +35,68 @@ public class CheckDataService {
 		/*if(map.get("isNull").equals("yes")){
 			return "isNull";
 		}*/
-		if(map.get("isNull").equals("no")){
-			double planRate=0 ,timelyRate=0,receiveRate = 0,receiptRate=0,gpsDocktRate=0;
+	//	if(map.get("isNull").equals("no")){
+			double planRate=100 ,timelyRate=100,receiveRate = 100,receiptRate=100,gpsDocktRate=100;
 			@SuppressWarnings("unused")
 			int planNumber=0,timelyNumber=0,receiveNumber = 0,receiptNumber=0;
-			int a,b;
+			int  a,b;
 
 					
-					//计划完成率
-					a=(int)map.get("planshipedCount");
-					b=(int)map.get("plancount");
-					if(b==0)
-						planRate=100;
-					else
-						planRate=(double)a/b*100;
-					//承运数量
-					 planNumber=b;
-					 checkDatas.setPlannedCompletionRate(planRate);
-
-			
-					//起运及时率
-					 a=(int)map.get("timelyshippedCount");
-					 b=(int)map.get("timelycount");
-					 if(b==0)
-						 timelyRate=100;
-					 else
-						 timelyRate=(double)a/b*100;
-					//承运数量
-					timelyNumber=b;
-					checkDatas.setDepartureTimeRate(timelyRate);
-				
-
-					//交付及时率
-					a=(int)map.get("receiveshippedCount");
-					b=(int)map.get("receivecount");
-					if(b==0)
-						receiveRate=100;
-					else
-						receiveRate=(double)a/b*100;
-					//承运数量
-					receiveNumber=b;
-					checkDatas.setTimelyDeliveryRate(receiveRate);
+					
+			if(map.get("isNull").equals("no")){
+				//计划完成率
+				a=(int)map.get("planshipedCount");
+				b=(int)map.get("plancount");
+				if(b==0)
+					planRate=100;
+				else
+					planRate=(double)a/b*100;
+				//承运数量
+				 planNumber=b;
+				 checkDatas.setPlannedCompletionRate(planRate);
 
 		
-					//回单及时率
-					 a=(int)map.get("receiptshippedCount");
-					 b=(int)map.get("receiptcount");
+				//起运及时率
+				 a=(int)map.get("timelyshippedCount");
+				 b=(int)map.get("timelycount");
+				 if(b==0)
+					 timelyRate=100;
+				 else
+					 timelyRate=(double)a/b*100;
+				//承运数量
+				timelyNumber=b;
+				checkDatas.setDepartureTimeRate(timelyRate);
+			
 
-					if(b==0)
-						receiptRate=100; 
-					else
-						//c=(float)(a/b*100);
-						receiptRate=(double)a/b*100;
-					//承运数量
-					receiptNumber=b;
-					checkDatas.setReplyRate(receiptRate);
+				//交付及时率
+				a=(int)map.get("receiveshippedCount");
+				b=(int)map.get("receivecount");
+				if(b==0)
+					receiveRate=100;
+				else
+					receiveRate=(double)a/b*100;
+				//承运数量
+				receiveNumber=b;
+				checkDatas.setTimelyDeliveryRate(receiveRate);
+
+	
+				//回单及时率
+				 a=(int)map.get("receiptshippedCount");
+				 b=(int)map.get("receiptcount");
+
+				if(b==0)
+					receiptRate=100; 
+				else
+					//c=(float)(a/b*100);
+					receiptRate=(double)a/b*100;
+				//承运数量
+				receiptNumber=b;
+				checkDatas.setReplyRate(receiptRate);
+			}
 					
 					//gps对接率
-					 a=(int)map.get("gpsDock");
-					 b=(int)map.get("gpsTotal");
+					 a=(int)Math.round((double)map.get("gpsDock"));
+					 b=(int)Math.round((double)map.get("gpsTotal"));
 
 					if(b==0)
 						gpsDocktRate=100; 
@@ -101,11 +104,11 @@ public class CheckDataService {
 						//c=(float)(a/b*100);
 						gpsDocktRate=(double)a/b*100;
 					//承运数量
-					receiptNumber=b;
 					
 					//报班准确率
 					if(null!=report&&!report.equals(""))
 					checkDatas.setReportRate(Double.parseDouble(report));
+					
 					E_configure_detail configure_detail=new E_configure_detail();
 					configure_detail.setConfigureLineid(check_configure);
 					Dao<E_configure_detail> dao=DaoFactory.create(E_configure_detail.class);
@@ -125,126 +128,136 @@ public class CheckDataService {
 						//指标要求
 						float requirement=Float.parseFloat(e_configure_detail.getRequirements());
 						double differ;
-						//计划完成率考核
-						if(methods.get(0).getTarget()==1){
-							//指标要求与实际计划完成率差值
-							differ=requirement-planRate;
-							//differ=3;
-							//扣分
-						
-							if(differ<0){
-								subValue1=0;
-								subMoney1=new BigDecimal(0);
-							}
-								
-							else {
-								subValue1=Math.round(differ)*e_configure_detail.getSubvalue();
-								if((e_configure_detail.getTotalvalue()-subValue1)<e_configure_detail.getLowvalue())
-									subValue1=e_configure_detail.getTotalvalue();
-								//扣款
-								/*a=(int)map.get("planshipedCount");
-								b=(int)map.get("plancount");
-								for (E_method e_method : methods) {
-									if(e_method.getLeftNode()<differ&&differ<e_method.getRightNode())
-										subMoney1=e_method.getSubMoney().multiply(new BigDecimal(b-a));
-									else {
-										subMoney1=new BigDecimal(0);
-									}
-								}*/
-							}
+						if(map.get("isNull").equals("no")){
+							//计划完成率考核
+							if(methods.get(0).getTarget()==1){
+								//指标要求与实际计划完成率差值
+								differ=requirement-planRate;
+								//differ=3;
+								//扣分
 							
-							subValue=subValue+subValue1;
-							subMoney=subMoney.add(subMoney1);
-						}
-						//交付及时率考核
-						if(methods.get(0).getTarget()==2){
-							//指标要求与实际交付及时率的差值
-							differ=requirement-receiveRate;
-							//differ=3;
-							//扣分
-							if(differ<0)
-								subValue2=0;
-							else {
-								subValue2=(int) (Math.round(differ)*e_configure_detail.getSubvalue());
-								if((e_configure_detail.getTotalvalue()-subValue2)<e_configure_detail.getLowvalue())
-									subValue2=e_configure_detail.getTotalvalue();
-								//扣款
-								a=(int)map.get("receiveshippedCount");
-								b=(int)map.get("receivecount");
-								for (E_method e_method : methods) {
-									if(e_method.getLeftNode()<differ&&differ<e_method.getRightNode()){
-										subMoney2=e_method.getSubMoney().multiply(new BigDecimal(b-a));
-										break;
-									}
-										
-									else {
-										subMoney2=new BigDecimal(0);
-									}
-								}	
-							}
-							
-							subValue=subValue+subValue2;
-							subMoney=subMoney.add(subMoney2);
-						}
-						//起运及时率考核
-						if(methods.get(0).getTarget()==4){
-							//指标要求与实际起运及时率的差值
-							differ=requirement-timelyRate;
-							//扣分
-							if(differ<0)
-								subValue4=0;
-							else {
-								subValue4=(int) (Math.round(differ)*e_configure_detail.getSubvalue());
-								if((e_configure_detail.getTotalvalue()-subValue4)<e_configure_detail.getLowvalue())
-									subValue4=e_configure_detail.getTotalvalue();
-								//扣款
-								a=(int)map.get("timelyshippedCount");
-								 b=(int)map.get("timelycount");
-								for (E_method e_method : methods) {
-									if(e_method.getLeftNode()<differ&&differ<e_method.getRightNode()){
-										subMoney4=e_method.getSubMoney().multiply(new BigDecimal(b-a));
-										break;
-									}
-										
-									else {
-										subMoney4=new BigDecimal(0);
-									}
-								}	
-							}
-							
-							subValue=subValue+subValue4;
-							subMoney=subMoney.add(subMoney4);
-						}
-						//回单及时率考核
-						if(methods.get(0).getTarget()==5){
-							//指标要求与实际回单及时率的差值
-							differ=requirement-receiptRate;
-							//扣分
-							if(differ<0)
-								subValue5=0;
-							else {
-								
-								subValue5=(int) (Math.round(differ)*e_configure_detail.getSubvalue());
-								if((e_configure_detail.getTotalvalue()-subValue5)<e_configure_detail.getLowvalue())
-									subValue5=e_configure_detail.getTotalvalue();
-								//扣款
-								 a=(int)map.get("receiptshippedCount");
-								 b=(int)map.get("receiptcount");
-								 
-								for (E_method e_method : methods) {
-									if(e_method.getLeftNode()<(b-a)&&(b-a)<e_method.getRightNode()){
-										subMoney5=e_method.getSubMoney().multiply(new BigDecimal((b-a)));
-										break;
-									}
-									else {
-										subMoney5=new BigDecimal(0);
-									}
+								if(differ<0){
+									subValue1=0;
+									subMoney1=new BigDecimal(0);
 								}
+									
+								else {
+									subValue1=Math.round(differ)*e_configure_detail.getSubvalue();
+									if((e_configure_detail.getTotalvalue()-subValue1)<e_configure_detail.getLowvalue())
+										subValue1=e_configure_detail.getTotalvalue();
+									//扣款
+									/*a=(int)map.get("planshipedCount");
+									b=(int)map.get("plancount");
+									for (E_method e_method : methods) {
+										if(e_method.getLeftNode()<differ&&differ<e_method.getRightNode())
+											subMoney1=e_method.getSubMoney().multiply(new BigDecimal(b-a));
+										else {
+											subMoney1=new BigDecimal(0);
+										}
+									}*/
+								}
+								
+								subValue=subValue+subValue1;
+								subMoney=subMoney.add(subMoney1);
 							}
-							
-							subValue=subValue+subValue5;
-							subMoney=subMoney.add(subMoney5);
+							//交付及时率考核
+							if(methods.get(0).getTarget()==2){
+								//指标要求与实际交付及时率的差值
+								differ=requirement-receiveRate;
+								//differ=3;
+								//扣分
+								if(differ<0)
+									subValue2=0;
+								else {
+									subValue2= (Math.round(differ)*e_configure_detail.getSubvalue());
+									if((e_configure_detail.getTotalvalue()-subValue2)<e_configure_detail.getLowvalue())
+										subValue2=e_configure_detail.getTotalvalue();
+									//扣款
+									a=(int)map.get("receiveshippedCount");
+									b=(int)map.get("receivecount");
+									for (E_method e_method : methods) {
+										if(e_method.getLeftNode()<differ&&differ<e_method.getRightNode()){
+											subMoney2=e_method.getSubMoney().multiply(new BigDecimal(b-a));
+											break;
+										}
+											
+										else {
+											subMoney2=new BigDecimal(0);
+										}
+									}	
+								}
+								
+								subValue=subValue+subValue2;
+								subMoney=subMoney.add(subMoney2);
+							}
+							//起运及时率考核
+							if(methods.get(0).getTarget()==4){
+								//指标要求与实际起运及时率的差值
+								differ=requirement-timelyRate;
+								//扣分
+								if(differ<0)
+									subValue4=0;
+								else {
+									subValue4= (Math.round(differ)*e_configure_detail.getSubvalue());
+									if((e_configure_detail.getTotalvalue()-subValue4)<e_configure_detail.getLowvalue())
+										subValue4=e_configure_detail.getTotalvalue();
+									//扣款
+									a=(int)map.get("timelyshippedCount");
+									 b=(int)map.get("timelycount");
+									for (E_method e_method : methods) {
+										if(e_method.getLeftNode()<differ&&differ<e_method.getRightNode()){
+											subMoney4=e_method.getSubMoney().multiply(new BigDecimal(b-a));
+											break;
+										}
+											
+										else {
+											subMoney4=new BigDecimal(0);
+										}
+									}	
+								}
+								
+								subValue=subValue+subValue4;
+								subMoney=subMoney.add(subMoney4);
+							}
+							//回单及时率考核
+							if(methods.get(0).getTarget()==5){
+								//指标要求与实际回单及时率的差值
+								differ=requirement-receiptRate;
+								//扣分
+								if(differ<0)
+									subValue5=0;
+								else {
+									
+									subValue5=(Math.round(differ)*e_configure_detail.getSubvalue());
+									if((e_configure_detail.getTotalvalue()-subValue5)<e_configure_detail.getLowvalue())
+										subValue5=e_configure_detail.getTotalvalue();
+									//扣款
+									 a=(int)map.get("receiptshippedCount");
+									 b=(int)map.get("receiptcount");
+									 @SuppressWarnings("unchecked")
+									List<String> receiptList=(List<String>) map.get("receipt");
+									 double c;
+									 for (String string : receiptList) {
+										 c=Double.parseDouble(string);
+										 for (E_method e_method : methods) {
+												if(e_method.getLeftNode()<c&&c<=e_method.getRightNode()){
+													subMoney5=e_method.getSubMoney();
+													break;
+												}
+												else {
+													subMoney5=new BigDecimal(0);
+												}
+											}
+										 subMoney=subMoney.add(subMoney5);
+									}
+		
+								}
+								
+								subValue=subValue+subValue5;
+								
+							}
 						}
+						
 						//报班及时率考核
 						if(null!=report&&!report.equals("")&&methods.get(0).getTarget()==3){
 							//指标要求与实际回单及时率的差值
@@ -254,8 +267,8 @@ public class CheckDataService {
 							if(differ<0)
 								subValue3=0;
 							else {
-								subValue3=(int) (Math.round(differ)*e_configure_detail.getSubvalue());
-								if((e_configure_detail.getTotalvalue()-subValue5)<e_configure_detail.getLowvalue())
+								subValue3= (Math.round(differ)*e_configure_detail.getSubvalue());
+								if((e_configure_detail.getTotalvalue()-subValue3)<e_configure_detail.getLowvalue())
 									subValue3=e_configure_detail.getTotalvalue();
 								//扣款
 								/*for (E_method e_method : methods) {
@@ -278,7 +291,10 @@ public class CheckDataService {
 							//扣分
 							if(differ>0)
 							gpsValue=5;
-							gpsString=gpsString+"对接率:"+gpsDocktRate;
+							String gpsDockstring;
+							gpsDockstring=gpsDocktRate+"";
+							gpsDockstring=gpsDockstring.substring(0, 5);
+							gpsString=gpsString+"对接率:"+gpsDockstring;
 						}
 						//GPS完好率考核
 						if(null!=perfect&&!perfect.equals("")&&methods.get(0).getTarget()==7){
@@ -305,7 +321,7 @@ public class CheckDataService {
 					}
 					subValue=subValue+gpsValue;
 					
-		}
+
 		
 	
 		
@@ -505,8 +521,8 @@ public class CheckDataService {
 			returnMap.put("gpsTotal", gpsStaticDto.getDctotal());
 		}
 		else{
-			returnMap.put("gpsDock", 0);
-			returnMap.put("gpsTotal", 0);
+			returnMap.put("gpsDock", 0.0);
+			returnMap.put("gpsTotal", 0.0);
 		}	
 		return returnMap;
 		

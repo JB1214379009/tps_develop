@@ -45,7 +45,7 @@
     <docket:attribute code="reply_rate" length="12" name="回单及时率" nullable="true" type="smalldouble" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
-    <docket:attribute code="gps" length="25" name="GPS考核" nullable="true" type="string32" default="">
+    <docket:attribute code="gps" length="50" name="GPS考核" nullable="true" type="string64" default="">
       <docket:valueRange xsi:type="cdata:AllValueRange"/>
     </docket:attribute>
     <docket:attribute code="operate_subvaule" length="12" name="规范考核扣分" nullable="true" type="smalldouble" default="">
