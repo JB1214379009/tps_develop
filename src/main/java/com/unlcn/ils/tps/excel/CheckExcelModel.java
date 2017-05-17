@@ -12,6 +12,13 @@ import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
+/*import org.apache.log4j.Logger;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRichTextString;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;*/
+
 public class CheckExcelModel {
 	private static Logger logger=Logger.getLogger(Logger.class);
 	public OutputStream dataPossess(Map<String, String> condition,OutputStream os){
@@ -22,7 +29,7 @@ public class CheckExcelModel {
 		logger.info("已创sheet");
 		logger.info("获取数据");
 		CheckDataListModel dataModel=new CheckDataListModel();
-		List<Map<String, String>> dataList=dataModel.getCheckDataList(condition);
+		List<Map<String, String>> dataList=dataModel.getCheckDataList(condition); 
 		logger.info("准备打印表格");
 		if (dataList==null) {
 			logger.info("数据list集合为空");

@@ -2434,7 +2434,10 @@ button_click:function($event){
 		var m_overflowlv=parseFloat(parseFloat(price-data.price)/parseFloat(data.price)).toFixed(3)*100;
 		$(&quot;#&quot;+quotationPriceid).val(parseFloat(price).toFixed(3));
 		var overflowid = selectid + &quot;_overflow&quot;;
-		$(&quot;#&quot;+overflowid).text(m_overflowlv+&quot;%&quot;);
+		if($params.estimate==true&amp;&amp;data.price==&quot;0&quot;)
+			$(&quot;#&quot;+overflowid).text(0+&quot;%&quot;);
+		else
+			$(&quot;#&quot;+overflowid).text(m_overflowlv+&quot;%&quot;);
 	}
 },
 
@@ -2473,7 +2476,10 @@ button1_click:function($event){
 		$(&quot;#&quot;+quotationPriceid).val(parseFloat(oneprice).toFixed(3));
 		var m_overflowlv=parseFloat(parseFloat(oneprice-data.price)/parseFloat(data.price)).toFixed(3)*100;
 		var overflowid = selectid + &quot;_overflow&quot;;
-		$(&quot;#&quot;+overflowid).text(m_overflowlv+&quot;%&quot;);
+		if($params.estimate==true&amp;&amp;parseInt(data.price)==&quot;0&quot;)
+			$(&quot;#&quot;+overflowid).text(0+&quot;%&quot;);
+		else
+			$(&quot;#&quot;+overflowid).text(m_overflowlv+&quot;%&quot;);
 	}
 },
 
@@ -2495,6 +2501,9 @@ pricechange:function(rowobject)
 	rowobject.overflow = parseFloat(overflow)*100;
 		
 	var overflowid = rowid + &quot;_overflow&quot;;
+	if($params.estimate==true&amp;&amp;rowobject.price==&quot;0&quot;)
+			$(&quot;#&quot;+overflowid).text(0+&quot;%&quot;);
+		else
 	$(&quot;#&quot;+overflowid).text(rowobject.overflow+&quot;%&quot;);
 },
 

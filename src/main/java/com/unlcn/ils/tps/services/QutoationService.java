@@ -5,11 +5,14 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
+
+import javassist.expr.NewArray;
 
 import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Transactional;
@@ -313,7 +316,13 @@ public class QutoationService  implements ArrayContentProvider
 	        if(line.getStandardPrice().doubleValue()!=0) 
 	        {
 	        	lv = (line.getQuotationPrice().subtract(line.getStandardPrice())).divide(line.getStandardPrice(),10,BigDecimal.ROUND_HALF_DOWN);
-	        }else lv= new BigDecimal(1000);
+	        }
+	        else if(line.getStandardPrice().doubleValue()==0&&estimate.equals("1")){
+	        	lv = new BigDecimal(0);
+	        }
+	        else {
+	        	lv= new BigDecimal(1000);
+			}
 	        line.setOverflow(lv);
 	        line.setCreateUser(userid);
 	        line.setCreateTime(currdate);
@@ -340,13 +349,18 @@ public class QutoationService  implements ArrayContentProvider
 			head2.setStandardPriceTotal(standard_price);
 			head2.setQuotationPriceTotal(quotation_price);	
 			BigDecimal headlv;
-			if(standard_price.doubleValue()!=0)
+			double a=standard_price.doubleValue();
+			if(standard_price.doubleValue()!=0.0)
 	        {
 
 				headlv = (quotation_price.subtract(standard_price)).divide(standard_price,10,BigDecimal.ROUND_HALF_DOWN);
 				
+	        }else if(standard_price.doubleValue()==0.0&&estimate.equals("1")){
+	        	headlv= new BigDecimal(0.0);
 	        }else headlv= new BigDecimal(1000);
+			
 		    head2.setPriceOverflow(headlv);
+		    System.out.println(standard_price.doubleValue());
 		    daohead.update(head2);
 		}
 		//更新报价单主表结束
@@ -511,6 +525,7 @@ public class QutoationService  implements ArrayContentProvider
 	   // param.put("pApplyDate",now);
 	    //更新提交审核标志
 	    Dao<E_quotation_head> dao=DaoFactory.create(E_quotation_head.class);
+	    Dao<E_quotation_audit_set> setDao=DaoFactory.create(E_quotation_audit_set.class);
 		dao.getSession().update("com.unlcn.ils.tps.E_quotation_headMapper.submitApply", param);
 		Timestamp timestamp=new Timestamp(System.currentTimeMillis());
 		for (String string : aLine) {
@@ -527,9 +542,34 @@ public class QutoationService  implements ArrayContentProvider
 			E_quotation_head updatequotation =new E_quotation_head();
 			updatequotation.setLineid(quotation.getLineid());
 			//找到相应审核人			
-			List<HashMap<String, Object>> curruser = getAuditUser(quotation);				
-			if ( curruser.size()==0 )
-			{	
+			List<HashMap<String, Object>> curruser = getAuditUser(quotation);
+			//暂估报价
+			boolean a=quotation.getPriceOverflow().equals(new BigDecimal(0));
+			int b=quotation.getPriceOverflow().intValue();
+			boolean c=quotation.getEstimate()==1;
+			if(b==0&&quotation.getEstimate()==1){
+				updatequotation.setCheckFlag(1);//审批 中，则确定下一个
+				E_quotation_audit_set audit_set=new E_quotation_audit_set();
+				audit_set.setActive(1);
+				audit_set.setType(quotation.getQuotationType());
+				List<E_quotation_audit_set> setList=setDao.select(audit_set);
+				List<Integer> idList=new ArrayList<>();
+				for (E_quotation_audit_set e_quotation_audit_set : setList) {
+					idList.add(e_quotation_audit_set.getFlowid());
+				}
+				Integer flowid= Collections.max(idList);
+				audit_set.setFlowid(flowid);
+				List<E_quotation_audit_set> userList=setDao.select(audit_set);
+				updatequotation.setFlowid(flowid);//确定下一个节点序号
+				StringBuilder result=new StringBuilder();
+				for (E_quotation_audit_set e_quotation_audit_set : userList) {
+					result.append(",");
+					result.append(e_quotation_audit_set.getAuditUser());
+				}
+				
+				updatequotation.setAuditUser(result.toString());
+			}
+			else if ( curruser.size()==0 ){	
 				if(id==-666){
 					updatequotation.setCheckFlag(3);
 				}
@@ -551,6 +591,8 @@ public class QutoationService  implements ArrayContentProvider
 				}
 				updatequotation.setAuditUser(result.toString());				
 			}
+			
+				
 			dao.update(updatequotation);
 		}
 		return 0;

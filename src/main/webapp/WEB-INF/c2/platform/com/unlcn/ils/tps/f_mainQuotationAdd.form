@@ -2405,6 +2405,9 @@ button_click:function($event){
 		var m_overflowlv=parseFloat(parseFloat(price-data.price)/parseFloat(data.price)).toFixed(2)*100;
 		$(&quot;#&quot;+quotationPriceid).val(parseFloat(price).toFixed(3));
 		var overflowid = selectid + &quot;_overflow&quot;;
+		if($params.estimate==true&amp;&amp;parseInt(data.price)==&quot;0&quot;)
+			$(&quot;#&quot;+overflowid).text(0+&quot;%&quot;);
+		else
 		$(&quot;#&quot;+overflowid).text(m_overflowlv+&quot;%&quot;);		
 	}
 },
@@ -2461,9 +2464,12 @@ pricechange:function(rowobject)
 	rowobject.quotationPrice = value;
 	var overflow = parseFloat(parseFloat(rowobject.quotationPrice-rowobject.price)/parseFloat(rowobject.price)).toFixed(2);
 	rowobject.overflow = parseFloat(overflow)*100;
-		
-	var overflowid = rowid + &quot;_overflow&quot;;
-	$(&quot;#&quot;+overflowid).text(rowobject.overflow+&quot;%&quot;);
+	debugger;
+		var overflowid = rowid + &quot;_overflow&quot;;
+	if($params.estimate==true&amp;&amp;rowobject.price==&quot;0&quot;)
+			$(&quot;#&quot;+overflowid).text(0+&quot;%&quot;);
+	else	
+		$(&quot;#&quot;+overflowid).text(rowobject.overflow+&quot;%&quot;);
 },
 
 qoverflow_customFormatter:function(cellvalue,options,rowObject){

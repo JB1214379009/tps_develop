@@ -2247,7 +2247,7 @@ btnremovecharge_click:function($event){
 page_afterDataSourceLoad:function(){
 	var quotationid=window.parent.angular.element(&quot;#indexConScope&quot;).scope().quotationid+'';
 	$params.quotationid=quotationid+'';
-	//$params.quotationid='1091';
+	//$params.quotationid='1128';
 	$view.ldetail.clearGridData();
 	$view.lpayment.clearGridData();
 	$view.lcharge.clearGridData();
@@ -2481,8 +2481,13 @@ button_click:function($event){
 			$($view.txtformula.getDom()).focus();
 			break;
 		}
-		
+		debugger;
 		$(&quot;#&quot;+quotationPriceid).val(parseFloat(price).toFixed(3));
+		var overflowid = selectid + &quot;_overflow&quot;;
+		if($params.estimate==true&amp;&amp;parseInt(data.price)==&quot;0&quot;)
+			$(&quot;#&quot;+overflowid).text(0+&quot;%&quot;);
+		else
+			$(&quot;#&quot;+overflowid).text(m_overflowlv+&quot;%&quot;);
 		
 	}
 },
@@ -2541,7 +2546,11 @@ pricechange:function(rowobject)
 	rowobject.overflow = parseFloat(overflow)*100;
 		
 	var overflowid = rowid + &quot;_overflow&quot;;
-	$(&quot;#&quot;+overflowid).text(rowobject.overflow+&quot;%&quot;);
+	var overflowid = selectid + &quot;_overflow&quot;;
+		if($params.estimate==true&amp;&amp;parseInt(rowobject.price)==&quot;0&quot;)
+			$(&quot;#&quot;+overflowid).text(0+&quot;%&quot;);
+		else
+			$(&quot;#&quot;+overflowid).text(rowobject.overflow+&quot;%&quot;);
 },
 
 qoverflow_customFormatter:function(cellvalue,options,rowObject){

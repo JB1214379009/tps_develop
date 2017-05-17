@@ -1,6 +1,6 @@
 package com.unlcn.ils.tps.excel; 
 
-import java.sql.Timestamp;
+import java.sql.Timestamp;   
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,10 +8,9 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.unlcn.ils.tps.E_checkhead;
-
 import com.chinacreator.c2.dao.Dao;
 import com.chinacreator.c2.dao.DaoFactory;
+import com.unlcn.ils.tps.E_checkhead; 
 
 public class CheckDataListModel {    
 	private static Logger logger=Logger.getLogger(Logger.class);
