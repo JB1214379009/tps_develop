@@ -125,7 +125,7 @@
 		<init-param>
 			<param-name>clientUrl</param-name>
 			<!-- (必填项)客户端地址 -->
-			<param-value>http://192.168.43.69:8080</param-value>
+			<param-value>http://192.168.0.139:8080</param-value>
 		</init-param>
 		<init-param>
 			<param-name>enableCredentialCache</param-name>

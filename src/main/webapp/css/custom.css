@@ -1855,3 +1855,15 @@ select:focus option:checked {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 
 }
+/*修改顶部工具条2017年5月21日*/
+.widget-toolbox {
+   
+    top: 0px !important; 
+    position: static !important;
+    
+}
+/*顶部工具条与表格间隙2017年5月21日*/
+.ui-jqgrid .ui-userdata {
+   
+     min-height: 0px; 
+}
